@@ -20,6 +20,8 @@ This project will attempt to tie together seemingly disparate incidents to show 
 
 [Historical US temperature data](https://www.ncdc.noaa.gov/cag/national/time-series/110/tavg/all/1/1895-2020?base_prd=true&begbaseyear=1901&endbaseyear=2000)
 
+[Treecover CONUS](https://www.mrlc.gov/data)
+
 ### Data Munging
 
 ##### Wildfire Data
