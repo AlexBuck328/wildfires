@@ -10,7 +10,7 @@ Federal policy is not the only factor impacting wildland fires. The practice of 
 
 This project will attempt to tie together seemingly disparate incidents to show trends in wildfires, and how they have changed over time with the advent of new policies. From climate change, clearcutting, to prescribed burns, we (humans) have had a dramatic impact on natural forces of renewal. How we interact with our ecosystems and our policies towards those interactions can provide a less destructive and healthier future. 
 
-### Data
+### Data Sources
 
 [Combined wildfire datasets for the United States and certain territories, 1878-2019](https://www.sciencebase.gov/catalog/item/5ee13de982ce3bd58d7be7e7)
 
@@ -20,10 +20,6 @@ This project will attempt to tie together seemingly disparate incidents to show 
 
 [Historical US temperature data](https://www.ncdc.noaa.gov/cag/national/time-series/110/tavg/all/1/1895-2020?base_prd=true&begbaseyear=1901&endbaseyear=2000)
 
-[Treecover CONUS](https://www.mrlc.gov/data)
+### Data Description
 
-### Data Munging
-
-##### Wildfire Data
-
-The wildfire shapefile was conto GeoJSON using [Mapshaper](https://mapshaper.org/).
+Jupyter Notebooks for each dataset have been created for project transparency. The data as a whole is relatively clean with little need for deep data munging. Within the respective notebooks, the datasets are queried and plotted in order to visualize trends and patterns. The data notebooks are documented with notes to provide an open and easily replicable process for others to follow. 
