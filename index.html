@@ -1,41 +1,87 @@
-<!DOCTYPE html>
-<html lang='en'>
+<!doctype html>
+
+<html lang="en">
 
 <head>
-    <title>
-        Patterns of Destruction: Exploring Wildfires from 1878 to 2019
-    </title>
-    <meta charset='utf-8'>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='shortcut icon' href='Your favicon path goes here' type='image/x-icon'>
-    <link href='https://api.mapbox.com/mapbox-assembly/v0.26.0/assembly.min.css' rel='stylesheet'>
+    <meta charset="utf-8">
 
+    <title>Patterns of Destruction</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" />
+    <link rel="stylesheet" href="css/styles.css?v=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+        }
 
-    <div class='viewport-full relative scroll-hidden'>
-        <div class='bg-darken10 viewport-twothirds viewport-full-ml absolute top left right bottom'></div>
-        <div class='absolute top-ml left bottom z1 w-full w240-ml px12 py12-ml events-none'>
-            <div
-                class='flex-parent flex-parent--column viewport-third h-auto-ml hmax-full bg-white round-ml shadow-darken10 events-all'>
-                <div class='px12 py12 scroll-auto'>
-                    <h3 class='txt-m txt-bold mb6'>Patterns of Destruction:</h3>
-                    <h4 class='txt-s txt-bold mb6'>Exploring Wildfires from 1878-2019</h4>
-                    <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed posuere
-                        consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis
-                        vestibulum. Aenean lacinia bibendum nulla sed consectetur. Lorem ipsum dolor sit amet,
-                        consectetur adipiscing elit. Cum sociis natoque penatibus et magnis dis parturient montes,
-                        nascetur ridiculus mus.</p>
-                </div>
-                <footer class='px12 py12 bg-gray-faint round-b-ml txt-s'>
-                    Footer content here
-                </footer>
-            </div>
-        </div>
-    </div>
-    <script async defer src='https://api.mapbox.com/mapbox-assembly/v0.26.0/assembly.js'></script>
+        #map {
+            position: absolute;
+            width: 100%;
+            top: 50px;
+            top: 0;
+            bottom: 0;
+        }
+    </style>
 </head>
 
 <body>
-    <!-- Your page... -->
+    <div class="fixed-top">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">Navbar</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-item nav-link" href="#">Features</a>
+                    <a class="nav-item nav-link" href="#">Pricing</a>
+                    <a class="nav-item nav-link disabled" href="#">Disabled</a>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+
+
+    <div id="map"></div>
+
+
+    <!-- LOAD REQUIRED JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
+    <script src="js/scripts.js"></script>
+
+    <script>
+        // map options
+        const options = {
+            center: [38.7575271, -96.677089],
+            zoom: 4.8,
+            zoomSnap: .4,
+            zoomControl: false
+        }
+
+        // instantiate Leaflet map
+        const map = L.map('map', options);
+
+        // add CARTO voyager tiles with no labels
+        L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/rastertiles/voyager_nolabels/{z}/{x}/{y}.png', {
+            maxZoom: 18,
+            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, &copy;<a href="https://carto.com/attribution">CARTO</a>'
+        }).addTo(map);
+    </script>
 </body>
 
 </html>
