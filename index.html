@@ -41,18 +41,17 @@
 
 
     <!-- LOAD REQUIRED JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://d3js.org/d3.v5.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
-    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
         integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
     </script>
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js'></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
     </script>
-    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
-    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js'></script>
+    <!-- <script src = 'wildfire.js'></script>  -->
 
     <script>
         // map options
@@ -64,23 +63,69 @@
         }
 
         // instantiate Leaflet map
-    //    const map = L.map('map', options);
+        const map = L.map('map', options)
 
-        // add CARTO voyager tiles with no labels
-        // L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/rastertiles/voyager_nolabels/{z}/{x}/{y}.png', {
-        //     maxZoom: 18,
-        //     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, &copy;<a href="https://carto.com/attribution">CARTO</a>'
-        // }).addTo(map);
+        // ADD CARTO VOYAGER TILES WITH NO LABELS
+        L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+            subdomains: 'abcd',
+        }).addTo(map)
 
 
-        mapboxgl.accessToken =
-            'pk.eyJ1IjoiYWxleGJ1Y2szMjgiLCJhIjoiY2szcDZsdmFsMW9rbDNubjMydm9rNGJpMyJ9.05szss9EHEoVBbGYajbPZA';
-        var map = new mapboxgl.Map({
-            container: 'map', // container id
-            style: 'mapbox://styles/alexbuck328/cklfhxv8b0tut17s7negajyb7', // stylesheet location
-            center: [-95.35296894735637, 40.44402843145642], // starting position
-            zoom: 3.787 // starting zoom
+        // mapboxgl.accessToken =
+        //     'pk.eyJ1IjoiYWxleGJ1Y2szMjgiLCJhIjoiY2szcDZsdmFsMW9rbDNubjMydm9rNGJpMyJ9.05szss9EHEoVBbGYajbPZA';
+        // var map = new mapboxgl.Map({
+        //     container: 'map', // container id
+        //     style: 'mapbox://styles/alexbuck328/cklfhxv8b0tut17s7negajyb7', // stylesheet location
+        //     center: [-95.35296894735637, 40.44402843145642], // starting position
+        //     zoom: 3.787 // starting zoom
+        // });
+
+
+        $.getJSON("rawData/wildfire.geojson", function (data) {
+            // jQuery method uses AJAX request for the GeoJSON data
+
+            //call draw map and send data as parameter
+            drawMap(data)
+
+
         });
+
+
+        function drawMap(fire) {
+
+            console.log('hello')
+
+            const wildFires = L.geoJson(fire, {
+                // style counties with initial default path
+                style: function (feature) {
+                    return {
+                        color: '#20282e',
+                        weight: 2,
+                        fillOpacity: 1,
+                        fillColor: '#1f78b4'
+                    };
+                },
+                // add hover and touch functionality to each layer
+                onEachFeature: function (feature, layer) {
+                    // when mousing over a layer
+                    layer.on('mouseover', function () {
+                        // change the stroke color and bring that element to the front
+                        layer.setStyle({
+                            color: '#ff6e00'
+                        }).bringToFront();
+                    });
+                    // on mousing off layer
+                    layer.on('mouseout', function () {
+                        // reset the layer to the original stroke color
+                        layer.setStyle({
+                            color: '#20282e'
+                        });
+                    });
+                }
+            }).addTo(map);
+
+        }
     </script>
 </body>
 
