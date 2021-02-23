@@ -72,26 +72,28 @@
         }).addTo(map)
 
 
-        $.getJSON("rawData/wfs.geojson", function (data) {
-            // jQuery method uses AJAX request for the GeoJSON data
+        // $.getJSON("rawData/wfs.geojson", function (data) {
+        //     // jQuery method uses AJAX request for the GeoJSON data
 
-            //call draw map and send data as parameter
-            drawMap(data)
+        //     //call draw map and send data as parameter
+        //     drawMap(data)
 
-            // console.log(data)
-        });
+        //     // console.log(data)
+        // });
 
 
-        // const wildFires = d3.json('rawData/wfs.geojson');
+        const wildFires = d3.json('rawData/wfs.geojson');
         const weather = d3.csv('rawData/tavg-1895-2020.csv');
         const treecover = d3.csv('rawData/treecover_loss__ha.csv');
-        const states = d3.json('rawData/states.geojson');
+        // const states = d3.json('rawData/states.geojson');
 
-    //    Promise.all([wildFires, weather, treecover, states]).then(drawMap)
+        Promise.all([wildFires, weather, treecover]).then(drawMap)
+
+    
 
         function drawMap(data) {
 
-            console.log(data)
+             console.log(data)
 
             const fireData = data[0]
             const weatherData = data[1]
