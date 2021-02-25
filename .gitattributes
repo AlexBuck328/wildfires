@@ -1,3 +1,10 @@
 *.psd filter=lfs diff=lfs merge=lfs -text
 data/Combinedwildfir/ filter=lfs diff=lfs merge=lfs -text
 wildfire.geojson filter=lfs diff=lfs merge=lfs -text
+wildfire.json filter=lfs diff=lfs merge=lfs -text
+wildfire.js filter=lfs diff=lfs merge=lfs -text
+wildFires.geojson filter=lfs diff=lfs merge=lfs -text
+wfs.geojson filter=lfs diff=lfs merge=lfs -text
+rawData/Shapefile filter=lfs diff=lfs merge=lfs -text
+rawData/Shapefile/US_Wildfires_1878_2019.dbf filter=lfs diff=lfs merge=lfs -text
+rawData/Shapefile/US_Wildfires_1878_2019.shp filter=lfs diff=lfs merge=lfs -text
