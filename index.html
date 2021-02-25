@@ -23,6 +23,7 @@
             top: 50px;
             top: 0;
             bottom: 0;
+            z-index: -1;
         }
     </style>
 </head>
@@ -93,7 +94,7 @@
 
         function drawMap(data) {
 
-             console.log(data)
+            console.log(data)
 
             const fireData = data[0]
             const weatherData = data[1]
@@ -102,7 +103,7 @@
 
             // console.log(fireData)
 
-            const wildfires = L.geoJson(data, {
+            const wildfires = L.geoJson(fireData, {
                 // style counties with initial default path
                 style: function (feature) {
                     return {
@@ -112,22 +113,22 @@
                         fillColor: '#1f78b4'
                     };
                 },
-                // add hover and touch functionality to each layer
-                onEachFeature: function (feature, layer) {
-                    // when mousing over a layer
-                    layer.on('mouseover', function () {
-                        // change the stroke color and bring that element to the front
-                        layer.setStyle({
-                            color: '#ff6e00'
-                        }).bringToFront();
-                    });
-                    // on mousing off layer
-                    layer.on('mouseout', function () {
-                        // reset the layer to the original stroke color
-                        layer.setStyle({
-                            color: '#20282e'
-                        });
-                    });
+                 // add hover and touch functionality to each layer
+                 onEachFeature: function (feature, layer) {
+                     // when mousing over a layer
+                     layer.on('mouseover', function () {
+                         // change the stroke color and bring that element to the front
+                         layer.setStyle({
+                             color: '#ff6e00'
+                         }).bringToFront();
+                     });
+                     // on mousing off layer
+                     layer.on('mouseout', function () {
+                         // reset the layer to the original stroke color
+                         layer.setStyle({
+                             color: '#20282e'
+                         });
+                     });
                 }
             }).addTo(map);
 
