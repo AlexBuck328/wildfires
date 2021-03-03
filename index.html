@@ -30,11 +30,25 @@
 
 <body>
     <!-- NAVBAR -->
-    <div class="fixed-top">
-        <nav class="navbar navbar-dark bg-dark">
-            <span class="navbar-brand mb-0 h1">Patterns of Destruction</span>
-        </nav>
-    </div>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Patterns of Destruction</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="https://github.com/AlexBuck328/wildfires" target="blank">About</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Enter Fire Year" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
 
 
     <!-- CREATE MAP DIV -->
@@ -83,12 +97,13 @@
         //    });
 
 
-            const wildFires = d3.json('rawData/fire80.geojson');
+            const wildFires = d3.json('rawData/fire20.geojson');
+            const wildfire = d3.json('rawData/fire70.geojson');
             const weather = d3.csv('rawData/tavg-1895-2020.csv');
             const treecover = d3.csv('rawData/treecover_loss__ha.csv');
         //    const states = d3.json('rawData/states.geojson');
 
-           Promise.all([wildFires, weather, treecover]).then(drawMap)
+           Promise.all([wildFires, wildfire, weather, treecover]).then(drawMap)
 
     
 
@@ -101,7 +116,7 @@
                 const treeData = data[2]
                 const statesData = data[3]
 
-            //  console.log(fireData)
+              console.log(fireData, weatherData)
 
             const wildfires = L.geoJson(data, {
                 // style counties with initial default path
