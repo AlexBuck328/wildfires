@@ -44,8 +44,8 @@
                 </li>
             </ul>
             <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Enter Fire Year" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                <input class="form-control mr-sm-2" type="search" placeholder="Enter Fire Year" aria-label="Search" id='input'>
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id='myBtn'>Search</button>
             </form>
         </div>
     </nav>
@@ -97,7 +97,7 @@
         //    });
 
 
-            const wildFires = d3.json('rawData/fire20.geojson');
+            const wildFires = d3.json('rawData/fire80.geojson');
             const wildfire = d3.json('rawData/fire70.geojson');
             const weather = d3.csv('rawData/tavg-1895-2020.csv');
             const treecover = d3.csv('rawData/treecover_loss__ha.csv');
@@ -109,14 +109,14 @@
 
         function drawMap(data) {
 
-            console.log(data)
+        //    console.log(data)
 
                 const fireData = data[0]
                 const weatherData = data[1]
                 const treeData = data[2]
                 const statesData = data[3]
 
-              console.log(fireData, weatherData)
+        //      console.log(fireData, weatherData)
 
             const wildfires = L.geoJson(data, {
                 // style counties with initial default path
@@ -145,8 +145,27 @@
                          });
                      });
                 }
+
+                
             }).addTo(map);
 
+        }
+
+        // Event listener for user to click SEARCH
+        document.getElementById("myBtn").addEventListener("click", getFireYear);
+
+       
+        // get search input
+        function getFireYear(x) {
+            var x = document.getElementById('input').value;
+            
+           // console.log(x)
+            getPolys(x)
+        }
+
+        function getPolys(x) {
+            console.log(x)   
+           
         }
     </script>
 </body>
