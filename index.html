@@ -44,7 +44,8 @@
                 </li>
             </ul>
             <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Enter Fire Year" aria-label="Search" id='input'>
+                <input class="form-control mr-sm-2" type="search" placeholder="Enter Fire Year" aria-label="Search"
+                    id='input'>
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id='myBtn'>Search</button>
             </form>
         </div>
@@ -97,28 +98,46 @@
         //    });
 
 
-            const wildFires = d3.json('data/fire2k.geojson');
-            const wildfire = d3.json('data/fire2k10.geojson');
-            const weather = d3.csv('rawData/tavg-1895-2020.csv');
-            const treecover = d3.csv('rawData/treecover_loss__ha.csv');
-        //    const states = d3.json('rawData/states.geojson');
+        const fire20 = d3.json('data/fire20s.geojson');
+        const fire30 = d3.json('data/fire30s.geojson');
+        const fire40 = d3.json('data/fire40s.geojson');
+        const fire50 = d3.json('data/fire50s.geojson');
+        const fire60 = d3.json('data/fire60s.geojson');
+        const fire70 = d3.json('data/fire70s.geojson');
+        const fire80 = d3.json('data/fire80s.geojson');
+        const fire90 = d3.json('data/fire90s.geojson');
+        const fire2k = d3.json('data/fire2k.geojson');
+        const fire2k10 = d3.json('data/fire2k10.geojson');
+        const weather = d3.csv('rawData/tavg-1895-2020.csv');
+        const treecover = d3.csv('rawData/treecover_loss__ha.csv');
 
-           Promise.all([wildFires, wildfire, weather, treecover]).then(drawMap)
+        Promise.all([fire20, fire30, fire40, fire50, fire60, fire70, fire80, fire90, fire2k, fire2k10, weather,
+            treecover
+        ]).then(drawMap)
 
-    
+
 
         function drawMap(data) {
 
-        //    console.log(data)
+            //    console.log(data)
 
-                const fireData = data[0]
-                const weatherData = data[1]
-                const treeData = data[2]
-                const statesData = data[3]
+            const fire20 = data[0]
+            const fire30 = data[1]
+            const fire40 = data[2]
+            const fire50 = data[3]
+            const fire60 = data[4]
+            const fire70 = data[5]
+            const fire80 = data[6]
+            const fire90 = data[7]
+            const fire2k = data[8]
+            const fire2k10 = data[9]
+            const wildFires = [fire20, fire30, fire40, fire50, fire60, fire70, fire80, fire90, fire2k, fire2k10]
+            const weatherData = data[10]
+            const treeData = data[11]
 
-             console.log(fireData, weatherData)
+            console.log(wildFires)
 
-            const wildfires = L.geoJson(data, {
+            const wildfires = L.geoJson(fire20, {
                 // style counties with initial default path
                 style: function (feature) {
                     return {
@@ -128,25 +147,25 @@
                         fillColor: '#1f78b4'
                     };
                 },
-                 // add hover and touch functionality to each layer
-                 onEachFeature: function (feature, layer) {
-                     // when mousing over a layer
-                     layer.on('mouseover', function () {
-                         // change the stroke color and bring that element to the front
-                         layer.setStyle({
-                             color: '#ff6e00'
-                         }).bringToFront();
-                     });
-                     // on mousing off layer
-                     layer.on('mouseout', function () {
-                         // reset the layer to the original stroke color
-                         layer.setStyle({
-                             color: '#20282e'
-                         });
-                     });
+                // add hover and touch functionality to each layer
+                onEachFeature: function (feature, layer) {
+                    // when mousing over a layer
+                    layer.on('mouseover', function () {
+                        // change the stroke color and bring that element to the front
+                        layer.setStyle({
+                            color: '#ff6e00'
+                        }).bringToFront();
+                    });
+                    // on mousing off layer
+                    layer.on('mouseout', function () {
+                        // reset the layer to the original stroke color
+                        layer.setStyle({
+                            color: '#20282e'
+                        });
+                    });
                 }
 
-                
+
             }).addTo(map);
 
         }
@@ -154,18 +173,18 @@
         // Event listener for user to click SEARCH
         document.getElementById("myBtn").addEventListener("click", getFireYear);
 
-       
+
         // get search input
         function getFireYear(x) {
             var x = document.getElementById('input').value;
-            
-           // console.log(x)
+
+            // console.log(x)
             getPolys(x)
         }
 
         function getPolys(x) {
-            console.log(x)   
-           
+            console.log(x)
+
         }
     </script>
 </body>
