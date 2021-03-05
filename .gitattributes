@@ -8,3 +8,13 @@ wfs.geojson filter=lfs diff=lfs merge=lfs -text
 rawData/Shapefile filter=lfs diff=lfs merge=lfs -text
 rawData/Shapefile/US_Wildfires_1878_2019.dbf filter=lfs diff=lfs merge=lfs -text
 rawData/Shapefile/US_Wildfires_1878_2019.shp filter=lfs diff=lfs merge=lfs -text
+fireCentury.geojson filter=lfs diff=lfs merge=lfs -text
+fire2000.geojson filter=lfs diff=lfs merge=lfs -text
+fire50.geojson filter=lfs diff=lfs merge=lfs -text
+y2k10.geojson filter=lfs diff=lfs merge=lfs -text
+fire70.geojson filter=lfs diff=lfs merge=lfs -text
+fire80.geojson filter=lfs diff=lfs merge=lfs -text
+fire90s.geojson filter=lfs diff=lfs merge=lfs -text
+fire2k.geojson filter=lfs diff=lfs merge=lfs -text
+fire2k10.geojson filter=lfs diff=lfs merge=lfs -text
+fireCenturyClean.geojson filter=lfs diff=lfs merge=lfs -text
