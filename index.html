@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css' rel='stylesheet' />
+    <link href="https://api.mapbox.com/mapbox-assembly/v0.24.0/assembly.min.css" rel="stylesheet">
     <style>
         body {
             font-family: sans-serif;
@@ -51,6 +52,11 @@
         </div>
     </nav>
 
+    <!-- ui slider -->
+    <div id='slider' class='range w240 bg-white round-ml px12'>
+        <input type="range">
+    </div>
+
 
     <!-- CREATE MAP DIV -->
     <div id="map"></div>
@@ -67,7 +73,8 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
     </script>
-    <!-- <script src = 'wildfire.js'></script>  -->
+    <script async defer src="https://api.mapbox.com/mapbox-assembly/v0.24.0/assembly.js"></script>
+    
 
     <script>
         // map options
@@ -87,17 +94,7 @@
             subdomains: 'abcd',
         }).addTo(map)
 
-
-        //    $.getJSON("rawData/fire50.geojson", function (datum) {
-        //        // jQuery method uses AJAX request for the GeoJSON data
-
-        //        // call draw map and send data as parameter
-        //        drawMap(datum)
-
-        //        // console.log(data)
-        //    });
-
-
+        // Declare constant variables for data
         const fire20 = d3.json('data/fire20s.geojson');
         const fire30 = d3.json('data/fire30s.geojson');
         const fire40 = d3.json('data/fire40s.geojson');
@@ -114,6 +111,24 @@
         Promise.all([fire20, fire30, fire40, fire50, fire60, fire70, fire80, fire90, fire2k, fire2k10, weather,
             treecover
         ]).then(drawMap)
+
+
+        // Event listener for user to click SEARCH
+        document.getElementById("myBtn").addEventListener("click", getFireYear);
+
+
+        // get search input
+        function getFireYear(x) {
+            var x = document.getElementById('input').value;
+
+            getPolys(x)
+        }
+
+        function getPolys(wildFires, x) {
+            console.log(x)
+            console.log(wildFires)
+
+        }
 
 
         function drawMap(data) {
@@ -134,7 +149,9 @@
             const weatherData = data[10]
             const treeData = data[11]
 
-            console.log(wildFires)
+            getPolys(wildFires)
+
+            console.log(fire20)
 
             const wildfires = L.geoJson(fire20, {
                 // style counties with initial default path
@@ -169,21 +186,25 @@
 
         }
 
-        // Event listener for user to click SEARCH
-        document.getElementById("myBtn").addEventListener("click", getFireYear);
+       
 
+        // do the same thing for the UI slider
+        var sliderControl = L.control({
+            position: 'bottomleft'
+        });
 
-        // get search input
-        function getFireYear(x) {
-            var x = document.getElementById('input').value;
+        sliderControl.onAdd = function (map) {
 
-            getPolys(x)
+            var controls = L.DomUtil.get("slider");
+
+            L.DomEvent.disableScrollPropagation(controls);
+            L.DomEvent.disableClickPropagation(controls);
+
+            return controls;
+
         }
 
-        function getPolys(x) {
-            console.log(x)
-
-        }
+        sliderControl.addTo(map);
     </script>
 </body>
 
