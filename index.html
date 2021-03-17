@@ -75,7 +75,7 @@
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
     </script>
     <script async defer src="https://api.mapbox.com/mapbox-assembly/v0.24.0/assembly.js"></script>
-    
+
 
     <script>
         // map options
@@ -106,30 +106,14 @@
         const fire90 = d3.json('data/fire90s.geojson');
         const fire2k = d3.json('data/fire2k.geojson');
         const fire2k10 = d3.json('data/fire2k10.geojson');
+        const igCtrlDates = d3.json('rawData/bothIgCtrlDates.geojson')
         const weather = d3.csv('rawData/tavg-1895-2020.csv');
         const treecover = d3.csv('rawData/treecover_loss__ha.csv');
 
-        Promise.all([fire20, fire30, fire40, fire50, fire60, fire70, fire80, fire90, fire2k, fire2k10, weather,
+        Promise.all([fire20, fire30, fire40, fire50, fire60, fire70, fire80, fire90, fire2k, fire2k10, igCtrlDates,
+            weather,
             treecover
         ]).then(drawMap)
-
-
-        // Event listener for user to click SEARCH
-        document.getElementById("myBtn").addEventListener("click", getFireYear);
-
-
-        // get search input
-        function getFireYear(x) {
-            var x = document.getElementById('input').value;
-
-            getPolys(x)
-        }
-
-        function getPolys(wildFires, x) {
-            console.log(x)
-            console.log(wildFires)
-
-        }
 
 
         function drawMap(data) {
@@ -146,15 +130,14 @@
             const fire90 = data[7]
             const fire2k = data[8]
             const fire2k10 = data[9]
-            const wildFires = [fire20, fire30, fire40, fire50, fire60, fire70, fire80, fire90, fire2k, fire2k10]
-            const weatherData = data[10]
-            const treeData = data[11]
+            //    const wildFires = [fire20, fire30, fire40, fire50, fire60, fire70, fire80, fire90, fire2k, fire2k10]
+            const bothDates = data[10]
+            const weatherData = data[11]
+            const treeData = data[12]
 
-            getPolys(wildFires)
+            console.log(bothDates)
 
-            console.log(fire20)
-
-            const wildfires = L.geoJson(fire20, {
+            const wildfires = L.geoJson(bothDates, {
                 // style counties with initial default path
                 style: function (feature) {
                     return {
@@ -187,7 +170,26 @@
 
         }
 
-       
+
+        // Event listener for user to click SEARCH
+        document.getElementById("myBtn").addEventListener("click", getFireYear);
+
+
+        // get search input
+        function getFireYear(x) {
+            var x = document.getElementById('input').value;
+            console.log(x)
+
+            // getPolys(x)
+        }
+
+        // function getPolys(x) {
+        // console.log(x)
+        // // console.log(wildFires)
+
+        // }
+
+
 
         // do the same thing for the UI slider
         var sliderControl = L.control({
