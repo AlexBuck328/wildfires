@@ -21,3 +21,4 @@ fireCenturyClean.geojson filter=lfs diff=lfs merge=lfs -text
 bothIgCtrlDates.geojson filter=lfs diff=lfs merge=lfs -text
 firePoints.gpkg filter=lfs diff=lfs merge=lfs -text
 firePoints.geojson filter=lfs diff=lfs merge=lfs -text
+pointsNoNulls.geojson filter=lfs diff=lfs merge=lfs -text
