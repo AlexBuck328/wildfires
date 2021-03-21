@@ -22,7 +22,10 @@ Data for this project was acquired through a variety of sources listed below, th
 
 ### A. Data
 
-[Wildfire data](https://www.fs.usda.gov/rds/archive/catalog/RDS-2013-0009.4) was downloaded as GDB, opened in QGIS and exported as a GeoJSON, which was then read in a Jupyter Notebook (`notebooks/wildfire-data.ipynb`) using the [GeoPandas](https://geopandas.org/) library.
+[Wildfire data](https://www.fs.usda.gov/rds/archive/catalog/RDS-2013-0009.4) was downloaded as GDB, opened in QGIS and exported as a GeoJSON, which was then read in a Jupyter Notebook (`notebooks/wildfire-data.ipynb`) using the [GeoPandas](https://geopandas.org/) library. Analysis was performed using [pandas](https://pandas.pydata.org/) and [matplotlib](https://matplotlib.org/3.3.2/index.html) for visualizations. 
+
+Sample Wildfire Data:
+![Fire data](images/fireData1.png)
 
 
 ## Data Sources
