@@ -32,13 +32,10 @@ Data for this project was acquired through a variety of sources listed below, th
 
 <br>
 
-<img align="right" src="images/climateData.png" height="275"> 
+<img align="right" src="images/climateData.png" height="280"> 
 
 [Climate data](https://www.ncdc.noaa.gov/cag/national/time-series/110/tavg/all/1/1895-2020?base_prd=true&begbaseyear=1901&endbaseyear=2000) was downloaded as separate CSV files. One for historic temperatures, and one for historic precipitation. Each was loaded into a Jupyter Notebook (`notebooks/climate-data.ipynb`) using pandas. The data was fairly clean with one exception. The Date column concatenated year and month. After separating the month and year, separate columns were added for each. This aided in visualizing trends. Climate trends indicate warming average temperature year-over-year. When investigated further, the fire season months of June and August are warming at rates faster than the rest of fires season months (May-September). As the Palmer Drought Index above shows, our recent past (from 2000-present) has been drier than average. Warmer that average temperatures, combined with less precipitation than average, create a weather pattern that is conducive to large scale wildfires. 
 
-<br>
-<br>
-<br>
 
 ### B. Medium for Delivery
 
