@@ -24,7 +24,7 @@ Data for this project was acquired through a variety of sources listed below, th
 
 [Wildfire data](https://www.fs.usda.gov/rds/archive/catalog/RDS-2013-0009.4) was downloaded as GDB, opened in QGIS and exported as a GeoJSON, which was then read in a Jupyter Notebook (`notebooks/wildfire-data.ipynb`) using the [GeoPandas](https://geopandas.org/) library. Analysis was performed using [pandas](https://pandas.pydata.org/) and [matplotlib](https://matplotlib.org/3.3.2/index.html) for visualizations. Unnecessary columns were dropped and records without discovery dates and contained dates were also dropped. After dropping records with incomplete discovery and contained dates, of the original 1.88 million records, 669,654 remained.
 
-Sample Wildfire Data:
+**Sample Wildfire Data:**
 
 ![Fire data](images/fireData1.png)
 
@@ -33,6 +33,10 @@ Sample Wildfire Data:
 <img align="right" src="images/climateData.png" height="350"> 
 
 [Climate data](https://www.ncdc.noaa.gov/cag/national/time-series/110/tavg/all/1/1895-2020?base_prd=true&begbaseyear=1901&endbaseyear=2000) was downloaded as separate CSV files. One for historic temperatures, and one for historic precipitation. Each was loaded into a Jupyter Notebook (`notebooks/climate-data.ipynb`) using pandas. The data was fairly clean with one exception. The Date column concatenated year and month. After separating the month and year, separate columns were added for each. This aided in visualizing trends.
+
+
+
+
 
 
 ### B. Medium for Delivery
