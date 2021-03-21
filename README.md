@@ -12,6 +12,9 @@ Wildfires are becoming more destructive. Data shows an increasing trend in acrea
 
 Data show that wildfires are mostly occur during the warmer, drier summer months. Specifically May through September. Climate change data indicates those months are also becoming warmer and more arid. The combination of these climatic changes have directly affected the frequency and severity of wildfires. 
 
+
+
+
 This project serves as an educational tool to the large section of our population that is not affected first-hand by these destructive forces. For those who live without the threat of their homes being engulfed by wildfire, it is easy to forget the immense impact they have on such a massive part of the country. For those who do live with the cyclical threat of wildfires, this project will tell their story, the growing concern of how to manage wildfires as a naturally occurring process, as well as protecting property from their destructive path. 
 
 Displaying wildfire data in a visual format allows the user to see patterns that would otherwise go unnoticed in a tabular form. The sheer size and quantity of this phenomena lends itself to visual representation. My hope is that through the exploration of this project, the user will become more aware of the trend of larger, and more frequent wildfires, and the impact climate change has had (and will continue to have). Bringing awareness to the issue is the first step towards developing solutions to the problem of living symbiotically with such a powerful, yet destructive natural force. 
