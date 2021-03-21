@@ -10,8 +10,13 @@ This project serves as an educational tool to the large section of our populatio
 
 Displaying wildfire data in a visual format allows the user to see patterns that would otherwise go unnoticed in a tabular form. The sheer size and quantity of this phenomena lends itself to visual representation. My hope is that through the exploration of this project, the user will become more aware of the trend of larger, and more frequent wildfires, and the impact climate change has had (and will continue to have). Bringing awareness to the issue is the first step towards developing solutions to the problem of living symbiotically with such a powerful, yet destructive natural force. 
 
-## Methodology
+## II. Methodology
 
+Data for this project was acquired through a variety of sources listed below, then analyzed and cleaned and prepared for web mapping using QGIS and Python. Jupyter Notebooks were used to document data analysis and the data cleaning process for a transparent and replicable approach. 
+
+### A. Data
+
+[Wildfire data](https://www.fs.usda.gov/rds/archive/catalog/RDS-2013-0009.4) was downloaded as GDB, opened in QGIS and exported as a GeoJSON, which was then read in a Jupyter Notebook (notebooks/wildfire-data.ipynb) using the [GeoPandas](https://geopandas.org/) library.
 
 
 ## Data Sources
