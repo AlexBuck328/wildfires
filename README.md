@@ -2,7 +2,7 @@
 
 ## I. Introduction
 
-Wildfires are becoming more destructive. Data shows an increasing trend in acreage burned per year. This increase also drives up the annual cost to control these destructive forces. The [Congressional Research Service](https://fas.org/sgp/crs/misc/IF10244.pdf) calculated the impact of wildland fires over the past decade (2011-2020). An average of 62,693 wildland fires annually, roughly 7.5 million acres annually are impacted by these fires. Although the majority of wildland fires occur in undeveloped areas which have little impact on communities or human development, they impact all of us. These fires occur mostly on federal lands (roughly 65%). Federal lands are land that is held in trust by the federal government, which is for the enjoyment of all Americans. Federal lands account for roughly 28% of land in the United States, approximately 640 million acres. 
+Wildfires are becoming more destructive. Data shows an increasing trend in acreage burned per year. This increase also drives up the annual cost to control these destructive forces. The [Congressional Research Service](https://fas.org/sgp/crs/misc/IF10244.pdf) calculated the impact of wildland fires over the past decade (2011-2020). An average of 62,693 wildland fires occur annually, roughly 7.5 million acres annually are impacted by these fires. Although the majority of wildland fires occur in undeveloped areas which have little impact on communities or human development, they impact all of us. These fires occur mostly on federal lands (roughly 65%). Federal lands are land that is held in trust by the federal government, which is for the enjoyment of all Americans. Federal lands account for roughly 28% of land in the United States, approximately 640 million acres. 
 
 <img align="right" src="images/popDensity.png" height="400">
 
@@ -47,7 +47,7 @@ Insert Wireframe sketches
 
 ### D. Thematic Representation
 
-
+Wildfire polygons rendered on a map of the United States to display how much land is consumed by wildfire each year. The intent is for trends to be visually apparent as the user toggles the slider across time. Tooltips provide further detail regarding a user selected fire polygon. Scale is the major factor for the project. The scale at which the map is originally rendered (the entire contiguous United States) somewhat diminishes the impact as polygons blend at that scale. Further considerations about scale will be taken into account as the project develops.  
 
 ### E. User Interaction
 
@@ -61,20 +61,14 @@ Design is simple and clean with little to distract the user from the mapped data
 
 Wildfires are a devastating force that ravage our natural resources and threaten human development. Ironically, it is in part human development that has made them more ferocious. While wildfires are a process of rejuvenation, climate change is having an exacerbating effect. Climate change is not uniform event. It doesn't cause temperatures to increase linearly, nor precipitation to drop in a similar fashion. It is highlighted by more frequent extreme events. In the case of wildfires, more severe droughts coupled with warmer temperatures create an environment primed for megafires. As the data show, outlier events are becoming larger and more frequent. This is the new reality we are faced with. In order to have the ability to implement positive solutions, we must first recognize the situation and the causal factors. Megafires are becoming more frequent and more severe as human development expands and climate change creates prime wildfire conditions.   
 
-## Data Sources
+### Data Sources
 
 [Combined wildfire datasets for the United States and certain territories, 1878-2019](https://www.sciencebase.gov/catalog/item/5ee13de982ce3bd58d7be7e7)
+
+[Historical US climate data](https://www.ncdc.noaa.gov/cag/national/time-series/110/tavg/all/1/1895-2020?base_prd=true&begbaseyear=1901&endbaseyear=2000)
 
 [MTBS Point and Polygon datasets](https://data.fs.usda.gov/geodata/edw/datasets.php?xmlKeyword=fire)
 
 [Forest Area](https://data.worldbank.org/indicator/AG.LND.FRST.ZS?end=2016&start=1990)
 
 [US Deforestation](https://www.globalforestwatch.org/dashboards/country/USA/?category=summary&location=WyJjb3VudHJ5IiwiVVNBIl0%3D&map=eyJjZW50ZXIiOnsibGF0Ijo1My4zODMzMjgzNjc1Nzk0NjYsImxuZyI6LTExNi42MzA4NTkzNzQ5ODUxMn0sImNhbkJvdW5kIjpmYWxzZSwiZGF0YXNldHMiOlt7ImRhdGFzZXQiOiJwb2xpdGljYWwtYm91bmRhcmllcyIsImxheWVycyI6WyJkaXNwdXRlZC1wb2xpdGljYWwtYm91bmRhcmllcyIsInBvbGl0aWNhbC1ib3VuZGFyaWVzIl0sImJvdW5kYXJ5Ijp0cnVlLCJvcGFjaXR5IjoxLCJ2aXNpYmlsaXR5Ijp0cnVlfSx7ImRhdGFzZXQiOiJ0cmVlLWNvdmVyLWxvc3MiLCJsYXllcnMiOlsidHJlZS1jb3Zlci1sb3NzIl0sIm9wYWNpdHkiOjEsInZpc2liaWxpdHkiOnRydWUsInBhcmFtcyI6eyJ0aHJlc2giOjMwLCJ2aXNpYmlsaXR5Ijp0cnVlfX1dfQ%3D%3D&national-land-cover-database=eyJpbnRlcmFjdGlvbiI6e319)
-
-[Historical US climate data](https://www.ncdc.noaa.gov/cag/national/time-series/110/tavg/all/1/1895-2020?base_prd=true&begbaseyear=1901&endbaseyear=2000)
-
-
-
-### Data Description
-
-Jupyter Notebooks for each dataset have been created for project transparency. The data as a whole is relatively clean with little need for deep data munging. Within the respective notebooks, the datasets are queried and plotted in order to visualize trends and patterns. The data notebooks are documented with notes to provide an open and easily replicable process for others to follow. 
