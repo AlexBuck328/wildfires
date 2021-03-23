@@ -39,7 +39,15 @@ Data for this project was acquired through a variety of sources listed below, th
 
 ### B. Medium for Delivery
 
-The map is a web browser-based application accessible across mobile and desktop devices which 
+The map is a web browser-based application accessible across mobile and desktop devices. It utilizes HTML, [Bootstrap](https://getbootstrap.com/) and [Assembly](https://labs.mapbox.com/assembly/) for CSS, and a variety of JavaScript libraries. 
+
+### C. Application Layout
+
+Insert Wireframe sketches
+
+### D. Thematic Representation
+
+
 
 ## Data Sources
 
