@@ -59,7 +59,7 @@ Design is simple and clean with little to distract the user from the mapped data
 
 ### G. Conclusion
 
-
+Wildfires are a devastating force that ravage our natural resources and threaten human development. Ironically, it is in part human development that has made them more ferocious. While wildfires are a process of rejuvenation, climate change is having an exacerbating effect. Climate change is not uniform event. It doesn't cause temperatures to increase linearly, nor precipitation to drop in a similar fashion. It is highlighted by more frequent extreme events. In the case of wildfires, more severe droughts coupled with warmer temperatures create an environment primed for megafires. As the data show, outlier events are becoming larger and more frequent. This is the new reality we are faced with. In order to have the ability to implement positive solutions, we must first recognize the situation and the causal factors. Megafires are becoming more frequent and more severe as human development expands and climate change creates prime wildfire conditions.   
 
 ## Data Sources
 
