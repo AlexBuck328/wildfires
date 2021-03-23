@@ -49,15 +49,31 @@ Insert Wireframe sketches
 
 
 
+### E. User Interaction
+
+The map will be prominently displayed across the majority of the screen, a small navigation bar across the top of the screen will hold the title, an About link which will lead to this README within the project repository, and a dropdown menu where the user will select a fire year. The fire polygons from the user selected year will render on the map starting with the fires that ignited during January. There will be a time slider at the bottom left of the screen which the user will utilize to change months within the pre-selected year. When the user toggles the time slider from right to left, the fire polygons will cycle through the year starting with January and ending in December. The polygons will be rendered and removed from the map based on ignition date and controlled dates. Users will also be able to pan and zoom within the map frame to further investigate the fire polygons. When the user mouses over the polygon a visual affordance will render the polygon border to identify the specific fire. When the user clicks the polygon, a tooltip will appear with additional fire information.
+
+### F. Aesthetic and Design Considerations
+
+Design is simple and clean with little to distract the user from the mapped data. The base map will be dark and the fire polygons will be a glowing orange-red to represent flames. UI is minimal and unobtrusive to allow data trends to standout. Intuitive design features and functionality create an enjoyable user experience, while providing substantial data in an easily digestible format.
+
+### G. Conclusion
+
+
+
 ## Data Sources
 
 [Combined wildfire datasets for the United States and certain territories, 1878-2019](https://www.sciencebase.gov/catalog/item/5ee13de982ce3bd58d7be7e7)
+
+[MTBS Point and Polygon datasets](https://data.fs.usda.gov/geodata/edw/datasets.php?xmlKeyword=fire)
 
 [Forest Area](https://data.worldbank.org/indicator/AG.LND.FRST.ZS?end=2016&start=1990)
 
 [US Deforestation](https://www.globalforestwatch.org/dashboards/country/USA/?category=summary&location=WyJjb3VudHJ5IiwiVVNBIl0%3D&map=eyJjZW50ZXIiOnsibGF0Ijo1My4zODMzMjgzNjc1Nzk0NjYsImxuZyI6LTExNi42MzA4NTkzNzQ5ODUxMn0sImNhbkJvdW5kIjpmYWxzZSwiZGF0YXNldHMiOlt7ImRhdGFzZXQiOiJwb2xpdGljYWwtYm91bmRhcmllcyIsImxheWVycyI6WyJkaXNwdXRlZC1wb2xpdGljYWwtYm91bmRhcmllcyIsInBvbGl0aWNhbC1ib3VuZGFyaWVzIl0sImJvdW5kYXJ5Ijp0cnVlLCJvcGFjaXR5IjoxLCJ2aXNpYmlsaXR5Ijp0cnVlfSx7ImRhdGFzZXQiOiJ0cmVlLWNvdmVyLWxvc3MiLCJsYXllcnMiOlsidHJlZS1jb3Zlci1sb3NzIl0sIm9wYWNpdHkiOjEsInZpc2liaWxpdHkiOnRydWUsInBhcmFtcyI6eyJ0aHJlc2giOjMwLCJ2aXNpYmlsaXR5Ijp0cnVlfX1dfQ%3D%3D&national-land-cover-database=eyJpbnRlcmFjdGlvbiI6e319)
 
-[Historical US temperature data](https://www.ncdc.noaa.gov/cag/national/time-series/110/tavg/all/1/1895-2020?base_prd=true&begbaseyear=1901&endbaseyear=2000)
+[Historical US climate data](https://www.ncdc.noaa.gov/cag/national/time-series/110/tavg/all/1/1895-2020?base_prd=true&begbaseyear=1901&endbaseyear=2000)
+
+
 
 ### Data Description
 
