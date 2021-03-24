@@ -40,7 +40,13 @@ The map is a web browser-based application accessible across mobile and desktop 
 
 ### C. Application Layout
 
+**Wireframe of application default:**
+
 ![Fire data](images/wireFrame.jpg)
+
+**Wireframe of mobile device:**
+
+![Fire data](images/wireFrame1.jpg)
 
 ### D. Thematic Representation
 
