@@ -6,11 +6,11 @@ Wildfires are becoming more destructive. Data shows an increasing trend in acrea
 
 <img align="right" src="images/popDensity.png" height="400">
 
-[Population Density](https://www2.census.gov/geo/pdfs/maps-data/maps/thematic/us_popdensity_2010map.pdf) trends show how the majority of the U.S. population is not directly affected by these destructive forces. However, they do impact land that you as an American are entilted to recreate on. If you've ever been to one of the many national parks in the western part of the country, you've likely seen the effects of wildland fires. The increase in wildfires as well as their severity can be attributed to climate change. According to the [NOAA 2019 Global Climate Summary](https://www.ncdc.noaa.gov/sotc/global/201913), The five warmest years in the 1880–2019 record have all occurred since 2015, while nine of the 10 warmest years have occurred since 2005. The global annual temperature has increased at an average rate of 0.07°C (0.13°F) per decade since 1880 and over twice that rate (+0.18°C / +0.32°F) since 1981. Not only are temperatures rising, [precipitation levels are decreasing](https://www.epa.gov/climate-indicators/climate-change-indicators-drought). 
+[Population Density](https://www2.census.gov/geo/pdfs/maps-data/maps/thematic/us_popdensity_2010map.pdf) trends show how the majority of the U.S. population is not directly affected by these destructive forces. However, they do impact land that you as an American are entitled to recreate on. If you've ever been to one of the many national parks in the western part of the country, you've likely seen the effects of wildland fires. The increase in wildfires as well as their severity can be attributed to climate change. According to the [NOAA 2019 Global Climate Summary](https://www.ncdc.noaa.gov/sotc/global/201913), The five warmest years in the 1880–2019 record have all occurred since 2015, while nine of the 10 warmest years have occurred since 2005. The global annual temperature has increased at an average rate of 0.07°C (0.13°F) per decade since 1880 and over twice that rate (+0.18°C / +0.32°F) since 1981. Not only are temperatures rising, [precipitation levels are decreasing](https://www.epa.gov/climate-indicators/climate-change-indicators-drought). 
 
 <img align="right" src="images/drought.png" height="400"> 
 
-Data show that wildfires are mostly occur during the warmer, drier summer months. Specifically May through September. Climate change data indicates those months are also becoming warmer and more arid. The combination of these climatic changes have directly affected the frequency and severity of wildfires. 
+Data show that wildfires are mostly occur during the warmer, drier summer months. Specifically, May through September. Climate change data indicates those months are also becoming warmer and more arid. The combination of these climatic changes have directly affected the frequency and severity of wildfires. 
 
 This project serves as an educational tool to the large section of our population that is not affected first-hand by these destructive forces. For those who live without the threat of their homes being engulfed by wildfire, it is easy to forget the immense impact they have on such a massive part of the country. For those who do live with the cyclical threat of wildfires, this project will tell their story, the growing concern of how to manage wildfires as a naturally occurring process, as well as protecting property from their destructive path. 
 
@@ -28,7 +28,6 @@ Data for this project was acquired through a variety of sources listed below, th
 
 ![Fire data](images/fireData.png)
 
-<br>
 
 <img align="right" src="images/climateData.png" height="270"> 
 
@@ -53,7 +52,7 @@ The map will be prominently displayed across the majority of the screen, a small
 
 ### F. Aesthetic and Design Considerations
 
-Design is simple and clean with little to distract the user from the mapped data. The base map will be dark and the fire polygons will be a glowing orange-red to represent flames. UI is minimal and unobtrusive to allow data trends to standout. Intuitive design features and functionality create an enjoyable user experience, while providing substantial data in an easily digestible format.
+Design is simple and clean with little to distract the user from the mapped data. The base map will be dark, and the fire polygons will be a glowing orange-red to represent flames. UI is minimal and unobtrusive to allow data trends to standout. Intuitive design features and functionality create an enjoyable user experience, while providing substantial data in an easily digestible format.
 
 ### G. Conclusion
 
