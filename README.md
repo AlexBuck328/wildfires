@@ -28,14 +28,6 @@ Data for this project was acquired through a variety of sources listed below, th
 
 ![Fire data](images/fireData.png)
 
-[Wildfire data](https://www.fs.usda.gov/rds/archive/catalog/RDS-2013-0009.4) was downloaded as GDB, opened in QGIS and exported as a GeoJSON, which was then read in a Jupyter Notebook (`notebooks/wildfire-data.ipynb`) using the [GeoPandas](https://geopandas.org/) library. Analysis was performed using [pandas](https://pandas.pydata.org/) and [matplotlib](https://matplotlib.org/3.3.2/index.html) for visualizations. Unnecessary columns were dropped and records without discovery dates and contained dates were also dropped. After dropping records with incomplete discovery and contained dates, of the original 1.88 million records, 669,654 remained.
-
-**Sample Wildfire Data:**
-
-![Fire data](images/fireData1.png)
-
-![Fire data](images/fireData2.png)
-
 <br>
 
 <img align="right" src="images/climateData.png" height="270"> 
