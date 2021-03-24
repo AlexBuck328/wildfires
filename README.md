@@ -22,6 +22,12 @@ Data for this project was acquired through a variety of sources listed below, th
 
 ### A. Data
 
+[Wildfire data](https://www.sciencebase.gov/catalog/item/5ee13de982ce3bd58d7be7e7) was downloaded and the shapefile was loaded in a Jupyter Notebook (`notebooks/wildfire-polygon-data.ipynb`) using the [GeoPandas](https://geopandas.org/) library. Analysis was performed using [pandas](https://pandas.pydata.org/) and [matplotlib](https://matplotlib.org/3.3.2/index.html) for visualizations. The dataset contains 65,845 records spanning 128 years. The dataset was reprojected from NAD83 to WGS84 for web mapping. It was then narrowed to the past century, and only records from 1920 to present were kept, narrowing the data to 62,744 records. That dataset was then filtered out records with null values in the ignition date and controlled date columns. The remaining dataset contains 10,948 records.
+
+**Sample Wildfire Data:**
+
+![Fire data](images/fireData1.png)
+
 [Wildfire data](https://www.fs.usda.gov/rds/archive/catalog/RDS-2013-0009.4) was downloaded as GDB, opened in QGIS and exported as a GeoJSON, which was then read in a Jupyter Notebook (`notebooks/wildfire-data.ipynb`) using the [GeoPandas](https://geopandas.org/) library. Analysis was performed using [pandas](https://pandas.pydata.org/) and [matplotlib](https://matplotlib.org/3.3.2/index.html) for visualizations. Unnecessary columns were dropped and records without discovery dates and contained dates were also dropped. After dropping records with incomplete discovery and contained dates, of the original 1.88 million records, 669,654 remained.
 
 **Sample Wildfire Data:**
