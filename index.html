@@ -43,15 +43,31 @@
                 <li class="nav-item">
                     <a class="nav-link" href="https://github.com/AlexBuck328/wildfires" target="blank">About</a>
                 </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Select Fire Year
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
             </ul>
-            <form class="form-inline my-2 my-lg-0">
+            
+
+                <!--    <form class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-sm-2" type="search" placeholder="Enter Fire Year" aria-label="Search"
                     id='input'>
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id='myBtn'>Search</button>
-            </form>
+            </form> -->
         </div>
     </nav>
 
+
+    
     <!-- ui slider -->
     <div id='slider' class='range w240 bg-white round-ml px12'>
         <input type="range" min="1" , max="12" , value="1" , step="1">
@@ -172,22 +188,16 @@
 
 
         // Event listener for user to click SEARCH
-        document.getElementById("myBtn").addEventListener("click", getFireYear);
+    //    document.getElementById("myBtn").addEventListener("click", getFireYear);
 
 
         // get search input
-        function getFireYear(x) {
-            var x = document.getElementById('input').value;
-            console.log(x)
+    //    function getFireYear(x) {
+    //        var x = document.getElementById('input').value;
+    //        console.log(x)
 
             // getPolys(x)
-        }
-
-        // function getPolys(x) {
-        // console.log(x)
-        // // console.log(wildFires)
-
-        // }
+    //    }
 
 
 
