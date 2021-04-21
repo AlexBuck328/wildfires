@@ -1,17 +1,15 @@
-<!doctype html>
-
-<html lang="en">
+<!DOCTYPE html>
+<html>
 
 <head>
     <meta charset="utf-8">
-
-    <title>Patterns of Destruction</title>
+    <title>Add a GeoJSON polygon</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="https://api.mapbox.com/mapbox-assembly/v0.24.0/assembly.min.css" rel="stylesheet">
     <link href="https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.css" rel="stylesheet">
-    
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.js"></script>
     <style>
         body {
             font-family: sans-serif;
@@ -57,9 +55,9 @@
                         <a class="dropdown-item" href="#">Something else here</a>
                     </div>
             </ul>
-            
 
-                <!--    <form class="form-inline my-2 my-lg-0">
+
+            <!--    <form class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-sm-2" type="search" placeholder="Enter Fire Year" aria-label="Search"
                     id='input'>
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id='myBtn'>Search</button>
@@ -68,7 +66,7 @@
     </nav>
 
 
-    
+
     <!-- ui slider -->
     <div id='slider' class='range w240 bg-white round-ml px12'>
         <input type="range" min="1" , max="12" , value="1" , step="1">
@@ -77,7 +75,6 @@
 
     <!-- CREATE MAP DIV -->
     <div id="map"></div>
-
 
     <!-- LOAD REQUIRED JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -94,113 +91,113 @@
     <script async defer src="https://api.mapbox.com/mapbox-assembly/v0.24.0/assembly.js"></script>
     <script src='data/bothDates.js'></script>
 
-
+    <!-- Custom JS here -->
     <script>
-        // map options
-        const options = {
-            center: [38.7575271, -96.677089],
-            zoom: 4.8,
-            zoomSnap: .4,
-            zoomControl: false
-        }
+        mapboxgl.accessToken =
+            'pk.eyJ1IjoiYWxleGJ1Y2szMjgiLCJhIjoiY2szcDZsdmFsMW9rbDNubjMydm9rNGJpMyJ9.05szss9EHEoVBbGYajbPZA';
+        var map = new mapboxgl.Map({
+            container: 'map', // container ID
+            style: 'mapbox://styles/mapbox/light-v10', // style URL
+            center: [-96.12049135600499, 43.552911288353926], // starting position
+            zoom: 3.7, // starting zoom
+        });
 
-        // instantiate Leaflet map
-        const map = L.map('map', options)
+        console.log(fires)
 
-        // ADD CARTO VOYAGER TILES WITH NO LABELS
-        L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
-            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
-            subdomains: 'abcd',
-        }).addTo(map)
-
-        // Declare constant variables for data
-        const fire20 = d3.json('data/fire20s.geojson');
-        const fire30 = d3.json('data/fire30s.geojson');
-        const fire40 = d3.json('data/fire40s.geojson');
-        const fire50 = d3.json('data/fire50s.geojson');
-        const fire60 = d3.json('data/fire60s.geojson');
-        const fire70 = d3.json('data/fire70s.geojson');
-        const fire80 = d3.json('data/fire80s.geojson');
-        const fire90 = d3.json('data/fire90s.geojson');
-        const fire2k = d3.json('data/fire2k.geojson');
-        const fire2k10 = d3.json('data/fire2k10.geojson');
-        const igCtrlDates = d3.json('rawData/bothIgCtrlDates.geojson')
-
-        Promise.all([fire20, fire30, fire40, fire50, fire60, fire70, fire80, fire90, fire2k, fire2k10, igCtrlDates
-        ]).then(drawMap)
-
-
-        function drawMap(data) {
-
-            //    console.log(data)
-
-            const fire20 = data[0]
-            const fire30 = data[1]
-            const fire40 = data[2]
-            const fire50 = data[3]
-            const fire60 = data[4]
-            const fire70 = data[5]
-            const fire80 = data[6]
-            const fire90 = data[7]
-            const fire2k = data[8]
-            const fire2k10 = data[9]
-            //    const wildFires = [fire20, fire30, fire40, fire50, fire60, fire70, fire80, fire90, fire2k, fire2k10]
-            const bothDates = data[10]
-            
-
-            console.log(bothDates)
-
-            const wildfires = L.geoJson(bothDates, {
-                // style counties with initial default path
-                style: function (feature) {
-                    return {
-                        color: '#20282e',
-                        weight: 2,
-                        fillOpacity: 1,
-                        fillColor: '#1f78b4'
-                    };
-                },
-                // add hover and touch functionality to each layer
-                onEachFeature: function (feature, layer) {
-                    // when mousing over a layer
-                    layer.on('mouseover', function () {
-                        // change the stroke color and bring that element to the front
-                        layer.setStyle({
-                            color: '#ff6e00'
-                        }).bringToFront();
-                    });
-                    // on mousing off layer
-                    layer.on('mouseout', function () {
-                        // reset the layer to the original stroke color
-                        layer.setStyle({
-                            color: '#20282e'
-                        });
-                    });
+        map.on('load', function () {
+            // Add a data source containing GeoJSON data.
+            map.addSource('maine', {
+                'type': 'geojson',
+                'data': {
+                    'type': 'Feature',
+                    'geometry': {
+                        'type': 'Polygon',
+                        // These coordinates outline Maine.
+                        'coordinates': [
+                            [
+                                [-67.13734, 45.13745],
+                                [-66.96466, 44.8097],
+                                [-68.03252, 44.3252],
+                                [-69.06, 43.98],
+                                [-70.11617, 43.68405],
+                                [-70.64573, 43.09008],
+                                [-70.75102, 43.08003],
+                                [-70.79761, 43.21973],
+                                [-70.98176, 43.36789],
+                                [-70.94416, 43.46633],
+                                [-71.08482, 45.30524],
+                                [-70.66002, 45.46022],
+                                [-70.30495, 45.91479],
+                                [-70.00014, 46.69317],
+                                [-69.23708, 47.44777],
+                                [-68.90478, 47.18479],
+                                [-68.2343, 47.35462],
+                                [-67.79035, 47.06624],
+                                [-67.79141, 45.70258],
+                                [-67.13734, 45.13745]
+                            ]
+                        ]
+                    }
                 }
+            });
 
+            // Add a new layer to visualize the polygon.
+            map.addLayer({
+                'id': 'maine',
+                'type': 'fill',
+                'source': 'maine', // reference the data source
+                'layout': {},
+                'paint': {
+                    'fill-color': '#0080ff', // blue color fill
+                    'fill-opacity': 0.5
+                }
+            });
+            // Add a black outline around the polygon.
+            map.addLayer({
+                'id': 'outline',
+                'type': 'line',
+                'source': 'maine',
+                'layout': {},
+                'paint': {
+                    'line-color': '#000',
+                    'line-width': 3
+                }
+            });
+            // add wildfire layer
+            map.addLayer({
+                id: 'wildFires',
+                type: 'fill',
+                source: {
+                    type: 'geojson',
+                    data: fires
+                },
+                layout: {},
+                paint: {
+                    'fill-color': '#0080ff', // blue color fill
+                    'fill-opacity': 0.5
+                },
+            });
+            //    map.addLayer({
+            //        'id': 'fireOutline',
+            //        'type': 'line',
+            //        'source': {
+            //            type: 'geojson',
+            //            data: fires
+            //       },
+            //        'layout': {},
+            //        'paint': {
+            //            'line-color': '#000',
+            //            'line-width': 3
+            //        }
+            //    })
+        });
 
-            }).addTo(map);
-
-        }
-
-
-        // Event listener for user to click SEARCH
-    //    document.getElementById("myBtn").addEventListener("click", getFireYear);
-
-
-        // get search input
-    //    function getFireYear(x) {
-    //        var x = document.getElementById('input').value;
-    //        console.log(x)
-
-            // getPolys(x)
-    //    }
 
 
 
         // do the same thing for the UI slider
         var sliderControl = L.control({
-            position: 'bottomleft'
+            position: 'bottomright'
         });
 
         sliderControl.onAdd = function (map) {
@@ -216,6 +213,9 @@
 
         sliderControl.addTo(map);
     </script>
+
 </body>
+
+</html>
 
 </html>
