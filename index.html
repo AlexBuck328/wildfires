@@ -123,12 +123,10 @@
         const fire2k = d3.json('data/fire2k.geojson');
         const fire2k10 = d3.json('data/fire2k10.geojson');
         const igCtrlDates = d3.json('rawData/bothIgCtrlDates.geojson')
-        const weather = d3.csv('rawData/tavg-1895-2020.csv');
-        const treecover = d3.csv('rawData/treecover_loss__ha.csv');
+        const bothDatesHalf = d3.csv('rawData/bothDatesHalf.geojson');
 
         Promise.all([fire20, fire30, fire40, fire50, fire60, fire70, fire80, fire90, fire2k, fire2k10, igCtrlDates,
-            weather,
-            treecover
+            bothDatesHalf
         ]).then(drawMap)
 
 
@@ -148,8 +146,8 @@
             const fire2k10 = data[9]
             //    const wildFires = [fire20, fire30, fire40, fire50, fire60, fire70, fire80, fire90, fire2k, fire2k10]
             const bothDates = data[10]
-            const weatherData = data[11]
-            const treeData = data[12]
+            const bothDatesHalf = data[11]
+            
 
             console.log(bothDates)
 
