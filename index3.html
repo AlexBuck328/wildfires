@@ -3,17 +3,20 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Patterns of Destruction</title>
+    <title>Time Slider</title>
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
     <link href="https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-   <link href="https://api.mapbox.com/mapbox-assembly/v0.24.0/assembly.min.css" rel="stylesheet">  
-    <script src="https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.js"></script>
+     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" />
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+     <link href="https://api.mapbox.com/mapbox-assembly/v0.24.0/assembly.min.css" rel="stylesheet">
+     <link href="https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.css" rel="stylesheet">
+    
     <style>
         body {
             margin: 0;
             padding: 0;
+            z-index: 2;
         }
 
         #map {
@@ -21,23 +24,18 @@
             top: 0;
             bottom: 0;
             width: 100%;
+            z-index: -1;
         }
-    </style>
-</head>
 
-<body>
-
-    
-
-
-    <style>
         .map-overlay {
             font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
-            position: absolute;
+            position: relative;
+            float: right;
             width: 25%;
             top: 0;
             left: 0;
             padding: 10px;
+            z-index: 1;
         }
 
         .map-overlay .map-overlay-inner {
@@ -69,79 +67,90 @@
             cursor: ew-resize;
         }
     </style>
+</head>
+
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Patterns of Destruction</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="https://github.com/AlexBuck328/wildfires" target="blank">About</a>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Select Fire Year
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+            </ul>
 
 
-    
-
-
-    <div id="map"></div>
-
-
-<!-- NAVBAR -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">Patterns of Destruction</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-                <a class="nav-link" href="https://github.com/AlexBuck328/wildfires" target="blank">About</a>
-            </li>
-
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false">
-                    Select Fire Year
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                </div>
-        </ul>
-
-
-        <!--    <form class="form-inline my-2 my-lg-0">
+            <!--    <form class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-sm-2" type="search" placeholder="Enter Fire Year" aria-label="Search"
                     id='input'>
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id='myBtn'>Search</button>
             </form> -->
-    </div>
-</nav>
-
-
-
-    <div class="map-overlay top">
-        <div class="map-overlay-inner">
-            <h2>Wildfires By Month</h2>
-            <label id="month"></label>
-            <input id="slider" type="range" min="0" max="11" step="1" value="0">
         </div>
-        <div class="map-overlay-inner">
-            <div id="legend" class="legend">
-                <div class="bar"></div>
-                <div>Magnitude (m)</div>
-            </div>
-        </div>
-    </div>
+    </nav>
 
+   
+
+    <div id="map"></div>
+
+
+     <div class="map-overlay top">
+         <div class="map-overlay-inner">
+             <h2>Wildfires By Month</h2>
+             <label id="month"></label>
+             <input id="slider" type="range" min="0" max="11" step="1" value="0">
+         </div>
+         <div class="map-overlay-inner">
+             <div id="legend" class="legend">
+                 <div class="bar"></div>
+                 <div>Magnitude (m)</div>
+             </div>
+         </div>
+     </div>
+    
+   
+    <!-- Load Required Scripts-->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
     </script>
     <script async defer src="https://api.mapbox.com/mapbox-assembly/v0.24.0/assembly.js"></script>
     <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
-    <script>
+   
+   <!-- Custom JS -->
+   <script>
         mapboxgl.accessToken =
             'pk.eyJ1IjoiYWxleGJ1Y2szMjgiLCJhIjoiY2szcDZsdmFsMW9rbDNubjMydm9rNGJpMyJ9.05szss9EHEoVBbGYajbPZA';
         var map = new mapboxgl.Map({
             container: 'map',
             style: 'mapbox://styles/mapbox/light-v10',
-            center: [31.4606, 20.7927],
-            zoom: 0.5
+            center: [-109.4125, 41.4376],
+            zoom: 4.66
         });
 
         var months = [
@@ -181,7 +190,7 @@
             // Any request method (library or otherwise) you wish.
             d3.json(
                 'data/bothDatesClean.geojson',
-            //      'https://docs.mapbox.com/mapbox-gl-js/assets/significant-earthquakes-2015.geojson',
+                //      'https://docs.mapbox.com/mapbox-gl-js/assets/significant-earthquakes-2015.geojson',
                 function (err, data) {
                     if (err) throw err;
 
@@ -202,7 +211,7 @@
 
                     // add wildfire layer
                     map.addLayer({
-                        id: 'earthquake-circles',  // 'wildFires',
+                        id: 'earthquake-circles', // 'wildFires',
                         type: 'fill',
                         source: {
                             type: 'geojson',
@@ -247,11 +256,11 @@
                         'type': 'symbol',
                         'source': 'earthquakes',
                         'layout': {
-                        //    'text-field': [
-                        //        'concat',
-                        //        ['to-string', ['get', 'Acres']], // 'mag'
-                        //        ' Acres'
-                        //    ],
+                            //    'text-field': [
+                            //        'concat',
+                            //        ['to-string', ['get', 'Acres']], // 'mag'
+                            //        ' Acres'
+                            //    ],
                             'text-font': [
                                 'Open Sans Bold',
                                 'Arial Unicode MS Bold'
@@ -279,5 +288,7 @@
     </script>
 
 </body>
+
+</html>
 
 </html>
