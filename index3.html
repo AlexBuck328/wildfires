@@ -3,9 +3,12 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Create a time slider</title>
+    <title>Patterns of Destruction</title>
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
     <link href="https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+   <link href="https://api.mapbox.com/mapbox-assembly/v0.24.0/assembly.min.css" rel="stylesheet">  
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.js"></script>
     <style>
         body {
@@ -23,6 +26,10 @@
 </head>
 
 <body>
+
+    
+
+
     <style>
         .map-overlay {
             font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
@@ -63,11 +70,54 @@
         }
     </style>
 
+
+    
+
+
     <div id="map"></div>
+
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Patterns of Destruction</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="https://github.com/AlexBuck328/wildfires" target="blank">About</a>
+            </li>
+
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    Select Fire Year
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                </div>
+        </ul>
+
+
+        <!--    <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Enter Fire Year" aria-label="Search"
+                    id='input'>
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id='myBtn'>Search</button>
+            </form> -->
+    </div>
+</nav>
+
+
 
     <div class="map-overlay top">
         <div class="map-overlay-inner">
-            <h2>Significant earthquakes in 2015</h2>
+            <h2>Wildfires By Month</h2>
             <label id="month"></label>
             <input id="slider" type="range" min="0" max="11" step="1" value="0">
         </div>
@@ -79,6 +129,10 @@
         </div>
     </div>
 
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
+    <script async defer src="https://api.mapbox.com/mapbox-assembly/v0.24.0/assembly.js"></script>
     <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
     <script>
         mapboxgl.accessToken =
@@ -127,11 +181,11 @@
             // Any request method (library or otherwise) you wish.
             d3.json(
                 'data/bothDatesClean.geojson',
-              //  'https://docs.mapbox.com/mapbox-gl-js/assets/significant-earthquakes-2015.geojson',
+            //      'https://docs.mapbox.com/mapbox-gl-js/assets/significant-earthquakes-2015.geojson',
                 function (err, data) {
                     if (err) throw err;
 
-                    // Create a month property value based on time
+                    // Create a month property value based on IgntDate (time)
                     // used to filter against.
                     data.features = data.features.map(function (d) {
                         d.properties.month = new Date(d.properties.IgntDate).getMonth();
@@ -146,43 +200,58 @@
                         data: data
                     });
 
+                    // add wildfire layer
                     map.addLayer({
-                        'id': 'earthquake-circles',
-                        'type': 'circle',
-                        'source': 'earthquakes',
-                        'paint': {
-                            'circle-color': [
-                                'interpolate',
-                                ['linear'],
-                                ['get', 'mag'],
-                                6,
-                                '#FCA107',
-                                8,
-                                '#7F3121'
-                            ],
-                            'circle-opacity': 0.75,
-                            'circle-radius': [
-                                'interpolate',
-                                ['linear'],
-                                ['get', 'mag'],
-                                6,
-                                20,
-                                8,
-                                40
-                            ]
-                        }
+                        id: 'earthquake-circles',  // 'wildFires',
+                        type: 'fill',
+                        source: {
+                            type: 'geojson',
+                            data: data
+                        },
+                        layout: {},
+                        paint: {
+                            'fill-color': '#0080ff', // blue color fill
+                            'fill-opacity': 0.5
+                        },
                     });
+
+                    //    map.addLayer({
+                    //        'id': 'earthquake-circles',
+                    //        'type': 'circle',
+                    //        'source': 'earthquakes',
+                    //        'paint': {
+                    //            'circle-color': [
+                    //                'interpolate',
+                    //                ['linear'],
+                    //                ['get', 'mag'],
+                    //                6,
+                    //                '#FCA107',
+                    //                8,
+                    //                '#7F3121'
+                    //            ],
+                    //            'circle-opacity': 0.75,
+                    //            'circle-radius': [
+                    //                'interpolate',
+                    //                ['linear'],
+                    //                ['get', 'mag'],
+                    //                6,
+                    //                20,
+                    //                8,
+                    //                40
+                    //            ]
+                    //        }
+                    //    });
 
                     map.addLayer({
                         'id': 'earthquake-labels',
                         'type': 'symbol',
                         'source': 'earthquakes',
                         'layout': {
-                            'text-field': [
-                                'concat',
-                                ['to-string', ['get', 'mag']],
-                                'm'
-                            ],
+                        //    'text-field': [
+                        //        'concat',
+                        //        ['to-string', ['get', 'Acres']], // 'mag'
+                        //        ' Acres'
+                        //    ],
                             'text-font': [
                                 'Open Sans Bold',
                                 'Arial Unicode MS Bold'
