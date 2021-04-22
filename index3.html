@@ -126,15 +126,15 @@
             // Here we're using d3 to help us make the ajax request but you can use
             // Any request method (library or otherwise) you wish.
             d3.json(
-              //  'data/bothDatesClean.geojson',
-                'https://docs.mapbox.com/mapbox-gl-js/assets/significant-earthquakes-2015.geojson',
+                'data/bothDatesClean.geojson',
+              //  'https://docs.mapbox.com/mapbox-gl-js/assets/significant-earthquakes-2015.geojson',
                 function (err, data) {
                     if (err) throw err;
 
                     // Create a month property value based on time
                     // used to filter against.
                     data.features = data.features.map(function (d) {
-                        d.properties.month = new Date(d.properties.time).getMonth();
+                        d.properties.month = new Date(d.properties.IgntDate).getMonth();
                         return d;
                     });
 
