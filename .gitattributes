@@ -28,3 +28,4 @@ mtbsPoly.shp filter=lfs diff=lfs merge=lfs -text
 bothDates.csv filter=lfs diff=lfs merge=lfs -text
 fireCenturyClean.csv filter=lfs diff=lfs merge=lfs -text
 bothDates.js filter=lfs diff=lfs merge=lfs -text
+bothDatesClean.geojson filter=lfs diff=lfs merge=lfs -text
