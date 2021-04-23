@@ -153,7 +153,7 @@
                             'circle-color': [
                                 'interpolate',
                                 ['linear'],
-                                ['get', 'mag'],
+                                ['get', 'FIRE_SIZE'],
                                 6,
                                 '#FCA107',
                                 8,
@@ -163,7 +163,7 @@
                             'circle-radius': [
                                 'interpolate',
                                 ['linear'],
-                                ['get', 'mag'],
+                                ['get', 'FIRE_SIZE'],
                                 6,
                                 20,
                                 8,
@@ -172,26 +172,26 @@
                         }
                     });
 
-                    map.addLayer({
-                        'id': 'earthquake-labels',
-                        'type': 'symbol',
-                        'source': 'earthquakes',
-                        'layout': {
-                            'text-field': [
-                                'concat',
-                                ['to-string', ['get', 'mag']],
-                                'm'
-                            ],
-                            'text-font': [
-                                'Open Sans Bold',
-                                'Arial Unicode MS Bold'
-                            ],
-                            'text-size': 12
-                        },
-                        'paint': {
-                            'text-color': 'rgba(0,0,0,0.5)'
-                        }
-                    });
+                //    map.addLayer({
+                //        'id': 'earthquake-labels',
+                //        'type': 'symbol',
+                //        'source': 'earthquakes',
+                //        'layout': {
+                //            'text-field': [
+                //                'concat',
+                //                ['to-string', ['get', 'mag']],
+                //                'm'
+                //            ],
+                //           'text-font': [
+                //                'Open Sans Bold',
+                //                'Arial Unicode MS Bold'
+                //            ],
+                //            'text-size': 12
+                //        },
+                //        'paint': {
+                //            'text-color': 'rgba(0,0,0,0.5)'
+                //        }
+                //    });
 
                     // Set filter to first month of the year
                     // 0 = January
