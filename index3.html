@@ -6,12 +6,12 @@
     <title>Time Slider</title>
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
     <link href="https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.css" rel="stylesheet">
-     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" />
-     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-<!--    <link href="https://api.mapbox.com/mapbox-assembly/v0.24.0/assembly.min.css" rel="stylesheet">   -->
-     <link href="https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.css" rel="stylesheet">
-    
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!--    <link href="https://api.mapbox.com/mapbox-assembly/v0.24.0/assembly.min.css" rel="stylesheet">   -->
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.css" rel="stylesheet">
+
     <style>
         body {
             margin: 0;
@@ -106,26 +106,26 @@
         </div>
     </nav>
 
-   
+
 
     <div id="map"></div>
 
 
-     <div class="map-overlay top">
-         <div class="map-overlay-inner">
-             <h2>Wildfires (Month)</h2>
-             <label id="month"></label>
-             <input id="slider" type="range" min="0" max="11" step="1" value="0">
-         </div>
-         <div class="map-overlay-inner">
-             <div id="legend" class="legend">
-                 <div class="bar"></div>
-                 <div>Magnitude (m)</div>
-             </div>
-         </div>
-     </div>
-    
-   
+    <div class="map-overlay top">
+        <div class="map-overlay-inner">
+            <h2>Wildfires (Month)</h2>
+            <label id="month"></label>
+            <input id="slider" type="range" min="0" max="11" step="1" value="0">
+        </div>
+        <div class="map-overlay-inner">
+            <div id="legend" class="legend">
+                <div class="bar"></div>
+                <div>Magnitude (m)</div>
+            </div>
+        </div>
+    </div>
+
+
     <!-- Load Required Scripts-->
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -141,9 +141,9 @@
     </script>
     <script async defer src="https://api.mapbox.com/mapbox-assembly/v0.24.0/assembly.js"></script>
     <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
-   
-   <!-- Custom JS -->
-   <script>
+
+    <!-- Custom JS -->
+    <script>
         mapboxgl.accessToken =
             'pk.eyJ1IjoiYWxleGJ1Y2szMjgiLCJhIjoiY2szcDZsdmFsMW9rbDNubjMydm9rNGJpMyJ9.05szss9EHEoVBbGYajbPZA';
         var map = new mapboxgl.Map({
@@ -219,37 +219,45 @@
                         },
                         layout: {},
                         paint: {
-                            'fill-color': '#0080ff', // blue color fill
+                            'fill-color': [
+                                'interpolate',
+                                ['linear'],
+                                ['get', 'Acres'],
+                                900,
+                                '#FCA107',
+                                900000,
+                                '#7F3121'
+                            ], // '#0080ff', // blue color fill
                             'fill-opacity': 0.5
                         },
                     });
 
-                    //    map.addLayer({
-                    //        'id': 'earthquake-circles',
-                    //        'type': 'circle',
-                    //        'source': 'earthquakes',
-                    //        'paint': {
-                    //            'circle-color': [
-                    //                'interpolate',
-                    //                ['linear'],
-                    //                ['get', 'mag'],
-                    //                6,
-                    //                '#FCA107',
-                    //                8,
-                    //                '#7F3121'
-                    //            ],
-                    //            'circle-opacity': 0.75,
-                    //            'circle-radius': [
-                    //                'interpolate',
-                    //                ['linear'],
-                    //                ['get', 'mag'],
-                    //                6,
-                    //                20,
-                    //                8,
-                    //                40
-                    //            ]
-                    //        }
-                    //    });
+            //        map.addLayer({
+            //            'id': 'earthquake-circles',
+            //            'type': 'circle',
+            //            'source': 'earthquakes',
+            //            'paint': {
+            //                'circle-color': [
+            //                    'interpolate',
+            //                    ['linear'],
+            //                    ['get', 'mag'],
+            //                    6,
+            //                    '#FCA107',
+            //                    8,
+            //                    '#7F3121'
+            //                ],
+            //                'circle-opacity': 0.75,
+            //                'circle-radius': [
+            //                    'interpolate',
+            //                    ['linear'],
+            //                    ['get', 'mag'],
+            //                    6,
+            //                    20,
+            //                    8,
+            //                    40
+            //                ]
+            //            }
+            //        });
 
                     map.addLayer({
                         'id': 'earthquake-labels',
