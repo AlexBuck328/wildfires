@@ -86,8 +86,8 @@
         var map = new mapboxgl.Map({
             container: 'map',
             style: 'mapbox://styles/mapbox/light-v10',
-            center: [31.4606, 20.7927],
-            zoom: 0.5
+            center: [-99.2733, 39.1865],
+            zoom: 3.2
         });
 
         var months = [
@@ -126,7 +126,8 @@
             // Here we're using d3 to help us make the ajax request but you can use
             // Any request method (library or otherwise) you wish.
             d3.json(
-                'rawData/pointsY2K.geojson',
+                'rawData/classD.geojson',
+                // 'rawData/pointsY2K.geojson',
                 // 'https://docs.mapbox.com/mapbox-gl-js/assets/significant-earthquakes-2015.geojson',
                 function (err, data) {
                     if (err) throw err;
@@ -154,9 +155,9 @@
                                 'interpolate',
                                 ['linear'],
                                 ['get', 'FIRE_SIZE'],
-                                6,
+                                90,
                                 '#FCA107',
-                                8,
+                                50000,
                                 '#7F3121'
                             ],
                             'circle-opacity': 0.75,
@@ -164,34 +165,34 @@
                                 'interpolate',
                                 ['linear'],
                                 ['get', 'FIRE_SIZE'],
-                                6,
-                                20,
-                                8,
-                                40
+                               .75, // 6,
+                               2.5, // 20,
+                               1, // 8,
+                               5 // 40
                             ]
                         }
                     });
 
-                //    map.addLayer({
-                //        'id': 'earthquake-labels',
-                //        'type': 'symbol',
-                //        'source': 'earthquakes',
-                //        'layout': {
-                //            'text-field': [
-                //                'concat',
-                //                ['to-string', ['get', 'mag']],
-                //                'm'
-                //            ],
-                //           'text-font': [
-                //                'Open Sans Bold',
-                //                'Arial Unicode MS Bold'
-                //            ],
-                //            'text-size': 12
-                //        },
-                //        'paint': {
-                //            'text-color': 'rgba(0,0,0,0.5)'
-                //        }
-                //    });
+                    map.addLayer({
+                        'id': 'earthquake-labels',
+                        'type': 'symbol',
+                        'source': 'earthquakes',
+                        'layout': {
+                            'text-field': [
+                                'concat',
+                                ['to-string', ['get', 'Acres']],
+                                'm'
+                            ],
+                           'text-font': [
+                                'Open Sans Bold',
+                                'Arial Unicode MS Bold'
+                            ],
+                            'text-size': 12
+                        },
+                        'paint': {
+                            'text-color': 'rgba(0,0,0,0.5)'
+                        }
+                    });
 
                     // Set filter to first month of the year
                     // 0 = January
