@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Time Slider</title>
+    <title>Polys</title>
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
     <link href="https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.css" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" />
@@ -29,11 +29,10 @@
 
         .map-overlay {
             font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
-            position: relative;
-            float: right;
+            position: absolute;  
             width: 25%;
-            top: 0;
-            left: 0;
+            bottom: 0;
+            right: 0;
             padding: 10px;
             z-index: 1;
         }
@@ -46,7 +45,7 @@
             margin-bottom: 10px;
         }
 
-        .map-overlay h2 {
+        .map-overlay h4 {
             line-height: 24px;
             display: block;
             margin: 0 0 10px;
@@ -113,14 +112,14 @@
 
     <div class="map-overlay top">
         <div class="map-overlay-inner">
-            <h2>Wildfires (Month)</h2>
+            <h4>Wildfires (Month)</h4>
             <label id="month"></label>
             <input id="slider" type="range" min="0" max="11" step="1" value="0">
         </div>
         <div class="map-overlay-inner">
             <div id="legend" class="legend">
                 <div class="bar"></div>
-                <div>Magnitude (m)</div>
+                <div>Fire Size (AC)</div>
             </div>
         </div>
     </div>

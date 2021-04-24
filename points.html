@@ -3,10 +3,13 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Create a time slider</title>
+    <title>Points</title>
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
     <link href="https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.css" rel="stylesheet">
-    <script src="https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
     <style>
         body {
             margin: 0;
@@ -18,17 +21,15 @@
             top: 0;
             bottom: 0;
             width: 100%;
+            z-index: -1;
         }
-    </style>
-</head>
 
-<body>
-    <style>
         .map-overlay {
             font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
             position: absolute;
+            /*float: right; */
             width: 25%;
-            top: 0;
+            bottom: 0;
             left: 0;
             padding: 10px;
         }
@@ -41,7 +42,8 @@
             margin-bottom: 10px;
         }
 
-        .map-overlay h2 {
+        .map-overlay h4 {
+            position: relative;
             line-height: 24px;
             display: block;
             margin: 0 0 10px;
@@ -62,24 +64,80 @@
             cursor: ew-resize;
         }
     </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Patterns of Destruction</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="https://github.com/AlexBuck328/wildfires" target="blank">About</a>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Select Fire Year
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+            </ul>
+
+
+            <!--    <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Enter Fire Year" aria-label="Search"
+                    id='input'>
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id='myBtn'>Search</button>
+            </form> -->
+        </div>
+    </nav>
 
     <div id="map"></div>
 
     <div class="map-overlay top">
         <div class="map-overlay-inner">
-            <h2>Significant earthquakes in 2015</h2>
+            <h4>Wildfires (Month)</h4>
             <label id="month"></label>
             <input id="slider" type="range" min="0" max="11" step="1" value="0">
         </div>
         <div class="map-overlay-inner">
             <div id="legend" class="legend">
                 <div class="bar"></div>
-                <div>Magnitude (m)</div>
+                <div>Fire Size (AC)</div>
             </div>
         </div>
     </div>
 
+    <!-- LOAD REQUIRED SCRIPTS -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
+    <script async defer src="https://api.mapbox.com/mapbox-assembly/v0.24.0/assembly.js"></script>
     <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+
+    <!-- CUSTOM JS -->
+
     <script>
         mapboxgl.accessToken =
             'pk.eyJ1IjoiYWxleGJ1Y2szMjgiLCJhIjoiY2szcDZsdmFsMW9rbDNubjMydm9rNGJpMyJ9.05szss9EHEoVBbGYajbPZA';
@@ -165,10 +223,10 @@
                                 'interpolate',
                                 ['linear'],
                                 ['get', 'FIRE_SIZE'],
-                               .75, // 6,
-                               2.5, // 20,
-                               1, // 8,
-                               5 // 40
+                                1.5, // 6,
+                                5, // 20,
+                                2, // 8,
+                                10 // 40
                             ]
                         }
                     });
@@ -180,10 +238,10 @@
                         'layout': {
                             'text-field': [
                                 'concat',
-                                ['to-string', ['get', 'Acres']],
-                                'm'
+                                ['to-string', ['get', 'FIRE_SIZE']],
+                                ' Acres'
                             ],
-                           'text-font': [
+                            'text-font': [
                                 'Open Sans Bold',
                                 'Arial Unicode MS Bold'
                             ],
