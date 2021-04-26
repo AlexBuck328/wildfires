@@ -172,8 +172,8 @@
 
         function filterBy(month) {
             var filters = ['==', 'month', month];
-            map.setFilter('earthquake-circles', filters);
-            map.setFilter('earthquake-labels', filters);
+            map.setFilter('firePoints', filters);
+            map.setFilter('fireLabels', filters);
 
             // Set the label to the month
             document.getElementById('month').textContent = months[month];
@@ -206,15 +206,15 @@
 
                     console.log(data)
 
-                    map.addSource('earthquakes', {
+                    map.addSource('fires', {
                         'type': 'geojson',
                         data: data
                     });
 
                     map.addLayer({
-                        'id': 'earthquake-circles',
+                        'id': 'firePoints',
                         'type': 'circle',
-                        'source': 'earthquakes',
+                        'source': 'fires',
                         'paint': {
                             'circle-color': [
                                 'interpolate',
@@ -239,9 +239,9 @@
                     });
 
                     map.addLayer({
-                        'id': 'earthquake-labels',
+                        'id': 'fireLabels',
                         'type': 'symbol',
-                        'source': 'earthquakes',
+                        'source': 'fires',
                         'layout': {
                             'text-field': [
                                 'concat',
@@ -266,7 +266,7 @@
                         closeOnClick: false
                     });
 
-                    map.on('mouseenter', 'earthquake-circles', function (e) {
+                    map.on('mouseenter', 'firePoints', function (e) {
                         // Change the cursor style as a UI indicator.
                         map.getCanvas().style.cursor = 'pointer';
 
@@ -281,11 +281,11 @@
 
                         // Populate the popup and set its coordinates
                         // based on the feature found.
-                        popup.setLngLat(coordinates).setHTML(`<b>Fire Name:</b> ${e.features[0].properties.FIRE_NAME}<p><b>Fire Cause:</b>
-                        ${e.features[0].properties.STAT_CAUSE_DESCR}<p> <b>Fire Size:</b> ${e.features[0].properties.FIRE_SIZE} Acres`).addTo(map);
+                        popup.setLngLat(coordinates).setHTML(`<b>Fire Name:</b> ${e.features[0].properties.FIRE_NAME}<br><b>Fire Cause:</b>
+                        ${e.features[0].properties.STAT_CAUSE_DESCR}<br><b>Fire Size:</b> ${e.features[0].properties.FIRE_SIZE} Acres`).addTo(map);
                     });
 
-                    map.on('mouseleave', 'earthquake-circles', function () {
+                    map.on('mouseleave', 'firePoints', function () {
                         map.getCanvas().style.cursor = '';
                         popup.remove();
                     });

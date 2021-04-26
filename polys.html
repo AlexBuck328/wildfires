@@ -176,8 +176,8 @@
 
         function filterBy(month) {
             var filters = ['==', 'month', month];
-            map.setFilter('earthquake-circles', filters);
-            map.setFilter('earthquake-labels', filters);
+            map.setFilter('firePolys', filters);
+            map.setFilter('fireLabels', filters);
 
             // Set the label to the month
             document.getElementById('month').textContent = months[month];
@@ -210,14 +210,14 @@
                     // verify data loaded
                     console.log(data)
 
-                    map.addSource('earthquakes', {
+                    map.addSource('fires', {
                         'type': 'geojson',
                         data: data
                     });
 
                     // add wildfire layer
                     map.addLayer({
-                        id: 'earthquake-circles', // 'wildFires',
+                        id: 'firePolys', 
                         type: 'fill',
                         source: {
                             type: 'geojson',
@@ -233,46 +233,19 @@
                                 '#FCA107',
                                 900000,
                                 '#7F3121'
-                            ], // '#0080ff', // blue color fill
+                            ],
                             'fill-opacity': 0.5
                         },
                     });
 
-                    //        map.addLayer({
-                    //            'id': 'earthquake-circles',
-                    //            'type': 'circle',
-                    //            'source': 'earthquakes',
-                    //            'paint': {
-                    //                'circle-color': [
-                    //                    'interpolate',
-                    //                    ['linear'],
-                    //                    ['get', 'mag'],
-                    //                    6,
-                    //                    '#FCA107',
-                    //                    8,
-                    //                    '#7F3121'
-                    //                ],
-                    //                'circle-opacity': 0.75,
-                    //                'circle-radius': [
-                    //                    'interpolate',
-                    //                    ['linear'],
-                    //                    ['get', 'mag'],
-                    //                    6,
-                    //                    20,
-                    //                    8,
-                    //                    40
-                    //                ]
-                    //            }
-                    //        });
-
                     map.addLayer({
-                        'id': 'earthquake-labels',
+                        'id': 'fireLabels',
                         'type': 'symbol',
-                        'source': 'earthquakes',
+                        'source': 'fires',
                         'layout': {
                             'text-field': [
                                 'concat',
-                                ['number', ['get', 'Acres']], // 'mag'
+                                ['number', ['get', 'Acres']], 
                                 ' Acres'
                             ],
                             'text-font': [
@@ -300,22 +273,28 @@
 
                     // When a click event occurs on a feature in the states layer, open a popup at the
                     // location of the click, with description HTML from its properties.
-                    map.on('click', 'earthquake-circles', function (e) {
+                    map.on('click', 'firePolys', function (e) {
+
+                        var acresNum = e.features[0].properties.Acres
+                        var acresFixed = acresNum.toFixed(2);
+
+                        console.log(acresFixed)
+
                         new mapboxgl.Popup()
                             .setLngLat(e.lngLat)
                             .setHTML(`<b>Fire Name:</b> ${e.features[0].properties.FireName}<br><b>Fire
                                 Cause:</b> ${e.features[0].properties.FireCause}<br><b>Fire
-                                    Size:</b> ${e.features[0].properties.Acres} Acres`)
+                                    Size:</b> ${acresFixed} Acres`)
                             .addTo(map);
                     });
 
                     // Change the cursor to a pointer when the mouse is over the states layer.
-                    map.on('mouseenter', 'earthquake-circles', function () {
+                    map.on('mouseenter', 'firePolys', function () {
                         map.getCanvas().style.cursor = 'pointer';
                     });
 
                     // Change it back to a pointer when it leaves.
-                    map.on('mouseleave', 'earthquake-circles', function () {
+                    map.on('mouseleave', 'firePolys', function () {
                         map.getCanvas().style.cursor = '';
                     });
 
