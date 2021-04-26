@@ -28,6 +28,11 @@
             z-index: -1;
         }
 
+        .dropdown-menu {
+            max-height: 200px;
+            overflow-y: auto;
+        }
+
         .map-overlay {
             font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
             position: absolute;
@@ -259,7 +264,7 @@
 
                     // add wildfire layer
                     map.addLayer({
-                        id: 'firePolys', 
+                        id: 'firePolys',
                         type: 'fill',
                         source: {
                             type: 'geojson',
@@ -287,7 +292,7 @@
                         'layout': {
                             'text-field': [
                                 'concat',
-                                ['number', ['get', 'Acres']], 
+                                ['number', ['get', 'Acres']],
                                 ' Acres'
                             ],
                             'text-font': [
