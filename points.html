@@ -259,6 +259,37 @@
                         }
                     });
 
+
+                    // Create a popup, but don't add it to the map yet.
+                    var popup = new mapboxgl.Popup({
+                        closeButton: false,
+                        closeOnClick: false
+                    });
+
+                    map.on('mouseenter', 'earthquake-circles', function (e) {
+                        // Change the cursor style as a UI indicator.
+                        map.getCanvas().style.cursor = 'pointer';
+
+                        var coordinates = e.features[0].geometry.coordinates.slice();
+
+                        // Ensure that if the map is zoomed out such that multiple
+                        // copies of the feature are visible, the popup appears
+                        // over the copy being pointed to.
+                        while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+                            coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+                        }
+
+                        // Populate the popup and set its coordinates
+                        // based on the feature found.
+                        popup.setLngLat(coordinates).setHTML(`<b>Fire Name:</b> ${e.features[0].properties.FIRE_NAME}<p><b>Fire Cause:</b>
+                        ${e.features[0].properties.STAT_CAUSE_DESCR}<p> <b>Fire Size:</b> ${e.features[0].properties.FIRE_SIZE} Acres`).addTo(map);
+                    });
+
+                    map.on('mouseleave', 'earthquake-circles', function () {
+                        map.getCanvas().style.cursor = '';
+                        popup.remove();
+                    });
+
                     // Set filter to first month of the year
                     // 0 = January
                     filterBy(0);
@@ -269,8 +300,11 @@
                             var month = parseInt(e.target.value, 10);
                             filterBy(month);
                         });
-                }
-            );
+
+                });
+
+
+
         });
     </script>
 

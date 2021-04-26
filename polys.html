@@ -270,11 +270,11 @@
                         'type': 'symbol',
                         'source': 'earthquakes',
                         'layout': {
-                                'text-field': [
-                                    'concat',
-                                    ['number', ['get', 'Acres']], // 'mag'
-                                    ' Acres'
-                                ],
+                            'text-field': [
+                                'concat',
+                                ['number', ['get', 'Acres']], // 'mag'
+                                ' Acres'
+                            ],
                             'text-font': [
                                 'Open Sans Bold',
                                 'Arial Unicode MS Bold'
@@ -296,6 +296,29 @@
                             var month = parseInt(e.target.value, 10);
                             filterBy(month);
                         });
+
+
+                    // When a click event occurs on a feature in the states layer, open a popup at the
+                    // location of the click, with description HTML from its properties.
+                    map.on('click', 'earthquake-circles', function (e) {
+                        new mapboxgl.Popup()
+                            .setLngLat(e.lngLat)
+                            .setHTML(`<b>Fire Name:</b> ${e.features[0].properties.FireName}<br><b>Fire
+                                Cause:</b> ${e.features[0].properties.FireCause}<br><b>Fire
+                                    Size:</b> ${e.features[0].properties.Acres} Acres`)
+                            .addTo(map);
+                    });
+
+                    // Change the cursor to a pointer when the mouse is over the states layer.
+                    map.on('mouseenter', 'earthquake-circles', function () {
+                        map.getCanvas().style.cursor = 'pointer';
+                    });
+
+                    // Change it back to a pointer when it leaves.
+                    map.on('mouseleave', 'earthquake-circles', function () {
+                        map.getCanvas().style.cursor = '';
+                    });
+
                 }
             );
         });
