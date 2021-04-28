@@ -29,3 +29,5 @@ bothDates.csv filter=lfs diff=lfs merge=lfs -text
 fireCenturyClean.csv filter=lfs diff=lfs merge=lfs -text
 bothDates.js filter=lfs diff=lfs merge=lfs -text
 bothDatesClean.geojson filter=lfs diff=lfs merge=lfs -text
+fires.geojson filter=lfs diff=lfs merge=lfs -text
+pointsY2K.geojson filter=lfs diff=lfs merge=lfs -text
