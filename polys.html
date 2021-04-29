@@ -316,7 +316,7 @@
         ]
 
         function filterBy(month) {
-            var filters = ['==', 'month', month]
+            var filters = ['==', 'month', month] // ['all', ['==', 'month', month], ['==', 'year', year]];
             map.setFilter('firePolys', filters);
             map.setFilter('fireLabels', filters);
 
@@ -326,7 +326,7 @@
 
 
         function filterYear(year) {
-            var filters = ['==', 'year', year] 
+            var filters = ['==', 'year', year]; 
             map.setFilter('firePolys', filters);
             map.setFilter('fireLabels', filters);
 
@@ -419,18 +419,30 @@
                         .getElementById('slider')
                         .addEventListener('input', function (e) {
                             var month = parseInt(e.target.value, 10);
-                        //    console.log(month)
+                           // console.log(month)
                             filterBy(month);
                         })
 
+                    filterBoth(0 , 0);
+
+                    document
+                    .querySelectorAll('slider', 'sliderYear')
+                    .addEventListener('input', function (e) {
+                        var month = parseInt(e.target.value, 10);
+                        var year = parseInt(e.target.value, 10);
+                        filterBoth(month, year)
+                    })
+
+
                     // Set filter to first year of data
-                    filterYear(1976);
+                    // 0 = 1976
+                    filterYear(0);
 
                     document
                         .getElementById('sliderYear')
                         .addEventListener('input', function (e) {
                             var year = parseInt(e.target.value, 10);
-                            console.log(e.target.value)
+                        //    console.log(year)
                             filterYear(year);
                         });
 
