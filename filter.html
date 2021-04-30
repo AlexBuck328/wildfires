@@ -4,7 +4,7 @@
 <head>
 
     <meta charset='utf-8' />
-    <title>NYC motor vehicle collisions</title>
+    <title>FIRE</title>
     <meta name='viewport' content='width=device-width, initial-scale=1' />
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.css' rel='stylesheet' />
     <style>
@@ -88,8 +88,8 @@
             </div>
         </div>
         <div class='session' id='sliderbar'>
-            <h2>Hour: <label id='active-hour'>12PM</label></h2>
-            <input id='slider' class='row' type='range' min='0' max='23' step='1' value='12' />
+            <h2>Year: <label id='active-year'>2019</label></h2>
+            <input id='slider' class='row' type='range' min='0' max='43' step='1' value='43' />
         </div>
         <div class='session'>
             <h2>Day of the week</h2>
@@ -117,89 +117,204 @@
     var map = new mapboxgl.Map({
         container: 'map', // container element id
         style: 'mapbox://styles/mapbox/light-v10',
-        center: [-74.0059, 40.7128], // initial map center in [lon, lat]
-        zoom: 12
+        center: [-109.4125, 41.4376], // initial map center in [lon, lat]
+        zoom: 4.66
     });
 
-
+    var years = [
+        1976,
+        1977,
+        1978,
+        1979,
+        1980,
+        1981,
+        1982,
+        1983,
+        1984,
+        1985,
+        1986,
+        1987,
+        1988,
+        1989,
+        1990,
+        1991,
+        1992,
+        1993,
+        1994,
+        1995,
+        1996,
+        1997,
+        1998,
+        1999,
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019
+    ]
 
     map.on('load', function () {
-        var filterHour = ['==', ['number', ['get', 'Hour']], 12];
-        var filterDay = ['!=', ['string', ['get', 'Day']], 'placeholder'];
+        //    var filterYear = ['==', 'year', year]
+        var filterYear = ['==', ['number', ['get', 'year']], 2019];
+        var filterMonth = ['!=', ['string', ['get', 'month']], 'placeholder'];
 
-        map.addLayer({
-            id: 'collisions',
-            type: 'circle',
-            source: {
-                type: 'geojson',
-                data: 'rawData/collisions1601.geojson' // replace this with the url of your own geojson
-            },
-            paint: {
-                'circle-radius': [
-                    'interpolate',
-                    ['linear'],
-                    ['number', ['get', 'Casualty']],
-                    0, 4,
-                    5, 24
-                ],
-                'circle-color': [
-                    'interpolate',
-                    ['linear'],
-                    ['number', ['get', 'Casualty']],
-                    0, '#2DC4B2',
-                    1, '#3BB3C3',
-                    2, '#669EC4',
-                    3, '#8B88B6',
-                    4, '#A2719B',
-                    5, '#AA5E79'
-                ],
-                'circle-opacity': 0.8
-            },
-            filter: ['==', ['number', ['get', 'Hour']], 12]
-        });
-        // SLIDER
-        document.getElementById('slider').addEventListener('input', function (e) {
-            var hour = parseInt(e.target.value);
-            // update the map
-            filterHour = ['==', ['number', ['get', 'Hour']], hour];
-            map.setFilter('collisions', ['all', filterHour, filterDay]);
-            //map.setFilter('collisions', ['==', ['number', ['get', 'Hour']], hour]);
+        d3.json(
+            // 'rawData/collisions1601.geojson',
+            // 'rawData/classD.geojson',
+            'data/bothDatesClean.geojson',
+            function (err, data) {
+                if (err) throw err;
 
-            // converting 0-23 hour to AMPM format
-            var ampm = hour >= 12 ? 'PM' : 'AM';
-            var hour12 = hour % 12 ? hour % 12 : 12;
+                // Create a month property value based on time
+                // used to filter against.
+                data.features = data.features.map(function (d) {
+                    d.properties.month = new Date(d.properties.IgntDate).getMonth();
+                    return d;
+                });
 
-            // update text in the UI
-            document.getElementById('active-hour').innerText = hour12 + ampm;
-        });
-        // RADIO BUTTONS
-        document
-            .getElementById('filters')
-            .addEventListener('change', function (e) {
-                var day = e.target.value;
-                // update the map filter
-                if (day === 'all') {
-                    filterDay = ['!=', ['string', ['get', 'Day']], 'placeholder'];
-                } else if (day === 'weekday') {
-                    filterDay = [
-                        'match',
-                        ['get', 'Day'],
-                        ['Sat', 'Sun'],
-                        false,
-                        true
-                    ];
-                } else if (day === 'weekend') {
-                    filterDay = [
-                        'match',
-                        ['get', 'Day'],
-                        ['Sat', 'Sun'],
-                        true,
-                        false
-                    ];
-                } else {
-                    console.log('error');
-                }
-                map.setFilter('collisions', ['all', filterHour, filterDay]);
+                // Create a year property value based on IgntDate (time)
+                // used to filter against.
+                data.features = data.features.map(function (d) {
+                    d.properties.year = new Date(d.properties.IgntDate)
+                        .getFullYear();
+                    return d;
+                });
+
+                map.addSource('fires', {
+                    type: 'geojson',
+                    data: data
+                });
+
+                console.log(data)
+
+                map.addLayer({
+                    id: 'firePolys',
+                    type: 'fill',
+                    source: 'fires',
+                    paint: {
+                        'fill-color': [
+                            'interpolate',
+                            ['linear'],
+                            ['number', ['get', 'Acres']], // 'Casualty'
+                            900, '#FCA107',
+                            900000, '#7F3121'
+                        ],
+                        'fill-opacity': 0.8
+                    },
+                    filter: ['==', ['number', ['get', 'year']], 2019] // 'Hour' 12
+                });
+                // SLIDER
+                document.getElementById('slider').addEventListener('input', function (e) {
+                    var year = parseInt(e.target.value, 10);
+
+
+                    data.features = data.features.map(function (d) {
+                       year =  d.properties.year
+                       console.log(year)
+                    });
+                    // update the map
+                    filterYear = ['==', ['number', ['get', 'year']], year];
+                    map.setFilter('firePolys', ['all', filterYear, filterMonth]);
+
+                    // update text in the UI
+                    document.getElementById('active-year').innerText = year;
+                });
+
+
+                //    document.getElementById('slider').addEventListener('input', function (e) {
+                //        var hour = parseInt(e.target.value);
+                //        // update the map
+                //        filterHour = ['==', ['number', ['get', 'Hour']], hour];
+                //        map.setFilter('collisions', ['all', filterHour, filterDay]);
+
+
+                // converting 0-23 hour to AMPM format
+                //        var ampm = hour >= 12 ? 'PM' : 'AM';
+                //        var hour12 = hour % 12 ? hour % 12 : 12;
+
+                // update text in the UI
+                //        document.getElementById('active-hour').innerText = hour12 + ampm;
+                //    });
+
+
+
+
+                // RADIO BUTTONS
+                //            document
+                //                .getElementById('filters')
+                //                .addEventListener('change', function (e) {
+                //                    var month = (e.target.value, 10);
+                //                    // update the map filter
+                //                    if (year === 'all') {
+                //                        filterYear = ['!=', ['string', ['get', 'year']], 'placeholder'];
+                //                    } else if (year === 'weekday') {
+                //                        filterYear = [
+                //                            'match',
+                //                            ['get', 'Day'],
+                //                            ['Sat', 'Sun'],
+                //                            false,
+                //                            true
+                //                        ];
+                //                    } else if (Month === 'weekend') {
+                //                        filterMonth = [
+                //                            'match',
+                //                            ['get', 'Day'],
+                //                            ['Sat', 'Sun'],
+                //                            true,
+                //                            false
+                //                        ];
+                //                    } else {
+                //                        console.log('error');
+                //                    }
+                //                    map.setFilter('collisions', ['all', filterMonth, filterYear]);
+                //                });
+
+
+
+
+                //    document
+                //        .getElementById('filters')
+                //        .addEventListener('change', function (e) {
+                //            var day = e.target.value;
+                //            // update the map filter
+                //            if (day === 'all') {
+                //                filterDay = ['!=', ['string', ['get', 'Day']], 'placeholder'];
+                //            } else if (day === 'weekday') {
+                //                filterDay = [
+                //                    'match',
+                //                    ['get', 'Day'],
+                //                    ['Sat', 'Sun'],
+                //                    false,
+                //                    true
+                //                ];
+                //            } else if (day === 'weekend') {
+                //                filterDay = [
+                //                    'match',
+                //                   ['get', 'Day'],
+                //                    ['Sat', 'Sun'],
+                //                    true,
+                //                    false
+                //                ];
+                //            } else {
+                //                console.log('error');
+                //            }
+                //            map.setFilter('collisions', ['all', filterHour, filterDay]);
+                //        });
             });
     });
 </script>
