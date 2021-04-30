@@ -423,16 +423,6 @@
                             filterBy(month);
                         })
 
-                    filterBoth(0 , 0);
-
-                    document
-                    .querySelectorAll('slider', 'sliderYear')
-                    .addEventListener('input', function (e) {
-                        var month = parseInt(e.target.value, 10);
-                        var year = parseInt(e.target.value, 10);
-                        filterBoth(month, year)
-                    })
-
 
                     // Set filter to first year of data
                     // 0 = 1976

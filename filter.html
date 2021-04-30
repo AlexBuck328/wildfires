@@ -2,15 +2,16 @@
 <html>
 
 <head>
-    <meta charset="utf-8">
-    <title>Filter symbols by toggling a list</title>
-    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
-    <link href="https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.css" rel="stylesheet">
-    <script src="https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.js"></script>
+
+    <meta charset='utf-8' />
+    <title>NYC motor vehicle collisions</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1' />
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.css' rel='stylesheet' />
     <style>
         body {
             margin: 0;
             padding: 0;
+            font-family: 'Helvetica Neue', Helvetica, Arial, Sans-serif;
         }
 
         #map {
@@ -19,207 +20,188 @@
             bottom: 0;
             width: 100%;
         }
+
+        h1 {
+            font-size: 20px;
+            line-height: 30px;
+        }
+
+        h2 {
+            font-size: 14px;
+            line-height: 20px;
+            margin-bottom: 10px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #2dc4b2;
+        }
+
+        #console {
+            position: absolute;
+            width: 240px;
+            margin: 10px;
+            padding: 10px 20px;
+            background-color: white;
+        }
+
+        .session {
+            margin-bottom: 20px;
+        }
+
+        .row {
+            height: 12px;
+            width: 100%;
+        }
+
+        .colors {
+            background: linear-gradient(to right, #2dc4b2, #3bb3c3, #669ec4, #8b88b6, #a2719b, #aa5e79);
+            margin-bottom: 5px;
+        }
+
+        .label {
+            width: 15%;
+            display: inline-block;
+            text-align: center;
+        }
     </style>
 </head>
 
 <body>
-    <style>
-        .filter-group {
-            font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
-            font-weight: 600;
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            z-index: 1;
-            border-radius: 3px;
-            width: 120px;
-            color: #fff;
-        }
-
-        .filter-group input[type='checkbox']:first-child+label {
-            border-radius: 3px 3px 0 0;
-        }
-
-        .filter-group label:last-child {
-            border-radius: 0 0 3px 3px;
-            border: none;
-        }
-
-        .filter-group input[type='checkbox'] {
-            display: none;
-        }
-
-        .filter-group input[type='checkbox']+label {
-            background-color: #3386c0;
-            display: block;
-            cursor: pointer;
-            padding: 10px;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.25);
-        }
-
-        .filter-group input[type='checkbox']+label {
-            background-color: #3386c0;
-            text-transform: capitalize;
-        }
-
-        .filter-group input[type='checkbox']+label:hover,
-        .filter-group input[type='checkbox']:checked+label {
-            background-color: #4ea0da;
-        }
-
-        .filter-group input[type='checkbox']:checked+label:before {
-            content: '✔';
-            margin-right: 5px;
-        }
-    </style>
-    <div id="map"></div>
-    <nav id="filter-group" class="filter-group"></nav>
-
-    <script>
-        mapboxgl.accessToken =
-            'pk.eyJ1IjoiYWxleGJ1Y2szMjgiLCJhIjoiY2szcDZsdmFsMW9rbDNubjMydm9rNGJpMyJ9.05szss9EHEoVBbGYajbPZA';
-        // This GeoJSON contains features that include an "icon"
-        // property. The value of the "icon" property corresponds
-        // to an image in the Mapbox Light style's sprite. (Note:
-        // the name of images is the value of the "icon" property
-        // + "-15".)
-        var places = {
-            'type': 'FeatureCollection',
-            'features': [{
-                    'type': 'Feature',
-                    'properties': {
-                        'icon': 'fire'
-                    },
-                    'geometry': {
-                        'type': 'Point',
-                        'coordinates': [-77.038659, 38.931567]
-                    }
-                },
-                {
-                    'type': 'Feature',
-                    'properties': {
-                        'icon': 'mountain'
-                    },
-                    'geometry': {
-                        'type': 'Point',
-                        'coordinates': [-77.003168, 38.894651]
-                    }
-                },
-                {
-                    'type': 'Feature',
-                    'properties': {
-                        'icon': 'bar'
-                    },
-                    'geometry': {
-                        'type': 'Point',
-                        'coordinates': [-77.090372, 38.881189]
-                    }
-                },
-                {
-                    'type': 'Feature',
-                    'properties': {
-                        'icon': 'bicycle'
-                    },
-                    'geometry': {
-                        'type': 'Point',
-                        'coordinates': [-77.052477, 38.943951]
-                    }
-                },
-                {
-                    'type': 'Feature',
-                    'properties': {
-                        'icon': 'music'
-                    },
-                    'geometry': {
-                        'type': 'Point',
-                        'coordinates': [-77.031706, 38.914581]
-                    }
-                },
-                {
-                    'type': 'Feature',
-                    'properties': {
-                        'icon': 'music'
-                    },
-                    'geometry': {
-                        'type': 'Point',
-                        'coordinates': [-77.020945, 38.878241]
-                    }
-                },
-                {
-                    'type': 'Feature',
-                    'properties': {
-                        'icon': 'music'
-                    },
-                    'geometry': {
-                        'type': 'Point',
-                        'coordinates': [-77.007481, 38.876516]
-                    }
-                }
-            ]
-        };
-
-        var filterGroup = document.getElementById('filter-group');
-        var map = new mapboxgl.Map({
-            container: 'map',
-            style: 'mapbox://styles/mapbox/outdoors-v11',
-            center: [-77.04, 38.907],
-            zoom: 11.15
-        });
-
-        map.on('load', function () {
-            // Add a GeoJSON source containing place coordinates and information.
-            map.addSource('places', {
-                'type': 'geojson',
-                'data': places
-            });
-
-            places.features.forEach(function (feature) {
-                var symbol = feature.properties['icon'];
-                var layerID = 'poi-' + symbol;
-
-                // Add a layer for this symbol type if it hasn't been added already.
-                if (!map.getLayer(layerID)) {
-                    map.addLayer({
-                        'id': layerID,
-                        'type': 'symbol',
-                        'source': 'places',
-                        'layout': {
-                            // These icons are a part of the Mapbox Light style.
-                            // To view all images available in a Mapbox style, open
-                            // the style in Mapbox Studio and click the "Images" tab.
-                            // To add a new image to the style at runtime see
-                            // https://docs.mapbox.com/mapbox-gl-js/example/add-image/
-                            'icon-image': symbol + '-15',
-                            'icon-allow-overlap': true
-                        },
-                        'filter': ['==', 'icon', symbol]
-                    });
-
-                    // Add checkbox and label elements for the layer.
-                    var input = document.createElement('input');
-                    input.type = 'checkbox';
-                    input.id = layerID;
-                    input.checked = true;
-                    filterGroup.appendChild(input);
-
-                    var label = document.createElement('label');
-                    label.setAttribute('for', layerID);
-                    label.textContent = symbol;
-                    filterGroup.appendChild(label);
-
-                    // When the checkbox changes, update the visibility of the layer.
-                    input.addEventListener('change', function (e) {
-                        map.setLayoutProperty(
-                            layerID,
-                            'visibility',
-                            e.target.checked ? 'visible' : 'none'
-                        );
-                    });
-                }
-            });
-        });
-    </script>
-
+    <div id='map'></div>
+    <div id='console'>
+        <h1>Motor vehicle collisions</h1>
+        <p>Data: <a href='https://data.cityofnewyork.us/Public-Safety/NYPD-Motor-Vehicle-Collisions/h9gi-nx95'>Motor
+                vehicle
+                collision injuries and deaths</a> in NYC, Jan 2016</p>
+        <div class='session'>
+            <h2>Casualty</h2>
+            <div class='row colors'>
+            </div>
+            <div class='row labels'>
+                <div class='label'>0</div>
+                <div class='label'>1</div>
+                <div class='label'>2</div>
+                <div class='label'>3</div>
+                <div class='label'>4</div>
+                <div class='label'>5+</div>
+            </div>
+        </div>
+        <div class='session' id='sliderbar'>
+            <h2>Hour: <label id='active-hour'>12PM</label></h2>
+            <input id='slider' class='row' type='range' min='0' max='23' step='1' value='12' />
+        </div>
+        <div class='session'>
+            <h2>Day of the week</h2>
+            <div class='row' id='filters'>
+                <input id='all' type='radio' name='toggle' value='all' checked='checked'>
+                <label for='all'>All</label>
+                <input id='weekday' type='radio' name='toggle' value='weekday'>
+                <label for='weekday'>Weekday</label>
+                <input id='weekend' type='radio' name='toggle' value='weekend'>
+                <label for='weekend'>Weekend</label>
+            </div>
+        </div>
+    </div>
 </body>
+
+<script src='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.js'></script>
+<script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+
+<script>
+    // Access Token
+    mapboxgl.accessToken =
+        'pk.eyJ1IjoiYWxleGJ1Y2szMjgiLCJhIjoiY2szcDZsdmFsMW9rbDNubjMydm9rNGJpMyJ9.05szss9EHEoVBbGYajbPZA';
+
+    // Map!!!
+    var map = new mapboxgl.Map({
+        container: 'map', // container element id
+        style: 'mapbox://styles/mapbox/light-v10',
+        center: [-74.0059, 40.7128], // initial map center in [lon, lat]
+        zoom: 12
+    });
+
+
+
+    map.on('load', function () {
+        var filterHour = ['==', ['number', ['get', 'Hour']], 12];
+        var filterDay = ['!=', ['string', ['get', 'Day']], 'placeholder'];
+
+        map.addLayer({
+            id: 'collisions',
+            type: 'circle',
+            source: {
+                type: 'geojson',
+                data: 'rawData/collisions1601.geojson' // replace this with the url of your own geojson
+            },
+            paint: {
+                'circle-radius': [
+                    'interpolate',
+                    ['linear'],
+                    ['number', ['get', 'Casualty']],
+                    0, 4,
+                    5, 24
+                ],
+                'circle-color': [
+                    'interpolate',
+                    ['linear'],
+                    ['number', ['get', 'Casualty']],
+                    0, '#2DC4B2',
+                    1, '#3BB3C3',
+                    2, '#669EC4',
+                    3, '#8B88B6',
+                    4, '#A2719B',
+                    5, '#AA5E79'
+                ],
+                'circle-opacity': 0.8
+            },
+            filter: ['==', ['number', ['get', 'Hour']], 12]
+        });
+        // SLIDER
+        document.getElementById('slider').addEventListener('input', function (e) {
+            var hour = parseInt(e.target.value);
+            // update the map
+            filterHour = ['==', ['number', ['get', 'Hour']], hour];
+            map.setFilter('collisions', ['all', filterHour, filterDay]);
+            //map.setFilter('collisions', ['==', ['number', ['get', 'Hour']], hour]);
+
+            // converting 0-23 hour to AMPM format
+            var ampm = hour >= 12 ? 'PM' : 'AM';
+            var hour12 = hour % 12 ? hour % 12 : 12;
+
+            // update text in the UI
+            document.getElementById('active-hour').innerText = hour12 + ampm;
+        });
+        // RADIO BUTTONS
+        document
+            .getElementById('filters')
+            .addEventListener('change', function (e) {
+                var day = e.target.value;
+                // update the map filter
+                if (day === 'all') {
+                    filterDay = ['!=', ['string', ['get', 'Day']], 'placeholder'];
+                } else if (day === 'weekday') {
+                    filterDay = [
+                        'match',
+                        ['get', 'Day'],
+                        ['Sat', 'Sun'],
+                        false,
+                        true
+                    ];
+                } else if (day === 'weekend') {
+                    filterDay = [
+                        'match',
+                        ['get', 'Day'],
+                        ['Sat', 'Sun'],
+                        true,
+                        false
+                    ];
+                } else {
+                    console.log('error');
+                }
+                map.setFilter('collisions', ['all', filterHour, filterDay]);
+            });
+    });
+</script>
 
 </html>
