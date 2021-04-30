@@ -39,7 +39,8 @@
 
         #console {
             position: absolute;
-            width: 240px;
+            width: 520px;
+            /* 240px; */
             margin: 10px;
             padding: 10px 20px;
             background-color: white;
@@ -92,14 +93,34 @@
             <input id='slider' class='row' type='range' min='0' max='43' step='1' value='43' />
         </div>
         <div class='session'>
-            <h2>Day of the week</h2>
+            <h2>Month of year</h2>
             <div class='row' id='filters'>
                 <input id='all' type='radio' name='toggle' value='all' checked='checked'>
                 <label for='all'>All</label>
-                <input id='weekday' type='radio' name='toggle' value='weekday'>
-                <label for='weekday'>Weekday</label>
-                <input id='weekend' type='radio' name='toggle' value='weekend'>
-                <label for='weekend'>Weekend</label>
+                <input id='January' type='radio' name='toggle' value='January'>
+                <label for='January'>January</label>
+                <input id='February' type='radio' name='toggle' value='February'>
+                <label for='February'>February</label>
+                <input id='March' type='radio' name='toggle' value='March'>
+                <label for='March'>March</label>
+                <input id='April' type='radio' name='toggle' value='April'>
+                <label for='April'>April</label>
+                <input id='May' type='radio' name='toggle' value='May'>
+                <label for='May'>May</label>
+                <input id='June' type='radio' name='toggle' value='June'>
+                <label for='June'>June</label>
+                <input id='July' type='radio' name='toggle' value='July'>
+                <label for='July'>July</label>
+                <input id='August' type='radio' name='toggle' value='August'>
+                <label for='August'>August</label>
+                <input id='September' type='radio' name='toggle' value='September'>
+                <label for='September'>September</label>
+                <input id='October' type='radio' name='toggle' value='October'>
+                <label for='October'>October</label>
+                <input id='November' type='radio' name='toggle' value='November'>
+                <label for='November'>November</label>
+                <input id='December' type='radio' name='toggle' value='December'>
+                <label for='December'>December</label>
             </div>
         </div>
     </div>
@@ -117,7 +138,7 @@
     var map = new mapboxgl.Map({
         container: 'map', // container element id
         style: 'mapbox://styles/mapbox/light-v10',
-        center: [-109.4125, 41.4376], // initial map center in [lon, lat]
+        center: [-118.646, 43.0434], // initial map center in [lon, lat]
         zoom: 4.66
     });
 
@@ -132,13 +153,6 @@
             'data/bothDatesClean.geojson',
             function (err, data) {
                 if (err) throw err;
-
-                // Create a month property value based on time
-                // used to filter against.
-                data.features = data.features.map(function (d) {
-                    d.properties.month = new Date(d.properties.IgntDate).getMonth();
-                    return d;
-                });
 
                 // Create a year property value based on IgntDate (time)
                 // used to filter against.
@@ -176,53 +190,54 @@
                     var year = parseInt(e.target.value, 10);
 
                     const fireYears = [1976,
-                    1977,
-                    1978,
-                    1979,
-                    1980,
-                    1981,
-                    1982,
-                    1983,
-                    1984,
-                    1985,
-                    1986,
-                    1987,
-                    1988,
-                    1989,
-                    1990,
-                    1991,
-                    1992,
-                    1993,
-                    1994,
-                    1995,
-                    1996,
-                    1997,
-                    1998,
-                    1999,
-                    2000,
-                    2001,
-                    2002,
-                    2003,
-                    2004,
-                    2005,
-                    2006,
-                    2007,
-                    2008,
-                    2009,
-                    2010,
-                    2011,
-                    2012,
-                    2013,
-                    2014,
-                    2015,
-                    2016,
-                    2017,
-                    2018,
-                    2019];
+                        1977,
+                        1978,
+                        1979,
+                        1980,
+                        1981,
+                        1982,
+                        1983,
+                        1984,
+                        1985,
+                        1986,
+                        1987,
+                        1988,
+                        1989,
+                        1990,
+                        1991,
+                        1992,
+                        1993,
+                        1994,
+                        1995,
+                        1996,
+                        1997,
+                        1998,
+                        1999,
+                        2000,
+                        2001,
+                        2002,
+                        2003,
+                        2004,
+                        2005,
+                        2006,
+                        2007,
+                        2008,
+                        2009,
+                        2010,
+                        2011,
+                        2012,
+                        2013,
+                        2014,
+                        2015,
+                        2016,
+                        2017,
+                        2018,
+                        2019
+                    ];
 
                     var sliderYear = fireYears[year]
 
-                //    console.log(sliderYear)
+                   console.log(sliderYear)
 
                     // update the map
                     filterYear = ['==', ['number', ['get', 'year']], sliderYear];
@@ -234,66 +249,118 @@
 
 
                 // RADIO BUTTONS
-                            document
-                                .getElementById('filters')
-                                .addEventListener('change', function (e) {
-                                    var month = (e.target.value, 10);
-                                    // update the map filter
-                                    if (year === 'all') {
-                                        filterYear = ['!=', ['string', ['get', 'year']], 'placeholder'];
-                                    } else if (year === 'weekday') {
-                                        filterYear = [
-                                            'match',
-                                            ['get', 'Day'],
-                                            ['Sat', 'Sun'],
-                                            false,
-                                            true
-                                        ];
-                                    } else if (Month === 'weekend') {
-                                        filterMonth = [
-                                            'match',
-                                            ['get', 'Day'],
-                                            ['Sat', 'Sun'],
-                                            true,
-                                            false
-                                        ];
-                                    } else {
-                                        console.log('error');
-                                    }
-                                    map.setFilter('collisions', ['all', filterMonth, filterYear]);
-                                });
+                document
+                    .getElementById('filters')
+                    .addEventListener('change', function (e) {
+                        var month = (e.target.value);
 
+                        console.log(month)
 
+                        // update the map filter
+                        if (month === 'all') {
+                            filterMonth = ['!=', ['string', ['get', 'IgntMonth']], 'placeholder'];
+                        } else if (month === 'January') {
+                            filterMonth = [
+                                'match',
+                                ['get', 'IgntMonth'],
+                                ['January'],
+                                false,
+                                true
+                            ];
+                        } else if (month === 'February') {
+                            filterMonth = [
+                                'match',
+                                ['get', 'IgntMonth'],
+                                ['February'],
+                                false,
+                                true
+                            ];
+                        } else if (month === 'March') {
+                            filterMonth = [
+                                'match',
+                                ['get', 'IgntMonth'],
+                                ['March'],
+                                false,
+                                true
+                            ];
+                        } else if (month === 'April') {
+                            filterMonth = [
+                                'match',
+                                ['get', 'IgntMonth'],
+                                ['April'],
+                                false,
+                                true
+                            ];
+                        } else if (month === 'May') {
+                            filterMonth = [
+                                'match',
+                                ['get', 'IgntMonth'],
+                                ['May'],
+                                false,
+                                true
+                            ];
+                        } else if (month === 'June') {
+                            filterMonth = [
+                                'match',
+                                ['get', 'IgntMonth'],
+                                ['June'],
+                                false,
+                                true
+                            ];
+                        } else if (month === 'July') {
+                            filterMonth = [
+                                'match',
+                                ['get', 'IgntMonth'],
+                                ['July'],
+                                false,
+                                true
+                            ];
+                        } else if (month === 'August') {
+                            filterMonth = [
+                                'match',
+                                ['get', 'IgntMonth'],
+                                ['August'],
+                                false,
+                                true
+                            ];
+                        } else if (month === 'September') {
+                            filterMonth = [
+                                'match',
+                                ['get', 'IgntMonth'],
+                                ['September'],
+                                false,
+                                true
+                            ];
+                        } else if (month === 'October') {
+                            filterMonth = [
+                                'match',
+                                ['get', 'IgntMonth'],
+                                ['October'],
+                                false,
+                                true
+                            ];
+                        } else if (month === 'November') {
+                            filterMonth = [
+                                'match',
+                                ['get', 'IgntMonth'],
+                                ['November'],
+                                false,
+                                true
+                            ];
+                        } else if (month === 'December') {
+                            filterMonth = [
+                                'match',
+                                ['get', 'IgntMonth'],
+                                ['December'],
+                                true,
+                                false
+                            ];
+                        } else {
+                            console.log('error');
+                        }
+                        map.setFilter('firePolys', ['all', filterMonth, filterYear]);
+                    });
 
-
-                //    document
-                //        .getElementById('filters')
-                //        .addEventListener('change', function (e) {
-                //            var day = e.target.value;
-                //            // update the map filter
-                //            if (day === 'all') {
-                //                filterDay = ['!=', ['string', ['get', 'Day']], 'placeholder'];
-                //            } else if (day === 'weekday') {
-                //                filterDay = [
-                //                    'match',
-                //                    ['get', 'Day'],
-                //                    ['Sat', 'Sun'],
-                //                    false,
-                //                    true
-                //                ];
-                //            } else if (day === 'weekend') {
-                //                filterDay = [
-                //                    'match',
-                //                   ['get', 'Day'],
-                //                    ['Sat', 'Sun'],
-                //                    true,
-                //                    false
-                //                ];
-                //            } else {
-                //                console.log('error');
-                //            }
-                //            map.setFilter('collisions', ['all', filterHour, filterDay]);
-                //        });
             });
     });
 </script>
