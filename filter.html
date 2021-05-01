@@ -5,8 +5,10 @@
 
     <meta charset='utf-8' />
     <title>FIRE</title>
-    <meta name='viewport' content='width=device-width, initial-scale=1' />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.css' rel='stylesheet' />
+    <!--  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"> -->
     <style>
         body {
             margin: 0;
@@ -16,6 +18,7 @@
 
         #map {
             position: absolute;
+            z-index: -1;
             top: 0;
             bottom: 0;
             width: 100%;
@@ -45,10 +48,13 @@
         #console {
             position: absolute;
             display: grid;
-           /* grid-template-columns: 1fr 1fr 1fr; */
-            grid-template-rows: 50px 50px;
-            width: 520px;
-            /* 240px; */
+            /* grid-template-columns: 1fr 1fr 1fr; */
+            /* grid-template-rows: 50px 50px; */
+            width: 31%;
+            /* 520px; */
+            height: 55%;
+            bottom: 0;
+            left: 0;
             margin: 10px;
             padding: 10px 20px;
             background-color: white;
@@ -69,6 +75,7 @@
         }
 
         .label {
+            /* font-size: 10%;  */
             width: 15%;
             display: inline-block;
             text-align: center;
@@ -78,9 +85,11 @@
 
 <body>
     <div id='map'></div>
+
     <div id='console'>
         <h1>Patterns of Destruction</h1>
-        <p>Data: <a href='https://www.sciencebase.gov/catalog/item/5ee13de982ce3bd58d7be7e7'>Combined wildfire datasets
+        <p>Data: <a href='https://www.sciencebase.gov/catalog/item/5ee13de982ce3bd58d7be7e7'>Combined wildfire
+                datasets
                 for the United States and certain territories, 1878-2019</a></p>
         <div class='session'>
             <h2>Acreage</h2>
@@ -131,8 +140,29 @@
             </div>
         </div>
     </div>
+
+
+
+
+
+
+
+
+
+
+
+    <!--   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous">
+    </script> -->
 </body>
 
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>  -->
 <script src='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.js'></script>
 <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 
@@ -192,13 +222,13 @@
                             75000, '#fc4e2a',
                             150000, '#e31a1c',
                             300000, '#b10026',
-                            
+
                             //  900, '#fd8d3c', // '#FCA107',
                             //  900000, '#b10026', // '#7F3121'
                         ],
                         'fill-opacity': 0.8
                     },
-                    filter: ['==', ['number', ['get', 'year']], 2019] 
+                    filter: ['==', ['number', ['get', 'year']], 2019]
                 });
 
 
@@ -254,7 +284,7 @@
 
                     var sliderYear = fireYears[year]
 
-                    console.log(sliderYear)
+                    //    console.log(sliderYear)
 
                     // update the map
                     filterYear = ['==', ['number', ['get', 'year']], sliderYear];
@@ -271,7 +301,7 @@
                     .addEventListener('change', function (e) {
                         var month = (e.target.value);
 
-                        console.log(month)
+                        //    console.log(month)
 
                         // update the map filter
                         if (month === 'all') {
@@ -386,7 +416,7 @@
                     var acresFixed = acresNum.toFixed(2);
                     var ac = acresNum.toLocaleString()
 
-                    
+
                     // console.log(acresFixed)
 
                     new mapboxgl.Popup()
