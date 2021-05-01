@@ -137,7 +137,7 @@
     // Map!!!
     var map = new mapboxgl.Map({
         container: 'map', // container element id
-        style: 'mapbox://styles/mapbox/light-v10',
+        style: 'mapbox://styles/mapbox/dark-v10',
         center: [-118.646, 43.0434], // initial map center in [lon, lat]
         zoom: 4.66
     });
@@ -266,88 +266,88 @@
                                 'match',
                                 ['get', 'IgntMonth'],
                                 ['January'],
-                                false,
-                                true
+                                true,
+                                false
                             ];
                         } else if (month === 'February') {
                             filterMonth = [
                                 'match',
                                 ['get', 'IgntMonth'],
                                 ['February'],
-                                false,
-                                true
+                                true,
+                                false
                             ];
                         } else if (month === 'March') {
                             filterMonth = [
                                 'match',
                                 ['get', 'IgntMonth'],
                                 ['March'],
-                                false,
-                                true
+                                true,
+                                false
                             ];
                         } else if (month === 'April') {
                             filterMonth = [
                                 'match',
                                 ['get', 'IgntMonth'],
                                 ['April'],
-                                false,
-                                true
+                                true,
+                                false
                             ];
                         } else if (month === 'May') {
                             filterMonth = [
                                 'match',
                                 ['get', 'IgntMonth'],
                                 ['May'],
-                                false,
-                                true
+                                true,
+                                false
                             ];
                         } else if (month === 'June') {
                             filterMonth = [
                                 'match',
                                 ['get', 'IgntMonth'],
                                 ['June'],
-                                false,
-                                true
+                                true,
+                                false
                             ];
                         } else if (month === 'July') {
                             filterMonth = [
                                 'match',
                                 ['get', 'IgntMonth'],
                                 ['July'],
-                                false,
-                                true
+                                true,
+                                false
                             ];
                         } else if (month === 'August') {
                             filterMonth = [
                                 'match',
                                 ['get', 'IgntMonth'],
                                 ['August'],
-                                false,
-                                true
+                                true,
+                                false
                             ];
                         } else if (month === 'September') {
                             filterMonth = [
                                 'match',
                                 ['get', 'IgntMonth'],
                                 ['September'],
-                                false,
-                                true
+                                true,
+                                false
                             ];
                         } else if (month === 'October') {
                             filterMonth = [
                                 'match',
                                 ['get', 'IgntMonth'],
                                 ['October'],
-                                false,
-                                true
+                                true,
+                                false
                             ];
                         } else if (month === 'November') {
                             filterMonth = [
                                 'match',
                                 ['get', 'IgntMonth'],
                                 ['November'],
-                                false,
-                                true
+                                true,
+                                false
                             ];
                         } else if (month === 'December') {
                             filterMonth = [
@@ -369,14 +369,16 @@
 
                     var acresNum = e.features[0].properties.Acres
                     var acresFixed = acresNum.toFixed(2);
+                    var ac = acresNum.toLocaleString()
 
+                    
                     // console.log(acresFixed)
 
                     new mapboxgl.Popup()
                         .setLngLat(e.lngLat)
                         .setHTML(`<b>Fire Name:</b> ${e.features[0].properties.FireName}<br><b>Fire
                         Cause:</b> ${e.features[0].properties.FireCause}<br><b>Fire
-                        Size:</b> ${acresFixed} Acres<br><b>Fire Year:</b>
+                        Size:</b> ${ac} Acres<br><b>Fire Year:</b>
                         ${e.features[0].properties.FireYear}<br><b>Ignition Month:</b>
                         ${e.features[0].properties.IgntMonth}<br><b>Control Month:</b>
                         ${e.features[0].properties.ContrlMonth}`)
