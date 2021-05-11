@@ -4,7 +4,7 @@
 <head>
 
     <meta charset='utf-8' />
-    <title>RESP
+    <title>IND
     </title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.css' rel='stylesheet' />
@@ -20,7 +20,7 @@
 
         #map {
             position: absolute;
-            z-index: -1;
+            z-index: -10;
             top: 0;
             bottom: 0;
             width: 100%;
@@ -42,6 +42,10 @@
             color: #feb24c;
         }
 
+        a.disabled {
+            pointer-events: none;
+        }
+
         a:hover {
             text-decoration: underline;
             font-style: italic;
@@ -54,7 +58,7 @@
             /* grid-template-rows: 50px 50px; */
             width: 31%;
             /* 520px; */
-            height: 55%;
+            height: 40%;
             bottom: 0;
             left: 0;
             margin: 10px;
@@ -179,6 +183,14 @@
             overflow-y: auto;
         }
 
+        #orange {
+            color: #fefcc9;
+            text-shadow: 0 0 20px #fefcc9, 10px -10px 30px #feec85, -20px -20px 40px #ffae34, 20px -40px 50px #ec760c, -20px -60px 60px #cd4606, 0 -80px 70px #973716, 10px -90px 80px #451b0e;
+        }
+
+        #navBar {
+            background-color: #9e2f2f00; /* #242424; */
+        }
 
 
         @media screen and (max-width: 600px) {
@@ -191,110 +203,22 @@
 
 <body>
     <!-- NAVBAR -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">Patterns of Destruction</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+    <nav class="navbar navbar-expand-lg navbar-dark " id="navBar">
+        <div class="container-fluid" >
+         <a class="nav-link h3" href="https://github.com/AlexBuck328/wildfires" target="blank" id="orange">Patterns of Destruction</a>
+        <!--    <span class="orange navbar-brand mb-0 h1" id="orange">Patterns of Destruction</span> -->
+        </div>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <!--    <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="https://github.com/AlexBuck328/wildfires" target="blank">About</a>
+                    <a class="nav-link" href="https://github.com/AlexBuck328/wildfires" target="blank" id="orange">About</a>
                 </li>
 
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Select Fire Year
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">1976</a>
-                        <a class="dropdown-item" href="#">1977</a>
-                        <a class="dropdown-item" href="#">1978</a>
-                        <a class="dropdown-item" href="#">1979</a>
-                        <a class="dropdown-item" href="#">1980</a>
-                        <a class="dropdown-item" href="#">1981</a>
-                        <a class="dropdown-item" href="#">1982</a>
-                        <a class="dropdown-item" href="#">1983</a>
-                        <a class="dropdown-item" href="#">1984</a>
-                        <a class="dropdown-item" href="#">1985</a>
-                        <a class="dropdown-item" href="#">1986</a>
-                        <a class="dropdown-item" href="#">1987</a>
-                        <a class="dropdown-item" href="#">1988</a>
-                        <a class="dropdown-item" href="#">1989</a>
-                        <a class="dropdown-item" href="#">1990</a>
-                        <a class="dropdown-item" href="#">1991</a>
-                        <a class="dropdown-item" href="#">1992</a>
-                        <a class="dropdown-item" href="#">1993</a>
-                        <a class="dropdown-item" href="#">1994</a>
-                        <a class="dropdown-item" href="#">1995</a>
-                        <a class="dropdown-item" href="#">1996</a>
-                        <a class="dropdown-item" href="#">1997</a>
-                        <a class="dropdown-item" href="#">1998</a>
-                        <a class="dropdown-item" href="#">1999</a>
-                        <a class="dropdown-item" href="#">2000</a>
-                        <a class="dropdown-item" href="#">2001</a>
-                        <a class="dropdown-item" href="#">2002</a>
-                        <a class="dropdown-item" href="#">2003</a>
-                        <a class="dropdown-item" href="#">2004</a>
-                        <a class="dropdown-item" href="#">2005</a>
-                        <a class="dropdown-item" href="#">2006</a>
-                        <a class="dropdown-item" href="#">2007</a>
-                        <a class="dropdown-item" href="#">2008</a>
-                        <a class="dropdown-item" href="#">2009</a>
-                        <a class="dropdown-item" href="#">2010</a>
-                        <a class="dropdown-item" href="#">2011</a>
-                        <a class="dropdown-item" href="#">2012</a>
-                        <a class="dropdown-item" href="#">2013</a>
-                        <a class="dropdown-item" href="#">2014</a>
-                        <a class="dropdown-item" href="#">2015</a>
-                        <a class="dropdown-item" href="#">2016</a>
-                        <a class="dropdown-item" href="#">2017</a>
-                        <a class="dropdown-item" href="#">2018</a>
-                        <a class="dropdown-item" href="#">2019</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
-            </ul>
-        </div>
-
-
-
-
-
-
-        <!--    <form class="float-right form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Enter Fire Year" aria-label="Search"
-                    id='input'>
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id='myBtn'>Search</button>
-            </form>
+                
         </div> -->
 
-        <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-            Launch demo modal
-        </button>
 
-        <!-- Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        ...
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
-                    </div>
-                </div>
-            </div>
-        </div>
     </nav>
 
 
@@ -303,12 +227,8 @@
     <div id='map'></div>
 
     <div id='console'>
-        <h1>Patterns of Destruction</h1>
-        <p>Data: <a href='https://www.sciencebase.gov/catalog/item/5ee13de982ce3bd58d7be7e7'>Combined wildfire
-                datasets
-                for the United States and certain territories, 1878-2019</a></p>
         <div class='session'>
-            <h2>Acreage</h2>
+            <h1>Acreage</h1>
             <div class='row colors'>
             </div>
             <div class='row labels'>
@@ -321,11 +241,11 @@
             </div>
         </div>
         <div class='session' id='sliderbar'>
-            <h2>Year: <label id='active-year'>2019</label></h2>
+            <h1>Year: <label id='active-year'>2019</label></h1>
             <input id='slider' class='row' type='range' min='0' max='43' step='1' value='43' />
         </div>
         <div class='session'>
-            <h2>Month of year</h2>
+            <h1>Month of year</h1>
             <div class='row' id='filters'>
                 <input id='all' type='radio' name='toggle' value='all' checked='checked'>
                 <label for='all'>All</label>
@@ -385,7 +305,7 @@
     var map = new mapboxgl.Map({
         container: 'map', // container element id
         style: 'mapbox://styles/mapbox/dark-v10',
-        center: [-118.3527, 40.7815], // initial map center in [lon, lat]
+        center: [-118.9345, 40.2292], // initial map center in [lon, lat]
         zoom: 4.66
     });
 
@@ -651,6 +571,12 @@
                 });
 
             });
+    });
+
+    $(function () {
+        $('a.disabled').on('click', function (event) {
+            event.preventDefault();
+        }).removeClass('disabled');
     });
 </script>
 
