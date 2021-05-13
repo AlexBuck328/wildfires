@@ -1,222 +1,335 @@
-<!doctype html>
-
-<html lang="en">
-
+<!DOCTYPE html>
+<html>
 <head>
-    <meta charset="utf-8">
-    
-
+    <meta charset='utf-8' />
     <title>Patterns of Destruction</title>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link href="https://api.mapbox.com/mapbox-assembly/v0.24.0/assembly.min.css" rel="stylesheet">
-    <link href="https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.css" rel="stylesheet">
-    
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v2.0.0/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v2.0.0/mapbox-gl.css' rel='stylesheet' />
+    <script src="https://unpkg.com/intersection-observer@0.5.1/intersection-observer.js"></script>
+    <script src="https://unpkg.com/scrollama"></script>
     <style>
         body {
+            margin:0;
+            padding:0;
             font-family: sans-serif;
-            margin: 0;
-            padding: 0;
         }
-
+        a, a:hover, a:visited {
+            color: #0071bc;
+        }
         #map {
-            position: absolute;
+            top:0;
+            height: 100vh;
+            width:100vw;
+            position: fixed;
+        }
+        #header {
+            margin: auto;
             width: 100%;
-            top: 50px;
-            top: 0;
-            bottom: 0;
-            z-index: -1;
+            position: relative;
+            z-index: 5;
         }
-    </style>
+        #header h1, #header h2, #header p {
+            margin: 0;
+            padding: 2vh 2vw;
+            text-align: center;
+        }
+        #footer {
+            width: 100%;
+            min-height: 5vh;
+            padding-top: 2vh;
+            padding-bottom: 2vh;
+            text-align: center;
+            line-height: 25px;
+            font-size: 13px;
+            position: relative;
+            z-index: 5;
+        }
+        #features {
+            padding-top: 10vh;
+            padding-bottom: 10vh;
+        }
+        .hidden {
+            visibility: hidden;
+        }
+        .centered {
+            width: 50vw;
+            margin: 0 auto;
+        }
+        .lefty {
+            width: 33vw;
+            margin-left: 5vw;
+        }
+        .righty {
+            width: 33vw;
+            margin-left: 62vw;
+        }
+        .fully {
+            width: 100%;
+            margin: auto;
+        }
+        .light {
+            color: #444;
+            background-color: #fafafa;
+        }
+        .dark {
+            color: #fafafa;
+            background-color: #444;
+        }
+        .step {
+            padding-bottom: 50vh;
+            /* margin-bottom: 10vh; */
+            opacity: 0.25;
+        }
+        .step.active {
+            opacity: 0.9;
+        }
+
+        .step div {
+            padding:  25px 50px;
+            line-height: 25px;
+            font-size: 13px;
+        }
+
+        .step img {
+            width: 100%;
+        }
+
+        @media (max-width: 750px) {
+            .centered, .lefty, .righty, .fully {
+                width: 90vw;
+                margin: 0 auto;
+            }
+        }
+
+        /* Fix issue on mobile browser where scroll breaks  */
+        .mapboxgl-canvas-container.mapboxgl-touch-zoom-rotate.mapboxgl-touch-drag-pan, 
+        .mapboxgl-canvas-container.mapboxgl-touch-zoom-rotate.mapboxgl-touch-drag-pan .mapboxgl-canvas {
+            touch-action: unset;
+        }
+
+        </style>
 </head>
-
 <body>
-    <!-- NAVBAR -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">Patterns of Destruction</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="https://github.com/AlexBuck328/wildfires" target="blank">About</a>
-                </li>
+<div id="map"></div>
+<div id="story"></div>
+<script src="./config.js"></script>
+<script>
+var layerTypes = {
+    'fill': ['fill-opacity'],
+    'line': ['line-opacity'],
+    'circle': ['circle-opacity', 'circle-stroke-opacity'],
+    'symbol': ['icon-opacity', 'text-opacity'],
+    'raster': ['raster-opacity'],
+    'fill-extrusion': ['fill-extrusion-opacity'],
+    'heatmap': ['heatmap-opacity']
+}
 
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Select Fire Year
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
-            </ul>
-            
+var alignments = {
+    'left': 'lefty',
+    'center': 'centered',
+    'right': 'righty',
+    'full': 'fully'
+}
 
-                    <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Enter Fire Year" aria-label="Search"
-                    id='input'>
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id='myBtn'>Search</button>
-            </form>
-        </div>
-    </nav>
+function getLayerPaintType(layer) {
+    var layerType = map.getLayer(layer).type;
+    return layerTypes[layerType];
+}
 
-
-    
-    <!-- ui slider -->
-    <div id='slider' class='range w240 bg-white round-ml px12'>
-        <input type="range" min="1" , max="12" , value="1" , step="1">
-    </div>
-
-
-    <!-- CREATE MAP DIV -->
-    <div id="map"></div>
-
-
-    <!-- LOAD REQUIRED JS -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://d3js.org/d3.v5.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
-    <script src="https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
-    </script>
-    <script async defer src="https://api.mapbox.com/mapbox-assembly/v0.24.0/assembly.js"></script>
-    <script src='data/bothDates.js'></script>
-
-
-    <script>
-        // map options
-        const options = {
-            center: [38.7575271, -96.677089],
-            zoom: 4.8,
-            zoomSnap: .4,
-            zoomControl: false
+function setLayerOpacity(layer) {
+    var paintProps = getLayerPaintType(layer.layer);
+    paintProps.forEach(function(prop) {
+        var options = {};
+        if (layer.duration) {
+            var transitionProp = prop + "-transition";
+            options = { "duration": layer.duration };
+            map.setPaintProperty(layer.layer, transitionProp, options);
         }
+        map.setPaintProperty(layer.layer, prop, layer.opacity, options);
+    });
+}
 
-        // instantiate Leaflet map
-        const map = L.map('map', options)
+var story = document.getElementById('story');
+var features = document.createElement('div');
+features.setAttribute('id', 'features');
 
-        // ADD CARTO VOYAGER TILES WITH NO LABELS
-        L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
-            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
-            subdomains: 'abcd',
-        }).addTo(map)
+var header = document.createElement('div');
 
-        // Declare constant variables for data
-        const fire20 = d3.json('data/fire20s.geojson');
-        const fire30 = d3.json('data/fire30s.geojson');
-        const fire40 = d3.json('data/fire40s.geojson');
-        const fire50 = d3.json('data/fire50s.geojson');
-        const fire60 = d3.json('data/fire60s.geojson');
-        const fire70 = d3.json('data/fire70s.geojson');
-        const fire80 = d3.json('data/fire80s.geojson');
-        const fire90 = d3.json('data/fire90s.geojson');
-        const fire2k = d3.json('data/fire2k.geojson');
-        const fire2k10 = d3.json('data/fire2k10.geojson');
-        const igCtrlDates = d3.json('rawData/bothIgCtrlDates.geojson')
+if (config.title) {
+    var titleText = document.createElement('h1');
+    titleText.innerText = config.title;
+    header.appendChild(titleText);
+}
 
-        Promise.all([fire20, fire30, fire40, fire50, fire60, fire70, fire80, fire90, fire2k, fire2k10, igCtrlDates
-        ]).then(drawMap)
+if (config.subtitle) {
+    var subtitleText = document.createElement('h2');
+    subtitleText.innerText = config.subtitle;
+    header.appendChild(subtitleText);
+}
 
+if (config.byline) {
+    var bylineText = document.createElement('p');
+    bylineText.innerText = config.byline;
+    header.appendChild(bylineText);
+}
 
-        function drawMap(data) {
+if (header.innerText.length > 0) {
+    header.classList.add(config.theme);
+    header.setAttribute('id', 'header');
+    story.appendChild(header);
+}
 
-            //    console.log(data)
+config.chapters.forEach((record, idx) => {
+    var container = document.createElement('div');
+    var chapter = document.createElement('div');
 
-            const fire20 = data[0]
-            const fire30 = data[1]
-            const fire40 = data[2]
-            const fire50 = data[3]
-            const fire60 = data[4]
-            const fire70 = data[5]
-            const fire80 = data[6]
-            const fire90 = data[7]
-            const fire2k = data[8]
-            const fire2k10 = data[9]
-            //    const wildFires = [fire20, fire30, fire40, fire50, fire60, fire70, fire80, fire90, fire2k, fire2k10]
-            const bothDates = data[10]
-            
+    if (record.title) {
+        var title = document.createElement('h3');
+        title.innerText = record.title;
+        chapter.appendChild(title);
+    }
 
-            console.log(bothDates)
+    if (record.image) {
+        var image = new Image();
+        image.src = record.image;
+        chapter.appendChild(image);
+    }
 
-            const wildfires = L.geoJson(bothDates, {
-                // style counties with initial default path
-                style: function (feature) {
-                    return {
-                        color: '#20282e',
-                        weight: 2,
-                        fillOpacity: 1,
-                        fillColor: '#1f78b4'
-                    };
-                },
-                // add hover and touch functionality to each layer
-                onEachFeature: function (feature, layer) {
-                    // when mousing over a layer
-                    layer.on('mouseover', function () {
-                        // change the stroke color and bring that element to the front
-                        layer.setStyle({
-                            color: '#ff6e00'
-                        }).bringToFront();
-                    });
-                    // on mousing off layer
-                    layer.on('mouseout', function () {
-                        // reset the layer to the original stroke color
-                        layer.setStyle({
-                            color: '#20282e'
-                        });
-                    });
-                }
+    if (record.description) {
+        var story = document.createElement('p');
+        story.innerHTML = record.description;
+        chapter.appendChild(story);
+    }
 
+    container.setAttribute('id', record.id);
+    container.classList.add('step');
+    if (idx === 0) {
+        container.classList.add('active');
+    }
 
-            }).addTo(map);
+    chapter.classList.add(config.theme);
+    container.appendChild(chapter);
+    container.classList.add(alignments[record.alignment] || 'centered');
+    if (record.hidden) {
+        container.classList.add('hidden');
+    }
+    features.appendChild(container);
+});
 
-        }
+story.appendChild(features);
 
+var footer = document.createElement('div');
 
-        // Event listener for user to click SEARCH
-        document.getElementById("myBtn").addEventListener("click", getFireYear);
+if (config.footer) {
+    var footerText = document.createElement('p');
+    footerText.innerHTML = config.footer;
+    footer.appendChild(footerText);
+}
 
+if (footer.innerText.length > 0) {
+    footer.classList.add(config.theme);
+    footer.setAttribute('id', 'footer');
+    story.appendChild(footer);
+}
 
-        // get search input
-        function getFireYear(x) {
-            var x = document.getElementById('input').value;
-            console.log(x)
+mapboxgl.accessToken = config.accessToken;
 
-            // getPolys(x)
-        }
+const transformRequest = (url) => {
+    const hasQuery = url.indexOf("?") !== -1;
+    const suffix = hasQuery ? "&pluginName=scrollytellingV2" : "?pluginName=scrollytellingV2";
+    return {
+      url: url + suffix
+    }
+}
 
+var map = new mapboxgl.Map({
+    container: 'map',
+    style: config.style,
+    center: config.chapters[0].location.center,
+    zoom: config.chapters[0].location.zoom,
+    bearing: config.chapters[0].location.bearing,
+    pitch: config.chapters[0].location.pitch,
+    interactive: false,
+    transformRequest: transformRequest
+});
 
+if (config.showMarkers) {
+    var marker = new mapboxgl.Marker({ color: config.markerColor });
+    marker.setLngLat(config.chapters[0].location.center).addTo(map);
+}
 
-        // do the same thing for the UI slider
-        var sliderControl = L.control({
-            position: 'bottomleft'
+// instantiate the scrollama
+var scroller = scrollama();
+
+map.on("load", function() {
+    if (config.use3dTerrain) {
+        map.addSource('mapbox-dem', {
+            'type': 'raster-dem',
+            'url': 'mapbox://mapbox.mapbox-terrain-dem-v1',
+            'tileSize': 512,
+            'maxzoom': 14
         });
+        // add the DEM source as a terrain layer with exaggerated height
+        map.setTerrain({ 'source': 'mapbox-dem', 'exaggeration': 1.5 });
 
-        sliderControl.onAdd = function (map) {
+        // add a sky layer that will show when the map is highly pitched
+        map.addLayer({
+            'id': 'sky',
+            'type': 'sky',
+            'paint': {
+                'sky-type': 'atmosphere',
+                'sky-atmosphere-sun': [0.0, 0.0],
+                'sky-atmosphere-sun-intensity': 15
+            }
+        });
+    };
 
-            var controls = L.DomUtil.get("slider");
-
-            L.DomEvent.disableScrollPropagation(controls);
-            L.DomEvent.disableClickPropagation(controls);
-
-            return controls;
-
+    // setup the instance, pass callback functions
+    scroller
+    .setup({
+        step: '.step',
+        offset: 0.5,
+        progress: true
+    })
+    .onStepEnter(response => {
+        var chapter = config.chapters.find(chap => chap.id === response.element.id);
+        response.element.classList.add('active');
+        map[chapter.mapAnimation || 'flyTo'](chapter.location);
+        if (config.showMarkers) {
+            marker.setLngLat(chapter.location.center);
         }
+        if (chapter.onChapterEnter.length > 0) {
+            chapter.onChapterEnter.forEach(setLayerOpacity);
+        }
+        if (chapter.callback) {
+            window[chapter.callback]();
+        }
+        if (chapter.rotateAnimation) {
+            map.once('moveend', function() {
+                const rotateNumber = map.getBearing();
+                map.rotateTo(rotateNumber + 90, {
+                    duration: 24000, easing: function (t) {
+                        return t;
+                    }
+                });
+            });
+        }
+    })
+    .onStepExit(response => {
+        var chapter = config.chapters.find(chap => chap.id === response.element.id);
+        response.element.classList.remove('active');
+        if (chapter.onChapterExit.length > 0) {
+            chapter.onChapterExit.forEach(setLayerOpacity);
+        }
+    });
+});
 
-        sliderControl.addTo(map);
-    </script>
+// setup resize event
+window.addEventListener('resize', scroller.resize);
+
+</script>
+
 </body>
-
 </html>

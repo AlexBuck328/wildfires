@@ -1,0 +1,222 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    
+
+    <title>Patterns of Destruction</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://api.mapbox.com/mapbox-assembly/v0.24.0/assembly.min.css" rel="stylesheet">
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.css" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        #map {
+            position: absolute;
+            width: 100%;
+            top: 50px;
+            top: 0;
+            bottom: 0;
+            z-index: -1;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Patterns of Destruction</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="https://github.com/AlexBuck328/wildfires" target="blank">About</a>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Select Fire Year
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+            </ul>
+            
+
+                    <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Enter Fire Year" aria-label="Search"
+                    id='input'>
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id='myBtn'>Search</button>
+            </form>
+        </div>
+    </nav>
+
+
+    
+    <!-- ui slider -->
+    <div id='slider' class='range w240 bg-white round-ml px12'>
+        <input type="range" min="1" , max="12" , value="1" , step="1">
+    </div>
+
+
+    <!-- CREATE MAP DIV -->
+    <div id="map"></div>
+
+
+    <!-- LOAD REQUIRED JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
+    <script async defer src="https://api.mapbox.com/mapbox-assembly/v0.24.0/assembly.js"></script>
+    <script src='data/bothDates.js'></script>
+
+
+    <script>
+        // map options
+        const options = {
+            center: [38.7575271, -96.677089],
+            zoom: 4.8,
+            zoomSnap: .4,
+            zoomControl: false
+        }
+
+        // instantiate Leaflet map
+        const map = L.map('map', options)
+
+        // ADD CARTO VOYAGER TILES WITH NO LABELS
+        L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+            subdomains: 'abcd',
+        }).addTo(map)
+
+        // Declare constant variables for data
+        const fire20 = d3.json('data/fire20s.geojson');
+        const fire30 = d3.json('data/fire30s.geojson');
+        const fire40 = d3.json('data/fire40s.geojson');
+        const fire50 = d3.json('data/fire50s.geojson');
+        const fire60 = d3.json('data/fire60s.geojson');
+        const fire70 = d3.json('data/fire70s.geojson');
+        const fire80 = d3.json('data/fire80s.geojson');
+        const fire90 = d3.json('data/fire90s.geojson');
+        const fire2k = d3.json('data/fire2k.geojson');
+        const fire2k10 = d3.json('data/fire2k10.geojson');
+        const igCtrlDates = d3.json('rawData/bothIgCtrlDates.geojson')
+
+        Promise.all([fire20, fire30, fire40, fire50, fire60, fire70, fire80, fire90, fire2k, fire2k10, igCtrlDates
+        ]).then(drawMap)
+
+
+        function drawMap(data) {
+
+            //    console.log(data)
+
+            const fire20 = data[0]
+            const fire30 = data[1]
+            const fire40 = data[2]
+            const fire50 = data[3]
+            const fire60 = data[4]
+            const fire70 = data[5]
+            const fire80 = data[6]
+            const fire90 = data[7]
+            const fire2k = data[8]
+            const fire2k10 = data[9]
+            //    const wildFires = [fire20, fire30, fire40, fire50, fire60, fire70, fire80, fire90, fire2k, fire2k10]
+            const bothDates = data[10]
+            
+
+            console.log(bothDates)
+
+            const wildfires = L.geoJson(bothDates, {
+                // style counties with initial default path
+                style: function (feature) {
+                    return {
+                        color: '#20282e',
+                        weight: 2,
+                        fillOpacity: 1,
+                        fillColor: '#1f78b4'
+                    };
+                },
+                // add hover and touch functionality to each layer
+                onEachFeature: function (feature, layer) {
+                    // when mousing over a layer
+                    layer.on('mouseover', function () {
+                        // change the stroke color and bring that element to the front
+                        layer.setStyle({
+                            color: '#ff6e00'
+                        }).bringToFront();
+                    });
+                    // on mousing off layer
+                    layer.on('mouseout', function () {
+                        // reset the layer to the original stroke color
+                        layer.setStyle({
+                            color: '#20282e'
+                        });
+                    });
+                }
+
+
+            }).addTo(map);
+
+        }
+
+
+        // Event listener for user to click SEARCH
+        document.getElementById("myBtn").addEventListener("click", getFireYear);
+
+
+        // get search input
+        function getFireYear(x) {
+            var x = document.getElementById('input').value;
+            console.log(x)
+
+            // getPolys(x)
+        }
+
+
+
+        // do the same thing for the UI slider
+        var sliderControl = L.control({
+            position: 'bottomleft'
+        });
+
+        sliderControl.onAdd = function (map) {
+
+            var controls = L.DomUtil.get("slider");
+
+            L.DomEvent.disableScrollPropagation(controls);
+            L.DomEvent.disableClickPropagation(controls);
+
+            return controls;
+
+        }
+
+        sliderControl.addTo(map);
+    </script>
+</body>
+
+</html>
