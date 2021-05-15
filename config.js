@@ -16,7 +16,7 @@ var config = {
             hidden: false,
             title: 'Chapter One: Fire is destructive',
             image: './images/wildfireTrees.jpeg',
-            description: 'Wildfires are not a new phenomena. Evidence of wildfires dating back 420 million years ago has been found in the Welsh Marshes along the border of England and Wales. Various civilizations throughout history and around the world have used fire for many reasons, ranging from land clearing, signaling, to encourage biodiversity, as well as hunting',
+            description: 'Wildfires are not a new phenomena. Evidence of wildfires dating back 420 million years ago has been found in the Welsh Marches along the border of England and Wales. Various civilizations throughout history and around the world have used fire for many reasons, ranging from land clearing, signaling, to encourage biodiversity, as well as hunting',
             location: {
                 center: [-122.418398, 37.759483],
                 zoom: 8.5,
