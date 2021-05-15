@@ -10,12 +10,12 @@ var config = {
     byline: 'Alexander Buck',
     footer: 'Source: source citations, etc.',
     chapters: [{
-            id: 'slug-style-id',
+            id: 'welcome-screen',
             alignment: 'left',
             hidden: false,
             title: 'Fire is destructive',
             image: './images/wildfireTrees.jpeg',
-            description: 'Wildfires are not a new phenomena. Evidence of wildfires dating back 420 million years ago has been found in the Welsh Marches along the border of England and Wales. Various civilizations throughout history and around the world have used fire for many reasons, ranging from land clearing, signaling, to encourage biodiversity, as well as hunting',
+            description: '',
             location: {
                 center: [-24.14893, 0.00000],
                 zoom: 0.87,
@@ -27,25 +27,25 @@ var config = {
             callback: '',
             onChapterEnter: [
                  {
-                     layer: 'layer-name',
-                     opacity: 1,
-                     duration: 5000
+                     layer: 'firecentsimp',
+                     opacity: 0,
+                     duration: 1000
                  }
             ],
             onChapterExit: [
-                // {
-                //     layer: 'layer-name',
-                //     opacity: 0
-                // }
+                 {
+                     layer: 'firecentsimp',
+                     opacity: 0
+                 }
             ]
         },
         {
             id: 'one',
             alignment: 'right',
             hidden: false,
-            title: 'Chapter One: Fire is destructive',
+            title: 'Fire is destructive... and becoming more so',
            // image: './images/wildfireTrees.jpeg',
-            description: 'Wildfires are not a new phenomena. Evidence of wildfires dating back 420 million years ago has been found in the Welsh Marches along the border of England and Wales. Various civilizations throughout history and around the world have used fire for many reasons, ranging from land clearing, signaling, to encourage biodiversity, as well as hunting',
+            description: 'Wildfires are not a new phenomena. Evidence of wildfires dating back 420 million years ago has been found in the Welsh Marches along the border of England and Wales. Various civilizations throughout history and around the world have used fire for many reasons, ranging from land clearing, signaling, to encourage biodiversity, as well as hunting.',
             location: {
                 center: [-76.81398, 39.12020],
                 zoom: 3.46,
@@ -55,16 +55,27 @@ var config = {
             mapAnimation: 'flyTo',
             rotateAnimation: false,
             callback: '',
-            onChapterEnter: [],
-            onChapterExit: []
+            onChapterEnter: [
+                {
+                    layer: 'firecentsimp',
+                    opacity: 1,
+                    duration: 5000
+                }
+            ],
+            onChapterExit: [
+                {
+                    layer: 'firecentsimp',
+                    opacity: 1
+                }
+            ]
         },
         {
             id: 'two',
             alignment: 'right',
             hidden: false,
-            title: 'second Title',
+            title: 'Wild West of Wildfire',
           //  image: './path/to/image/source.png',
-            description: 'Copy these sections to add to your story.',
+            description: 'The western part of the United States is especially prone to wildfires.',
             location: {
                 center: [-101.97877, 41.02562],
                 zoom: 4.68,
@@ -83,8 +94,8 @@ var config = {
             alignment: 'left',
             hidden: false,
             title: 'Third Title',
-            image: './path/to/image/source.png',
-            description: 'Copy these sections to add to your story.',
+           // image: './path/to/image/source.png',
+            description: 'This state has seen the majority of its land burn in the past century',
             location: {
                 center: [-112.27422, 40.52511],
                 zoom: 8.58,
