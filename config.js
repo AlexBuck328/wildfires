@@ -1,5 +1,5 @@
 var config = {
-    style: 'mapbox://styles/mapbox/dark-v10',
+    style: 'mapbox://styles/mapbox/dark-v10', // 'mapbox://styles/mapbox/outdoors-v11', // 'mapbox://styles/mapbox/dark-v10',
     accessToken: 'pk.eyJ1IjoiYWxleGJ1Y2szMjgiLCJhIjoiY2szcDZsdmFsMW9rbDNubjMydm9rNGJpMyJ9.05szss9EHEoVBbGYajbPZA',
     showMarkers: false,
     markerColor: '#3FB1CE',
