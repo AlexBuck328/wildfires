@@ -1,5 +1,5 @@
 var config = {
-    style: 'mapbox://styles/mapbox/dark-v10', // 'mapbox://styles/mapbox/outdoors-v11', // 'mapbox://styles/mapbox/dark-v10',
+    style: 'mapbox://styles/alexbuck328/ckoq2ehj40siu17mpnuumimgs', // 'mapbox://styles/mapbox/dark-v10', // 'mapbox://styles/mapbox/outdoors-v11', // 'mapbox://styles/mapbox/dark-v10',
     accessToken: 'pk.eyJ1IjoiYWxleGJ1Y2szMjgiLCJhIjoiY2szcDZsdmFsMW9rbDNubjMydm9rNGJpMyJ9.05szss9EHEoVBbGYajbPZA',
     showMarkers: false,
     markerColor: '#3FB1CE',
@@ -13,7 +13,7 @@ var config = {
             id: 'slug-style-id',
             alignment: 'left',
             hidden: false,
-            title: 'Chapter One: Fire is destructive',
+            title: 'Fire is destructive',
             image: './images/wildfireTrees.jpeg',
             description: 'Wildfires are not a new phenomena. Evidence of wildfires dating back 420 million years ago has been found in the Welsh Marches along the border of England and Wales. Various civilizations throughout history and around the world have used fire for many reasons, ranging from land clearing, signaling, to encourage biodiversity, as well as hunting',
             location: {
@@ -26,11 +26,11 @@ var config = {
             rotateAnimation: false,
             callback: '',
             onChapterEnter: [
-                // {
-                //     layer: 'layer-name',
-                //     opacity: 1,
-                //     duration: 5000
-                // }
+                 {
+                     layer: 'layer-name',
+                     opacity: 1,
+                     duration: 5000
+                 }
             ],
             onChapterExit: [
                 // {
@@ -44,7 +44,7 @@ var config = {
             alignment: 'right',
             hidden: false,
             title: 'Chapter One: Fire is destructive',
-            image: './images/wildfireTrees.jpeg',
+           // image: './images/wildfireTrees.jpeg',
             description: 'Wildfires are not a new phenomena. Evidence of wildfires dating back 420 million years ago has been found in the Welsh Marches along the border of England and Wales. Various civilizations throughout history and around the world have used fire for many reasons, ranging from land clearing, signaling, to encourage biodiversity, as well as hunting',
             location: {
                 center: [-76.81398, 39.12020],
@@ -63,7 +63,7 @@ var config = {
             alignment: 'right',
             hidden: false,
             title: 'second Title',
-            image: './path/to/image/source.png',
+          //  image: './path/to/image/source.png',
             description: 'Copy these sections to add to your story.',
             location: {
                 center: [-101.97877, 41.02562],
