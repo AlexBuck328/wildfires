@@ -6,15 +6,15 @@ var config = {
     theme: 'light',
     use3dTerrain: true,
     title: 'Patterns of Destruction',
-    subtitle: 'Wildfires in the United States',
+    subtitle: 'A Century of Wildfires in the United States',
     byline: 'Alexander Buck',
     footer: 'Source: source citations, etc.',
     chapters: [{
             id: 'welcome-screen',
             alignment: 'left',
             hidden: false,
-            title: 'Fire is destructive',
-            image: './images/wildfireTrees.jpeg',
+            title: 'fire is destructive',
+            image: '',
             description: '',
             location: {
                 center: [-24.14893, 0.00000],
@@ -25,27 +25,23 @@ var config = {
             mapAnimation: 'flyTo',
             rotateAnimation: false,
             callback: '',
-            onChapterEnter: [
-                 {
-                     layer: 'firecentsimp',
-                     opacity: 0,
-                     duration: 1000
-                 }
-            ],
-            onChapterExit: [
-                 {
-                     layer: 'firecentsimp',
-                     opacity: 0
-                 }
-            ]
+            onChapterEnter: [{
+                layer: 'firecentsimp',
+                opacity: 0,
+                duration: 1000
+            }],
+            onChapterExit: [{
+                layer: 'firecentsimp',
+                opacity: 0
+            }]
         },
         {
-            id: 'one',
+            id: 'UNSEEN',
             alignment: 'right',
             hidden: false,
-            title: 'Fire is destructive... and becoming more so',
-           // image: './images/wildfireTrees.jpeg',
-            description: 'Wildfires are not a new phenomena. Evidence of wildfires dating back 420 million years ago has been found in the Welsh Marches along the border of England and Wales. Various civilizations throughout history and around the world have used fire for many reasons, ranging from land clearing, signaling, to encourage biodiversity, as well as hunting.',
+            title: 'Playing With Fire',
+            // image: './images/wildfireTrees.jpeg',
+        //    description: 'Wildfires are not a new phenomenon. Evidence of wildfires dating back 420 million years ago has been found in the Welsh Marches along the border of England and Wales. Wildfires are becoming more frequent and more severe. However, much like other issues we face here in the United States, not everyone is impacted equally. Patterns of Destruction explores the trends of wildfires in the U.S. over the past century.',
             location: {
                 center: [-76.81398, 39.12020],
                 zoom: 3.46,
@@ -55,26 +51,126 @@ var config = {
             mapAnimation: 'flyTo',
             rotateAnimation: false,
             callback: '',
-            onChapterEnter: [
-                {
+            onChapterEnter: [{
+                layer: 'firecentsimp',
+                opacity: 1,
+                duration: 5000
+            }],
+            onChapterExit: [{
+                layer: 'firecentsimp',
+                opacity: 1
+            }]
+        },
+            {
+                id: 'one',
+                alignment: 'right',
+                hidden: false,
+                title: 'Playing With Fire',
+                // image: './images/wildfireTrees.jpeg',
+                description: 'Wildfires are not a new phenomenon. Evidence of wildfires dating back 420 million years ago has been found in the Welsh Marches along the border of England and Wales. Wildfires are becoming more frequent and more severe. However, much like other issues we face here in the United States, not everyone is impacted equally. Patterns of Destruction explores the trends of wildfires in the U.S. over the past century.',
+                location: {
+                    center: [-76.81398, 39.12020],
+                    zoom: 3.46,
+                    pitch: 0.00,
+                    bearing: 0.00
+                },
+                mapAnimation: 'flyTo',
+                rotateAnimation: false,
+                callback: '',
+                onChapterEnter: [{
                     layer: 'firecentsimp',
                     opacity: 1,
                     duration: 5000
-                }
-            ],
-            onChapterExit: [
-                {
+                }],
+                onChapterExit: [{
                     layer: 'firecentsimp',
                     opacity: 1
-                }
-            ]
-        },
+                }]
+            },
         {
             id: 'two',
             alignment: 'right',
             hidden: false,
+            title: 'Fire is destructive... and becoming more so',
+            image: './images/change-avg-ac-burned.png',
+            description: 'As a whole, wildfires are becoming more severe and more frequent. This graphic shows the increase in acreage burned by wildfires at the state level from 1984 to 2018. It shows how wildfires are consuming more and more land in 16 states. Now that might not sound like much, it’s only about one third of states. However, they account for 60% of United States land area.',
+            location: {
+                center: [-76.81398, 39.12020],
+                zoom: 3.46,
+                pitch: 0.00,
+                bearing: 0.00
+            },
+            mapAnimation: 'flyTo',
+            rotateAnimation: false,
+            callback: '',
+            onChapterEnter: [{
+                layer: 'firecentsimp',
+                opacity: 1,
+                duration: 5000
+            }],
+            onChapterExit: [{
+                layer: 'firecentsimp',
+                opacity: 1
+            }]
+        },
+        {
+            id: 'three',
+            alignment: 'right',
+            hidden: false,
+            title: 'Temperatures are Rising',
+            image: './images/heat-waves.png',
+            description: 'This increase in wildfire size and frequency has been driven by climate change. Temperatures are rising, and with them come heat waves. The graphs above show how heat waves are becoming more frequent, lasting longer and are more intense. As if more frequent, longer and hotter heat waves isn’t enough, heat wave season is becoming longer as well. These warmer temperatures provide an environment rife for wildfires. Yet, warm temperatures alone are not the only factor.',
+            location: {
+                center: [-76.81398, 39.12020],
+                zoom: 3.46,
+                pitch: 0.00,
+                bearing: 0.00
+            },
+            mapAnimation: 'flyTo',
+            rotateAnimation: false,
+            callback: '',
+            onChapterEnter: [{
+                layer: 'firecentsimp',
+                opacity: 1,
+                duration: 5000
+            }],
+            onChapterExit: [{
+                layer: 'firecentsimp',
+                opacity: 1
+            }]
+        },
+        {
+            id: 'four',
+            alignment: 'right',
+            hidden: false,
+            title: 'Fire in the Water Starved West',
+            image: './images/SPEI.png',
+            description: 'Wildfires are able to run rampant in the absence of moisture. This map shows changes in drought across the contiguous United States from 1900 to 2020.  The brown areas indicate worsen drought conditions, while the blue area indicates regions receiving more moisture. Interestingly, the areas on this graph that show worsening drought, also happen to be the regions that experience the worst wildfires.',
+            location: {
+                center: [-76.81398, 39.12020],
+                zoom: 3.46,
+                pitch: 0.00,
+                bearing: 0.00
+            },
+            mapAnimation: 'flyTo',
+            rotateAnimation: false,
+            callback: '',
+            onChapterEnter: [{
+                layer: 'firecentsimp',
+                opacity: 1,
+                duration: 5000
+            }],
+            onChapterExit: [{
+                layer: 'firecentsimp',
+                opacity: 1
+            }]
+        },
+        {
+            id: 'five',
+            alignment: 'right',
+            hidden: false,
             title: 'Wild West of Wildfire',
-          //  image: './path/to/image/source.png',
+            //  image: './path/to/image/source.png',
             description: 'The western part of the United States is especially prone to wildfires.',
             location: {
                 center: [-101.97877, 41.02562],
@@ -90,11 +186,11 @@ var config = {
             onChapterExit: []
         },
         {
-            id: 'three',
+            id: 'six',
             alignment: 'left',
             hidden: false,
             title: 'Third Title',
-           // image: './path/to/image/source.png',
+            // image: './path/to/image/source.png',
             description: 'This state has seen the majority of its land burn in the past century',
             location: {
                 center: [-112.27422, 40.52511],
