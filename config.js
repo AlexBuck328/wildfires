@@ -30,10 +30,26 @@ var config = {
                 opacity: 0,
                 duration: 1000
             }],
+            onChapterEnter: [{
+                layer: 'heat',
+                opacity: 0,
+            }],
+            onChapterEnter: [{
+                layer: 'drought',
+                opacity: 0,
+            }],
             onChapterExit: [{
                 layer: 'firecentsimp',
                 opacity: 0
-            }]
+            }],
+            onChapterExit: [{
+                layer: 'drought',
+                opacity: 0
+            }],
+            onChapterExit: [{
+                layer: 'heat',
+                opacity: 0
+            }],
         },
         {
             id: 'UNSEEN',
@@ -41,7 +57,7 @@ var config = {
             hidden: false,
             title: 'Playing With Fire',
             // image: './images/wildfireTrees.jpeg',
-        //    description: 'Wildfires are not a new phenomenon. Evidence of wildfires dating back 420 million years ago has been found in the Welsh Marches along the border of England and Wales. Wildfires are becoming more frequent and more severe. However, much like other issues we face here in the United States, not everyone is impacted equally. Patterns of Destruction explores the trends of wildfires in the U.S. over the past century.',
+            //    description: 'Wildfires are not a new phenomenon. Evidence of wildfires dating back 420 million years ago has been found in the Welsh Marches along the border of England and Wales. Wildfires are becoming more frequent and more severe. However, much like other issues we face here in the United States, not everyone is impacted equally. Patterns of Destruction explores the trends of wildfires in the U.S. over the past century.',
             location: {
                 center: [-76.81398, 39.12020],
                 zoom: 3.46,
@@ -54,39 +70,55 @@ var config = {
             onChapterEnter: [{
                 layer: 'firecentsimp',
                 opacity: 1,
-                duration: 5000
+                duration: 5000,
+            }],
+            onChapterEnter: [{
+                layer: 'heat',
+                opacity: 0,
+            }],
+            onChapterEnter: [{
+                layer: 'drought',
+                opacity: 0,
             }],
             onChapterExit: [{
                 layer: 'firecentsimp',
                 opacity: 1
             }]
         },
-            {
-                id: 'one',
-                alignment: 'right',
-                hidden: false,
-                title: 'Playing With Fire',
-                // image: './images/wildfireTrees.jpeg',
-                description: 'Wildfires are not a new phenomenon. Evidence of wildfires dating back 420 million years ago has been found in the Welsh Marches along the border of England and Wales. Wildfires are becoming more frequent and more severe. However, much like other issues we face here in the United States, not everyone is impacted equally. Patterns of Destruction explores the trends of wildfires in the U.S. over the past century.',
-                location: {
-                    center: [-76.81398, 39.12020],
-                    zoom: 3.46,
-                    pitch: 0.00,
-                    bearing: 0.00
-                },
-                mapAnimation: 'flyTo',
-                rotateAnimation: false,
-                callback: '',
-                onChapterEnter: [{
-                    layer: 'firecentsimp',
-                    opacity: 1,
-                    duration: 5000
-                }],
-                onChapterExit: [{
-                    layer: 'firecentsimp',
-                    opacity: 1
-                }]
+        {
+            id: 'one',
+            alignment: 'right',
+            hidden: false,
+            title: 'Playing With Fire',
+            // image: './images/wildfireTrees.jpeg',
+            description: 'Wildfires are not a new phenomenon. Evidence of wildfires dating back 420 million years ago has been found in the Welsh Marches along the border of England and Wales. Wildfires are becoming more frequent and more severe. However, much like other issues we face here in the United States, not everyone is impacted equally. Patterns of Destruction explores the trends of wildfires in the U.S. over the past century.',
+            location: {
+                center: [-76.81398, 39.12020],
+                zoom: 3.46,
+                pitch: 0.00,
+                bearing: 0.00
             },
+            mapAnimation: 'flyTo',
+            rotateAnimation: false,
+            callback: '',
+            onChapterEnter: [{
+                layer: 'firecentsimp',
+                opacity: 1,
+                duration: 5000,
+            }],
+            onChapterEnter: [{
+                layer: 'heat',
+                opacity: 0,
+            }],
+            onChapterEnter: [{
+                layer: 'drought',
+                opacity: 0,
+            }],
+            onChapterExit: [{
+                layer: 'firecentsimp',
+                opacity: 1
+            }]
+        },
         {
             id: 'two',
             alignment: 'right',
@@ -104,13 +136,13 @@ var config = {
             rotateAnimation: false,
             callback: '',
             onChapterEnter: [{
-                layer: 'firecentsimp',
+                layer: 'heat',
                 opacity: 1,
-                duration: 5000
+                duration: 2000
             }],
             onChapterExit: [{
-                layer: 'firecentsimp',
-                opacity: 1
+                layer: 'heat',
+                opacity: 0
             }]
         },
         {
@@ -160,9 +192,18 @@ var config = {
                 opacity: 1,
                 duration: 5000
             }],
+            onChapterEnter: [{
+                layer: 'drought',
+                opacity: 1,
+                duration: 2000,
+            }],
             onChapterExit: [{
                 layer: 'firecentsimp',
                 opacity: 1
+            }],
+            onChapterExit: [{
+                layer: 'drought',
+                opacity: 0
             }]
         },
         {
