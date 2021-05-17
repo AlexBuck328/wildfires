@@ -1,5 +1,5 @@
 var config = {
-    style: 'mapbox://styles/alexbuck328/ckoq2ehj40siu17mpnuumimgs', // 'mapbox://styles/mapbox/dark-v10', // 'mapbox://styles/mapbox/outdoors-v11', // 'mapbox://styles/mapbox/dark-v10',
+    style: 'mapbox://styles/alexbuck328/ckoq2ehj40siu17mpnuumimgs',
     accessToken: 'pk.eyJ1IjoiYWxleGJ1Y2szMjgiLCJhIjoiY2szcDZsdmFsMW9rbDNubjMydm9rNGJpMyJ9.05szss9EHEoVBbGYajbPZA',
     showMarkers: false,
     markerColor: '#3FB1CE',
@@ -8,7 +8,7 @@ var config = {
     title: 'Patterns of Destruction',
     subtitle: 'A Century of Wildfires in the United States',
     byline: 'Alexander Buck',
-    footer: 'Source: source citations, etc.',
+    footer: 'Wildfire Data: <a href:https://www.sciencebase.gov/catalog/item/5ee13de982ce3bd58d7be7e7>Wildfire</a>',
     chapters: [{
             id: 'welcome-screen',
             alignment: 'left',
@@ -123,32 +123,6 @@ var config = {
             id: 'two',
             alignment: 'right',
             hidden: false,
-            title: 'Fire is destructive... and becoming more so',
-            image: './images/change-avg-ac-burned.png',
-            description: 'As a whole, wildfires are becoming more severe and more frequent. This graphic shows the increase in acreage burned by wildfires at the state level from 1984 to 2018. It shows how wildfires are consuming more and more land in 16 states. Now that might not sound like much, it’s only about one third of states. However, they account for 60% of United States land area.',
-            location: {
-                center: [-76.81398, 39.12020],
-                zoom: 3.46,
-                pitch: 0.00,
-                bearing: 0.00
-            },
-            mapAnimation: 'flyTo',
-            rotateAnimation: false,
-            callback: '',
-            onChapterEnter: [{
-                layer: 'heat',
-                opacity: 1,
-                duration: 2000
-            }],
-            onChapterExit: [{
-                layer: 'heat',
-                opacity: 0
-            }]
-        },
-        {
-            id: 'three',
-            alignment: 'right',
-            hidden: false,
             title: 'Temperatures are Rising',
             image: './images/heat-waves.png',
             description: 'This increase in wildfire size and frequency has been driven by climate change. Temperatures are rising, and with them come heat waves. The graphs above show how heat waves are becoming more frequent, lasting longer and are more intense. As if more frequent, longer and hotter heat waves isn’t enough, heat wave season is becoming longer as well. These warmer temperatures provide an environment rife for wildfires. Yet, warm temperatures alone are not the only factor.',
@@ -172,7 +146,7 @@ var config = {
             }]
         },
         {
-            id: 'four',
+            id: 'three',
             alignment: 'right',
             hidden: false,
             title: 'Fire in the Water Starved West',
@@ -203,6 +177,32 @@ var config = {
             }],
             onChapterExit: [{
                 layer: 'drought',
+                opacity: 0
+            }]
+        },
+        {
+            id: 'four',
+            alignment: 'right',
+            hidden: false,
+            title: 'Fire is destructive... and becoming more so',
+            image: './images/change-avg-ac-burned.png',
+            description: 'As a whole, wildfires are becoming more severe and more frequent. This graphic shows the increase in acreage burned by wildfires at the state level from 1984 to 2018. It shows how wildfires are consuming more and more land in 16 states. Now that might not sound like much, it’s only about one third of states. However, they account for 60% of United States land area.',
+            location: {
+                center: [-76.81398, 39.12020],
+                zoom: 3.46,
+                pitch: 0.00,
+                bearing: 0.00
+            },
+            mapAnimation: 'flyTo',
+            rotateAnimation: false,
+            callback: '',
+            onChapterEnter: [{
+                layer: 'heat',
+                opacity: 1,
+                duration: 2000
+            }],
+            onChapterExit: [{
+                layer: 'heat',
                 opacity: 0
             }]
         },
