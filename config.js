@@ -57,10 +57,10 @@ var config = {
             hidden: false,
             title: 'Playing With Fire',
             // image: './images/wildfireTrees.jpeg',
-            //    description: 'Wildfires are not a new phenomenon. Evidence of wildfires dating back 420 million years ago has been found in the Welsh Marches along the border of England and Wales. Wildfires are becoming more frequent and more severe. However, much like other issues we face here in the United States, not everyone is impacted equally. Patterns of Destruction explores the trends of wildfires in the U.S. over the past century.',
+            description: 'Wildfires are not a new phenomenon. Evidence of wildfires dating back 420 million years ago has been found in the Welsh Marches along the border of England and Wales. Wildfires are becoming more frequent and more severe. However, much like other issues we face here in the United States, not everyone is impacted equally. Patterns of Destruction explores the trends of wildfires in the U.S. over the past century.',
             location: {
-                center: [-76.81398, 39.12020],
-                zoom: 3.46,
+                center: [-139.80962, 52.87401],
+                zoom: 3.01,
                 pitch: 0.00,
                 bearing: 0.00
             },
@@ -87,14 +87,14 @@ var config = {
         },
         {
             id: 'one',
-            alignment: 'right',
+            alignment: 'left',
             hidden: false,
             title: 'Playing With Fire',
             // image: './images/wildfireTrees.jpeg',
             description: 'Wildfires are not a new phenomenon. Evidence of wildfires dating back 420 million years ago has been found in the Welsh Marches along the border of England and Wales. Wildfires are becoming more frequent and more severe. However, much like other issues we face here in the United States, not everyone is impacted equally. Patterns of Destruction explores the trends of wildfires in the U.S. over the past century.',
             location: {
-                center: [-76.81398, 39.12020],
-                zoom: 3.46,
+                center: [-139.80962, 52.87401],
+                zoom: 3.01,
                 pitch: 0.00,
                 bearing: 0.00
             },
@@ -212,10 +212,10 @@ var config = {
             hidden: false,
             title: 'Wild West of Wildfire',
             //  image: './path/to/image/source.png',
-            description: 'The western part of the United States is especially prone to wildfires.',
+            description: 'The western half of the contiguous United States is the most prone to wildfires due to the effects of climate change on its large stretches of undeveloped land. For those reasons, I will focus on a few case studies on this area. ',
             location: {
-                center: [-101.97877, 41.02562],
-                zoom: 4.68,
+                center: [-99.26432, 38.61661],
+                zoom: 4.47,
                 pitch: 0.00,
                 bearing: 0.00
             },
