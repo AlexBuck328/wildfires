@@ -8,7 +8,7 @@ var config = {
     title: 'Patterns of Destruction',
     subtitle: 'A Century of Wildfires in the United States',
     byline: 'Alexander Buck',
-    footer: 'Wildfire Data: <a href:https://www.sciencebase.gov/catalog/item/5ee13de982ce3bd58d7be7e7>Wildfire</a>',
+    footer: '<a href=https://www.sciencebase.gov/catalog/item/5ee13de982ce3bd58d7be7e7 target=blank>Wildfire Data</a>',
     chapters: [{
             id: 'welcome-screen',
             alignment: 'left',
@@ -70,7 +70,7 @@ var config = {
             onChapterEnter: [{
                 layer: 'firecentsimp',
                 opacity: 1,
-                duration: 5000,
+                duration: 2000,
             }],
             onChapterEnter: [{
                 layer: 'heat',
@@ -104,7 +104,7 @@ var config = {
             onChapterEnter: [{
                 layer: 'firecentsimp',
                 opacity: 1,
-                duration: 5000,
+                duration: 2000,
             }],
             onChapterEnter: [{
                 layer: 'heat',
@@ -132,13 +132,13 @@ var config = {
                 pitch: 0.00,
                 bearing: 0.00
             },
-            mapAnimation: 'flyTo',
+            mapAnimation: 'easeTo',
             rotateAnimation: false,
             callback: '',
             onChapterEnter: [{
                 layer: 'firecentsimp',
                 opacity: 1,
-                duration: 5000
+                duration: 100
             }],
             onChapterExit: [{
                 layer: 'firecentsimp',
@@ -240,7 +240,8 @@ var config = {
                 bearing: 30.40
             },
             mapAnimation: 'easeTo',
-            speed: 0.2,
+            speed: 0.05,
+            duration: 10000,
             rotateAnimation: false,
             callback: '',
             onChapterEnter: [],
