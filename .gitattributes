@@ -33,3 +33,13 @@ fires.geojson filter=lfs diff=lfs merge=lfs -text
 pointsY2K.geojson filter=lfs diff=lfs merge=lfs -text
 fireCentSimp.json filter=lfs diff=lfs merge=lfs -text
 fireCentSimp.mbtiles filter=lfs diff=lfs merge=lfs -text
+fires20s.geojson filter=lfs diff=lfs merge=lfs -text
+fires30s.geojson filter=lfs diff=lfs merge=lfs -text
+fires40s.geojson filter=lfs diff=lfs merge=lfs -text
+fires50s.geojson filter=lfs diff=lfs merge=lfs -text
+fires60s.geojson filter=lfs diff=lfs merge=lfs -text
+fires70s.geojson filter=lfs diff=lfs merge=lfs -text
+fires80s.geojson filter=lfs diff=lfs merge=lfs -text
+fires90s.geojson filter=lfs diff=lfs merge=lfs -text
+fires2k.geojson filter=lfs diff=lfs merge=lfs -text
+fires2k10.geojson filter=lfs diff=lfs merge=lfs -text
