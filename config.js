@@ -28,19 +28,23 @@ var config = {
             onChapterEnter: [{
                 layer: 'firecentsimp',
                 opacity: 0,
-                duration: 1000
+                duration: 2000
             }],
             onChapterEnter: [{
                 layer: 'heat',
                 opacity: 0,
             }],
-            onChapterEnter: [{
-                layer: 'drought',
-                opacity: 0,
-            }],
+            //        onChapterEnter: [{
+            //            layer: 'drought',
+            //            opacity: 0,
+            //        }],
+            //        onChapterEnter: [{
+            //            layer: 'maxfires',
+            //            opacity: 0,
+            //        }],
             onChapterExit: [{
                 layer: 'firecentsimp',
-                opacity: 0
+                opacity: 1
             }],
             onChapterExit: [{
                 layer: 'drought',
@@ -48,6 +52,10 @@ var config = {
             }],
             onChapterExit: [{
                 layer: 'heat',
+                opacity: 0
+            }],
+            onChapterExit: [{
+                layer: 'maxfires',
                 opacity: 0
             }],
         },
@@ -83,7 +91,7 @@ var config = {
             onChapterExit: [{
                 layer: 'firecentsimp',
                 opacity: 1
-            }]
+            }],
         },
         {
             id: 'one',
@@ -106,18 +114,22 @@ var config = {
                 opacity: 1,
                 duration: 2000,
             }],
-            onChapterEnter: [{
-                layer: 'heat',
-                opacity: 0,
-            }],
-            onChapterEnter: [{
-                layer: 'drought',
-                opacity: 0,
-            }],
+            //        onChapterEnter: [{
+            //            layer: 'heat',
+            //            opacity: 0,
+            //        }],
+            //        onChapterEnter: [{
+            //            layer: 'drought',
+            //            opacity: 0,
+            //        }],
             onChapterExit: [{
                 layer: 'firecentsimp',
                 opacity: 1
-            }]
+            }],
+            //        onChapterExit: [{
+            //            layer: 'heat',
+            //            opacity: 0,
+            //        }],
         },
         {
             id: 'two',
@@ -143,7 +155,7 @@ var config = {
             onChapterExit: [{
                 layer: 'firecentsimp',
                 opacity: 1
-            }]
+            }],
         },
         {
             id: 'three',
@@ -203,8 +215,14 @@ var config = {
             }],
             onChapterExit: [{
                 layer: 'heat',
-                opacity: 0
-            }]
+                opacity: 0,
+                duration: 1000,
+            }],
+            onChapterExit: [{
+                layer: 'firecentsimp',
+                opacity: 0,
+                duration: 1000,
+            }],
         },
         {
             id: 'five',
@@ -212,19 +230,30 @@ var config = {
             hidden: false,
             title: 'Wild West of Wildfire',
             //  image: './path/to/image/source.png',
-            description: 'The western half of the contiguous United States is the most prone to wildfires due to the effects of climate change on its large stretches of undeveloped land. For those reasons, I will focus on a few case studies on this area. ',
+            description: 'When viewed back-to-back in this fashion, drought and increasing fire sizes become a clearly regional issue. These trends converge on the western half of the United States. The importance of climatic changes and their effects on wildfires becomes more evident when you isolate the largest wildfire of each decade, for the past century. When considering climate change, it’s no wonder the largest wildfires of the past century have occurred in the west.',
             location: {
                 center: [-99.26432, 38.61661],
                 zoom: 4.47,
                 pitch: 0.00,
                 bearing: 0.00
             },
-            mapAnimation: 'easeTo',
-            speed: 0.2,
+            mapAnimation: 'flyTo',
             rotateAnimation: false,
             callback: '',
-            onChapterEnter: [],
-            onChapterExit: []
+            onChapterEnter: [{
+                layer: 'heat',
+                opacity: 0,
+                duration: 100,
+            }],
+            onChapterEnter: [{
+                layer: 'maxfires',
+                opacity: 1,
+                duration: 2000
+            }],
+            onChapterExit: [{
+                layer: 'maxfires',
+                opacity: 0
+            }]
         },
         {
             id: 'six',
