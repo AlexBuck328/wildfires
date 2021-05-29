@@ -216,12 +216,10 @@ var config = {
             onChapterExit: [{
                 layer: 'heat',
                 opacity: 0,
-                duration: 1000,
             }],
             onChapterExit: [{
                 layer: 'firecentsimp',
                 opacity: 0,
-                duration: 1000,
             }],
         },
         {
@@ -240,11 +238,6 @@ var config = {
             mapAnimation: 'flyTo',
             rotateAnimation: false,
             callback: '',
-            onChapterEnter: [{
-                layer: 'heat',
-                opacity: 0,
-                duration: 100,
-            }],
             onChapterEnter: [{
                 layer: 'maxfires',
                 opacity: 1,
