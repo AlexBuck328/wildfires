@@ -216,8 +216,7 @@ var config = {
             onChapterExit: [{
                 layer: 'heat',
                 opacity: 0,
-            }],
-            onChapterExit: [{
+            }, {
                 layer: 'firecentsimp',
                 opacity: 0,
             }],
