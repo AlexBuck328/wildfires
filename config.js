@@ -78,7 +78,7 @@ var config = {
             onChapterEnter: [{
                 layer: 'firecentsimp',
                 opacity: 1,
-                duration: 3500,
+                duration: 3000,
             }],
             onChapterExit: [{
                 layer: 'firecentsimp',
@@ -89,10 +89,10 @@ var config = {
             id: 'two',
             alignment: 'right',
             hidden: false,
-            title: 'Wildfires are Destructive',
+            title: 'Wildfires are destructive... and becoming more so',
             image: './images/fireCount.png',
-            description: 'Since 1920, wildfires have become more frequent. As shown in the chart above, the yearly count of wildfires has increased over time, and almost exponentially over the past 40 years. Not only are wildfires increasing in count, but they are also increasing in size as well. The graph below shows the trend line for median fire size over the past century. The median fire size provides a more accurate picture of wildfire trends than the average fire size, as averages are skewed by outliers.',
-            image2: './images/medianFire.png',
+            description: 'Since 1920, wildfires have become more frequent. As shown in the chart above, the yearly count of wildfires has increased over time, and almost exponentially over the past 40 years. Not only are wildfires increasing in count, but they are also increasing in size as well. The graph below shows the trend line for average acreage burned per year over the past century. As you would expect, with more fires, comes more destruction, and the trend line for average acreage burned is increasing year over year.',
+            image2: './images/avgAcres.png',
             location: {
                 center: [-76.81398, 39.12020],
                 zoom: 3.46,
@@ -155,11 +155,13 @@ var config = {
             onChapterEnter: [{
                 layer: 'firecentsimp',
                 opacity: 1,
-            }],
-            onChapterEnter: [{
+            },{
                 layer: 'drought',
                 opacity: 1,
                 duration: 2000,
+            }, {
+                layer: 'heat',
+                opacity: 0
             }],
             onChapterExit: [{
                 layer: 'drought',
@@ -190,26 +192,81 @@ var config = {
                 layer: 'firecentsimp',
                 opacity: 1,
             }],
-            onChapterExit: [{
-                layer: 'heat',
-                opacity: 0,
-                duration: 750,
-            }, {
-                layer: 'firecentsimp',
-                opacity: 0,
-                duration: 1500,
-            }],
+            onChapterExit: [],
         },
         {
             id: 'six',
-            alignment: 'left',
+            alignment: 'right',
             hidden: false,
             title: 'Wild West of Wildfire',
+        //    image: './images/maxFireGraph.png',
+            description: 'When states with worsening wildfire and worsening drought are overlay, the correlation becomes obvious. It also becomes apparent that wildfires are a regional issue. These trends converge on the western half of the United States. The importance of climatic changes and their effects on wildfires becomes more evident when you isolate the largest wildfire of each decade, for the past century. Considering these two climate factors, it’s no wonder the largest wildfires of the past century have occurred in the west.',
+            location: {
+                center: [-100.47512, 40.31207],
+                zoom: 4.56,
+                pitch: 0.00,
+                bearing: 0.00
+            },
+            mapAnimation: 'flyTo',
+            rotateAnimation: false,
+            callback: '',
+            onChapterEnter: [{
+                layer: 'drought',
+                opacity: 1,
+                duration: 2000
+            }, {
+                layer: 'firecentsimp',
+                opacity: 1
+            }, {
+                layer: 'heat',
+                opacity: 1
+            }],
+            onChapterExit: [{
+                layer: 'heat',
+                opacity: 0
+            }, {
+                layer: 'drought',
+                opacity: 0
+            }, {
+                layer: 'firecentsimp',
+                opacity: 0
+            }]
+        },
+        {
+            id: 'seven',
+            alignment: 'left',
+            hidden: false,
+            title: 'The Megafire',
             image: './images/maxFireGraph.png',
-            description: 'When viewed back-to-back in this fashion, drought and increasing fire sizes become a clearly regional issue. These trends converge on the western half of the United States. The importance of climatic changes and their effects on wildfires becomes more evident when you isolate the largest wildfire of each decade, for the past century. When considering climate change, it’s no wonder the largest wildfires of the past century have occurred in the west.',
+            description: 'Considering these two climate factors, it’s no wonder the largest wildfires of the past century have occurred in the west. When broken down into decades, with the largest fire of each decade selected, those fires all occurred in states with worsening drought, and increasing acreage burned by wildfire. As previous graphs have shown, in the graph above, you can see how wildfire trends are moving towards “megafires”.',
             location: {
                 center: [-138.21944, 53.84099],
                 zoom: 3.38,
+                pitch: 0.00,
+                bearing: 0.00
+            },
+            mapAnimation: 'flyTo',
+            rotateAnimation: false,
+            callback: '',
+            onChapterEnter: [{
+                layer: 'maxfires',
+                opacity: 1,
+                duration: 2000
+            }],
+            onChapterExit: [{
+                layer: 'maxfires',
+                opacity: 0
+            }]
+        }, {
+            id: 'eight',
+            alignment: 'left',
+            hidden: false,
+            title: 'The Yellowstone Fire',
+            image: './images/yellowstoneFire.jpeg',
+            description: 'Considering these two climate factors, it’s no wonder the largest wildfires of the past century have occurred in the west. When broken down into decades, with the largest fire of each decade selected, those fires all occurred in states with worsening drought, and increasing acreage burned by wildfire. As previous graphs have shown, in the graph above, you can see how wildfire trends are moving towards “megafires”.',
+            location: {
+                center: [-112.13536, 43.88253],
+                zoom: 7.21,
                 pitch: 0.00,
                 bearing: 0.00
             },
