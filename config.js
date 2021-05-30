@@ -299,7 +299,7 @@ var config = {
             hidden: false,
             title: 'The Megafire Trend',
             image: './images/megafires.png',
-            description: 'Which brings us to the megafire. A megafire is defined by the U.S. Interagency Fire Center as a wildfire that burns more than 100,000 acres of land. ',
+            description: 'What is a megafire? A megafire is defined by the U.S. Interagency Fire Center as a wildfire that burns more than 100,000 acres of land.',
             location: {
                 center: [-138.21944, 53.84099],
                 zoom: 3.38,
