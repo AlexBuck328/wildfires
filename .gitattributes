@@ -43,3 +43,4 @@ fires80s.geojson filter=lfs diff=lfs merge=lfs -text
 fires90s.geojson filter=lfs diff=lfs merge=lfs -text
 fires2k.geojson filter=lfs diff=lfs merge=lfs -text
 fires2k10.geojson filter=lfs diff=lfs merge=lfs -text
+megaFires.geojson filter=lfs diff=lfs merge=lfs -text

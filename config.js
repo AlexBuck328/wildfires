@@ -27,7 +27,7 @@ var config = {
             callback: '',
             onChapterEnter: [{
                 layer: 'firecentsimp',
-                opacity: 0,
+                opacity: 0
             }, {
                 layer: 'heat',
                 opacity: 0
@@ -36,7 +36,10 @@ var config = {
                 opacity: 0
             }, {
                 layer: 'maxfires',
-                opacity: 0,
+                opacity: 0
+            }, {
+                layer: 'yellowstonefire',
+                opacity: 0
             }],
             onChapterExit: [],
         },
@@ -91,7 +94,7 @@ var config = {
             hidden: false,
             title: 'Wildfires Are Destructive... And Becoming More So',
             image: './images/fireCount.png',
-            description: 'Since 1920, wildfires have become more frequent. As shown in the chart above, the yearly count of wildfires has increased over time, and almost exponentially over the past 40 years. Not only are wildfires increasing in count, but they are also increasing in size as well. The graph below shows the trend line for average acreage burned per year over the past century. As you would expect, with more fires, comes more destruction, and the trend line for average acreage burned is increasing year over year.',
+            description: 'Since 1920, wildfires have become more frequent. As shown in the chart above, the yearly count of wildfires has increased over time, and almost exponentially over the past 50 years. Not only are wildfires increasing in count, but they are also increasing in size as well. The graph below shows the trend line for average acreage burned per year over the past century. As you would expect, with more fires, comes more destruction, and the trend line for average acreage burned is increasing year over year.',
             image2: './images/avgAcres.png',
             location: {
                 center: [-76.81398, 39.12020],
@@ -117,7 +120,7 @@ var config = {
             hidden: false,
             title: 'Temperatures Are Rising',
             image: './images/heat-waves.png',
-            description: 'This increase in wildfire size and frequency has been driven by climate change. Temperatures are rising, and with them come heat waves. The graphs above show how heat waves are becoming more frequent, lasting longer and are more intense. As if more frequent, longer and hotter heat waves isn’t enough, heat wave season is becoming longer as well. These warmer temperatures provide an environment rife for wildfires. Yet, warm temperatures alone are not the only factor.',
+            description: 'The increase in wildfire size and frequency has been driven by climate change. Temperatures are rising, and with them come heat waves. The graphs above show how heat waves are becoming more frequent, lasting longer and are more intense. As if more frequent, longer and hotter heat waves isn’t enough, heat wave season is becoming longer as well. These warmer temperatures provide an environment rife for wildfires. Yet, warm temperatures alone are not the only factor.',
             location: {
                 center: [-76.81398, 39.12020],
                 zoom: 3.46,
@@ -155,7 +158,7 @@ var config = {
             onChapterEnter: [{
                 layer: 'firecentsimp',
                 opacity: 1,
-            },{
+            }, {
                 layer: 'drought',
                 opacity: 1,
                 duration: 2000,
@@ -199,7 +202,7 @@ var config = {
             alignment: 'right',
             hidden: false,
             title: 'Wild West of Wildfire',
-        //    image: './images/maxFireGraph.png',
+            //    image: './images/maxFireGraph.png',
             description: 'When states with worsening wildfire and worsening drought are overlay, the correlation becomes obvious. It also becomes apparent that wildfires are a regional issue. These trends converge on the western half of the United States. The importance of climatic changes and their effects on wildfires becomes more evident when you isolate the largest wildfire of each decade, for the past century. Considering these two climate factors, it’s no wonder the largest wildfires of the past century have occurred in the west.',
             location: {
                 center: [-100.47512, 40.31207],
@@ -236,7 +239,7 @@ var config = {
             id: 'seven',
             alignment: 'left',
             hidden: false,
-            title: 'The Megafire',
+            title: 'Enter The Megafire',
             image: './images/maxFireGraph.png',
             description: 'Considering these two climate factors, it’s no wonder the largest wildfires of the past century have occurred in the west. When broken down into decades, with the largest fire of each decade selected, those fires all occurred in states with worsening drought, and increasing acreage burned by wildfire. As previous graphs have shown, in the graph above, you can see how wildfire trends are moving towards “megafires”.',
             location: {
@@ -260,16 +263,17 @@ var config = {
                 layer: 'yellowstonefire',
                 opacity: 1
             }]
-        }, {
+        },
+        {
             id: 'eight',
             alignment: 'left',
             hidden: false,
-            title: 'The Yellowstone Fire',
-            image: './images/yellowstoneFire.jpeg',
-            description: 'Considering these two climate factors, it’s no wonder the largest wildfires of the past century have occurred in the west. When broken down into decades, with the largest fire of each decade selected, those fires all occurred in states with worsening drought, and increasing acreage burned by wildfire. As previous graphs have shown, in the graph above, you can see how wildfire trends are moving towards “megafires”.',
+            title: 'Statistics And Wildfires',
+            image: './images/medianFire.png',
+            description: 'Let’s take a moment for some statistics. As shown earlier, the average acreage burned per year has increased substantially over the past century. Statistics aficionados may be thinking to themselves that these megafires are skewing the average. Which is correct. High end outliers skew the mean higher. For that very reason, the median is a better metric to gauge trends. As seen in the graph above, the median fire size over the past century has also increased. Think back to the first graphs, remember that the number of wildfires has grown nearly exponentially in the last half century alone. Coupling an increase in wildfires, with an increase in both median and outlier wildfire size, and you can see just how frightening these trends are. Let’s return to these megafires.',
             location: {
-                center: [-112.13536, 43.88253],
-                zoom: 7.21,
+                center: [-138.21944, 53.84099],
+                zoom: 3.38,
                 pitch: 0.00,
                 bearing: 0.00
             },
@@ -277,12 +281,49 @@ var config = {
             rotateAnimation: false,
             callback: '',
             onChapterEnter: [{
-                layer: 'yellowstonefire',
+                layer: 'maxfires',
                 opacity: 1,
+                duration: 2000
             }],
-            onChapterExit: []
-        }, {
+            onChapterExit: [{
+                layer: 'maxfires',
+                opacity: 0
+            }, {
+                layer: 'yellowstonefire',
+                opacity: 1
+            }]
+        },
+        {
             id: 'nine',
+            alignment: 'left',
+            hidden: false,
+            title: 'The Megafire Trend',
+        //     image: './images/medianFire.png',
+            description: 'Which brings us to the megafire. A megafire is defined by the U.S. Interagency Fire Center as a wildfire that burns more than 100,000 acres of land. ',
+            location: {
+                center: [-138.21944, 53.84099],
+                zoom: 3.38,
+                pitch: 0.00,
+                bearing: 0.00
+            },
+            mapAnimation: 'flyTo',
+            rotateAnimation: false,
+            callback: '',
+            onChapterEnter: [{
+                layer: 'maxfires',
+                opacity: 1,
+                duration: 2000
+            }],
+            onChapterExit: [{
+                layer: 'maxfires',
+                opacity: 0
+            }, {
+                layer: 'yellowstonefire',
+                opacity: 1
+            }]
+        },
+        {
+            id: 'ten',
             alignment: 'left',
             hidden: false,
             title: 'The Yellowstone Fire',
