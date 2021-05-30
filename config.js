@@ -28,36 +28,17 @@ var config = {
             onChapterEnter: [{
                 layer: 'firecentsimp',
                 opacity: 0,
-                duration: 2000
-            }],
-            onChapterEnter: [{
+            }, {
                 layer: 'heat',
-                opacity: 0,
-            }],
-            //        onChapterEnter: [{
-            //            layer: 'drought',
-            //            opacity: 0,
-            //        }],
-            //        onChapterEnter: [{
-            //            layer: 'maxfires',
-            //            opacity: 0,
-            //        }],
-            onChapterExit: [{
-                layer: 'firecentsimp',
-                opacity: 1
-            }],
-            onChapterExit: [{
+                opacity: 0
+            }, {
                 layer: 'drought',
                 opacity: 0
-            }],
-            onChapterExit: [{
-                layer: 'heat',
-                opacity: 0
-            }],
-            onChapterExit: [{
+            }, {
                 layer: 'maxfires',
-                opacity: 0
+                opacity: 0,
             }],
+            onChapterExit: [],
         },
         {
             id: 'UNSEEN',
@@ -75,23 +56,8 @@ var config = {
             mapAnimation: 'flyTo',
             rotateAnimation: false,
             callback: '',
-            onChapterEnter: [{
-                layer: 'firecentsimp',
-                opacity: 1,
-                duration: 2000,
-            }],
-            onChapterEnter: [{
-                layer: 'heat',
-                opacity: 0,
-            }],
-            onChapterEnter: [{
-                layer: 'drought',
-                opacity: 0,
-            }],
-            onChapterExit: [{
-                layer: 'firecentsimp',
-                opacity: 1
-            }],
+            onChapterEnter: [],
+            onChapterExit: [],
         },
         {
             id: 'one',
@@ -112,27 +78,41 @@ var config = {
             onChapterEnter: [{
                 layer: 'firecentsimp',
                 opacity: 1,
-                duration: 2000,
+                duration: 3500,
             }],
-            //        onChapterEnter: [{
-            //            layer: 'heat',
-            //            opacity: 0,
-            //        }],
-            //        onChapterEnter: [{
-            //            layer: 'drought',
-            //            opacity: 0,
-            //        }],
             onChapterExit: [{
                 layer: 'firecentsimp',
                 opacity: 1
             }],
-            //        onChapterExit: [{
-            //            layer: 'heat',
-            //            opacity: 0,
-            //        }],
         },
         {
             id: 'two',
+            alignment: 'right',
+            hidden: false,
+            title: 'Wildfires are Destructive',
+            image: './images/fireCount.png',
+            description: 'Since 1920, wildfires have become more frequent. As shown in the chart above, the yearly count of wildfires has increased over time, and almost exponentially over the past 40 years. Not only are wildfires increasing in count, but they are also increasing in size as well. The graph below shows the trend line for median fire size over the past century. The median fire size provides a more accurate picture of wildfire trends than the average fire size, as averages are skewed by outliers.',
+            image2: './images/medianFire.png',
+            location: {
+                center: [-76.81398, 39.12020],
+                zoom: 3.46,
+                pitch: 0.00,
+                bearing: 0.00
+            },
+            mapAnimation: 'easeTo',
+            rotateAnimation: false,
+            callback: '',
+            onChapterEnter: [{
+                layer: 'firecentsimp',
+                opacity: 1,
+            }],
+            onChapterExit: [{
+                layer: 'firecentsimp',
+                opacity: 1
+            }],
+        },
+        {
+            id: 'three',
             alignment: 'right',
             hidden: false,
             title: 'Temperatures are Rising',
@@ -150,7 +130,6 @@ var config = {
             onChapterEnter: [{
                 layer: 'firecentsimp',
                 opacity: 1,
-                duration: 100
             }],
             onChapterExit: [{
                 layer: 'firecentsimp',
@@ -158,7 +137,7 @@ var config = {
             }],
         },
         {
-            id: 'three',
+            id: 'four',
             alignment: 'right',
             hidden: false,
             title: 'Fire in the Water Starved West',
@@ -176,7 +155,6 @@ var config = {
             onChapterEnter: [{
                 layer: 'firecentsimp',
                 opacity: 1,
-                duration: 5000
             }],
             onChapterEnter: [{
                 layer: 'drought',
@@ -184,16 +162,12 @@ var config = {
                 duration: 2000,
             }],
             onChapterExit: [{
-                layer: 'firecentsimp',
-                opacity: 1
-            }],
-            onChapterExit: [{
                 layer: 'drought',
                 opacity: 0
             }]
         },
         {
-            id: 'four',
+            id: 'five',
             alignment: 'right',
             hidden: false,
             title: 'Fire is destructive... and becoming more so',
@@ -212,25 +186,30 @@ var config = {
                 layer: 'heat',
                 opacity: 1,
                 duration: 2000
+            }, {
+                layer: 'firecentsimp',
+                opacity: 1,
             }],
             onChapterExit: [{
                 layer: 'heat',
                 opacity: 0,
+                duration: 750,
             }, {
                 layer: 'firecentsimp',
                 opacity: 0,
+                duration: 1500,
             }],
         },
         {
-            id: 'five',
-            alignment: 'right',
+            id: 'six',
+            alignment: 'left',
             hidden: false,
             title: 'Wild West of Wildfire',
-            //  image: './path/to/image/source.png',
+            image: './images/maxFireGraph.png',
             description: 'When viewed back-to-back in this fashion, drought and increasing fire sizes become a clearly regional issue. These trends converge on the western half of the United States. The importance of climatic changes and their effects on wildfires becomes more evident when you isolate the largest wildfire of each decade, for the past century. When considering climate change, it’s no wonder the largest wildfires of the past century have occurred in the west.',
             location: {
-                center: [-99.26432, 38.61661],
-                zoom: 4.47,
+                center: [-138.21944, 53.84099],
+                zoom: 3.38,
                 pitch: 0.00,
                 bearing: 0.00
             },
@@ -247,26 +226,5 @@ var config = {
                 opacity: 0
             }]
         },
-        {
-            id: 'six',
-            alignment: 'left',
-            hidden: false,
-            title: 'Third Title',
-            // image: './path/to/image/source.png',
-            description: 'This state has seen the majority of its land burn in the past century',
-            location: {
-                center: [-112.27422, 40.52511],
-                zoom: 8.58,
-                pitch: 60.00,
-                bearing: 30.40
-            },
-            mapAnimation: 'easeTo',
-            speed: 0.05,
-            duration: 10000,
-            rotateAnimation: false,
-            callback: '',
-            onChapterEnter: [],
-            onChapterExit: []
-        }
     ]
 };
