@@ -89,7 +89,7 @@ var config = {
             id: 'two',
             alignment: 'right',
             hidden: false,
-            title: 'Wildfires are destructive... and becoming more so',
+            title: 'Wildfires Are Destructive... And Becoming More So',
             image: './images/fireCount.png',
             description: 'Since 1920, wildfires have become more frequent. As shown in the chart above, the yearly count of wildfires has increased over time, and almost exponentially over the past 40 years. Not only are wildfires increasing in count, but they are also increasing in size as well. The graph below shows the trend line for average acreage burned per year over the past century. As you would expect, with more fires, comes more destruction, and the trend line for average acreage burned is increasing year over year.',
             image2: './images/avgAcres.png',
@@ -115,7 +115,7 @@ var config = {
             id: 'three',
             alignment: 'right',
             hidden: false,
-            title: 'Temperatures are Rising',
+            title: 'Temperatures Are Rising',
             image: './images/heat-waves.png',
             description: 'This increase in wildfire size and frequency has been driven by climate change. Temperatures are rising, and with them come heat waves. The graphs above show how heat waves are becoming more frequent, lasting longer and are more intense. As if more frequent, longer and hotter heat waves isn’t enough, heat wave season is becoming longer as well. These warmer temperatures provide an environment rife for wildfires. Yet, warm temperatures alone are not the only factor.',
             location: {
@@ -140,7 +140,7 @@ var config = {
             id: 'four',
             alignment: 'right',
             hidden: false,
-            title: 'Fire in the Water Starved West',
+            title: 'The Water Starved West',
             image: './images/SPEI.png',
             description: 'Wildfires are able to run rampant in the absence of moisture. This map shows changes in drought across the contiguous United States from 1900 to 2020.  The brown areas indicate worsening drought conditions, while the blue area indicates regions receiving more moisture. Interestingly, the areas on this graph that show worsening drought, also happen to be the regions that experience the worst wildfires.',
             location: {
@@ -172,7 +172,7 @@ var config = {
             id: 'five',
             alignment: 'right',
             hidden: false,
-            title: 'Fire is destructive... and becoming more so',
+            title: 'A Devastating Trend',
             image: './images/change-avg-ac-burned.png',
             description: 'As a whole, wildfires are becoming more severe and more frequent. This graphic shows the increase in acreage burned by wildfires at the state level from 1984 to 2018. It shows how wildfires are consuming more and more land in 16 states. Now that might not sound like much, it’s only about one third of states. However, they account for 60% of United States land area.',
             location: {
@@ -256,6 +256,9 @@ var config = {
             onChapterExit: [{
                 layer: 'maxfires',
                 opacity: 0
+            }, {
+                layer: 'yellowstonefire',
+                opacity: 1
             }]
         }, {
             id: 'eight',
@@ -274,14 +277,31 @@ var config = {
             rotateAnimation: false,
             callback: '',
             onChapterEnter: [{
-                layer: 'maxfires',
+                layer: 'yellowstonefire',
                 opacity: 1,
-                duration: 2000
             }],
-            onChapterExit: [{
-                layer: 'maxfires',
-                opacity: 0
-            }]
+            onChapterExit: []
+        }, {
+            id: 'nine',
+            alignment: 'left',
+            hidden: false,
+            title: 'The Yellowstone Fire',
+            image: './images/yellowstoneFire.jpeg',
+            description: 'Considering these two climate factors, it’s no wonder the largest wildfires of the past century have occurred in the west. When broken down into decades, with the largest fire of each decade selected, those fires all occurred in states with worsening drought, and increasing acreage burned by wildfire. As previous graphs have shown, in the graph above, you can see how wildfire trends are moving towards “megafires”.',
+            location: {
+                center: [-112.13536, 43.88253],
+                zoom: 7.21,
+                pitch: 0.00,
+                bearing: 0.00
+            },
+            mapAnimation: 'flyTo',
+            rotateAnimation: false,
+            callback: '',
+            onChapterEnter: [{
+                layer: 'yellowstonefire',
+                opacity: 1,
+            }],
+            onChapterExit: []
         },
     ]
 };
