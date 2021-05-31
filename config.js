@@ -293,8 +293,8 @@ var config = {
             image: './images/medianFire.png',
             description: 'Let’s take a moment for some statistics. As shown earlier, the average acreage burned per year has increased substantially over the past century. Statistics aficionados may be thinking to themselves that these megafires are skewing the average. Which is correct. High end outliers skew the mean higher. For that very reason, the median is a better metric to gauge trends. As seen in the graph above, the median fire size over the past century has also increased. Think back to the first graphs, remember that the number of wildfires has grown nearly exponentially in the last half century alone. Coupling an increase in wildfires, with an increase in both median and outlier wildfire size, and you can see just how frightening these trends are. Let’s return to these megafires.',
             location: {
-                center: [-138.21944, 53.84099],
-                zoom: 3.38,
+                center: [-143.80962, 52.87401],
+                zoom: 3.01,
                 pitch: 0.00,
                 bearing: 0.00
             },
@@ -303,11 +303,16 @@ var config = {
             callback: '',
             onChapterEnter: [{
                 layer: 'maxfires',
+                opacity: 0,
+            }, {
+                layer: 'firecentsimp',
                 opacity: 1,
+                duration: 2500
             }],
             onChapterExit: [{
-                layer: 'maxfires',
-                opacity: 0
+                layer: 'firecentsimp',
+                opacity: 0,
+                duration: 2500
             }]
         },
         {
@@ -316,7 +321,7 @@ var config = {
             hidden: false,
             title: 'Enter The Megafire',
             image: './images/megafires.png',
-            description: '',
+            description: 'Not only are wildfires becoming more frequent and larger in size, but megafires are increasing more frequently as well. What is a megafire? A megafire is defined by the U.S. Interagency Fire Center as a wildfire that burns more than 100,000 acres of land. Megafires have occurred at least once in each decade over the past century with only two exceptions, neither the 1950\’s and 1960\’s experienced a megafire',
             location: {
                 center: [-143.80962, 52.87401],
                 zoom: 3.01,
@@ -329,6 +334,10 @@ var config = {
             onChapterEnter: [{
                 layer: 'megafires',
                 opacity: 1,
+                duration: 2500
+            }, {
+                layer: 'firecentsimp',
+                opacity: 0,
                 duration: 2000
             }],
             onChapterExit: [{
@@ -342,14 +351,14 @@ var config = {
         },
         {
             id: 'ten',
-            alignment: 'left',
+            alignment: 'right',
             hidden: false,
-            title: 'Megafires Of The 1920\'s',
-            image: './images/yellowstoneFire.jpeg',
-            description: '',
+            title: 'The Roaring 20\'s',
+            //    image: './images/yellowstoneFire.jpeg',
+            description: 'Only one megafire was recorded in the 1920\’s. Though no name was provided, the fire engulfed 140,382 acres of Los Padres National Forest, north of Santa Barbara, California.',
             location: {
-                center: [-112.13536, 43.88253],
-                zoom: 7.21,
+                center: [-118.13329, 34.78303],
+                zoom: 8.08,
                 pitch: 0.00,
                 bearing: 0.00
             },
@@ -357,8 +366,12 @@ var config = {
             rotateAnimation: false,
             callback: '',
             onChapterEnter: [{
-                layer: 'mega200',
+                layer: 'mega20',
                 opacity: 1,
+            }, {
+                layer: 'megafires',
+                opacity: 0,
+                duration: 2000
             }],
             onChapterExit: []
         },
