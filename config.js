@@ -1,5 +1,5 @@
 var config = {
-    style: 'mapbox://styles/alexbuck328/ckoq2ehj40siu17mpnuumimgs',
+    style: 'mapbox://styles/alexbuck328/ckoq2ehj40siu17mpnuumimgs', //mapbox://styles/alexbuck328/ckoq2ehj40siu17mpnuumimgs
     accessToken: 'pk.eyJ1IjoiYWxleGJ1Y2szMjgiLCJhIjoiY2szcDZsdmFsMW9rbDNubjMydm9rNGJpMyJ9.05szss9EHEoVBbGYajbPZA',
     showMarkers: false,
     markerColor: '#3FB1CE',
@@ -40,6 +40,33 @@ var config = {
             }, {
                 layer: 'yellowstonefire',
                 opacity: 0
+            }, {
+                layer: 'megafires',
+                opacity: 0
+            }, {
+                layer: 'mega20',
+                opacity: 0
+            }, {
+                layer: 'mega30',
+                opacity: 0
+            }, {
+                layer: 'mega40',
+                opacity: 0
+            }, {
+                layer: 'mega70',
+                opacity: 0
+            }, {
+                layer: 'mega80',
+                opacity: 0
+            }, {
+                layer: 'mega90',
+                opacity: 0
+            }, {
+                layer: 'mega2k',
+                opacity: 0
+            }, {
+                layer: 'mega2k10',
+                opacity: 0
             }],
             onChapterExit: [],
         },
@@ -48,7 +75,7 @@ var config = {
             alignment: 'right',
             hidden: false,
             title: 'Playing With Fire',
-            // image: './images/wildfireTrees.jpeg',
+            image: '',
             description: 'Wildfires are not a new phenomenon. Evidence of wildfires dating back 420 million years ago has been found in the Welsh Marches along the border of England and Wales. Wildfires are becoming more frequent and more severe. However, much like other issues we face here in the United States, not everyone is impacted equally. Patterns of Destruction explores the trends of wildfires in the U.S. over the past century.',
             location: {
                 center: [-139.80962, 52.87401],
@@ -239,7 +266,7 @@ var config = {
             id: 'seven',
             alignment: 'left',
             hidden: false,
-            title: 'Enter The Megafire',
+            title: 'The Geography Of Large Fires',
             image: './images/maxFireGraph.png',
             description: 'Considering these two climate factors, it’s no wonder the largest wildfires of the past century have occurred in the west. When broken down into decades, with the largest fire of each decade selected, those fires all occurred in states with worsening drought, and increasing acreage burned by wildfire. As previous graphs have shown, in the graph above, you can see how wildfire trends are moving towards “megafires”.',
             location: {
@@ -252,17 +279,11 @@ var config = {
             rotateAnimation: false,
             callback: '',
             onChapterEnter: [{
-                layer: 'megafires',
+                layer: 'maxfires',
                 opacity: 1,
                 duration: 2000
             }],
-            onChapterExit: [{
-                layer: 'megafires',
-                opacity: 0
-            }, {
-                layer: 'yellowstonefire',
-                opacity: 1
-            }]
+            onChapterExit: []
         },
         {
             id: 'eight',
@@ -283,26 +304,22 @@ var config = {
             onChapterEnter: [{
                 layer: 'maxfires',
                 opacity: 1,
-                duration: 2000
             }],
             onChapterExit: [{
                 layer: 'maxfires',
                 opacity: 0
-            }, {
-                layer: 'yellowstonefire',
-                opacity: 1
             }]
         },
         {
             id: 'nine',
             alignment: 'left',
             hidden: false,
-            title: 'The Megafire Trend',
+            title: 'Enter The Megafire',
             image: './images/megafires.png',
-            description: 'What is a megafire? A megafire is defined by the U.S. Interagency Fire Center as a wildfire that burns more than 100,000 acres of land.',
+            description: '',
             location: {
-                center: [-138.21944, 53.84099],
-                zoom: 3.38,
+                center: [-143.80962, 52.87401],
+                zoom: 3.01,
                 pitch: 0.00,
                 bearing: 0.00
             },
@@ -310,15 +327,16 @@ var config = {
             rotateAnimation: false,
             callback: '',
             onChapterEnter: [{
-                layer: 'maxfires',
+                layer: 'megafires',
                 opacity: 1,
                 duration: 2000
             }],
             onChapterExit: [{
-                layer: 'maxfires',
-                opacity: 0
+                layer: 'megafires',
+                opacity: 0,
+                duration: 2500
             }, {
-                layer: 'yellowstonefire',
+                layer: 'mega20',
                 opacity: 1
             }]
         },
@@ -326,9 +344,9 @@ var config = {
             id: 'ten',
             alignment: 'left',
             hidden: false,
-            title: 'The Yellowstone Fire',
+            title: 'Megafires Of The 1920\'s',
             image: './images/yellowstoneFire.jpeg',
-            description: 'Considering these two climate factors, it’s no wonder the largest wildfires of the past century have occurred in the west. When broken down into decades, with the largest fire of each decade selected, those fires all occurred in states with worsening drought, and increasing acreage burned by wildfire. As previous graphs have shown, in the graph above, you can see how wildfire trends are moving towards “megafires”.',
+            description: '',
             location: {
                 center: [-112.13536, 43.88253],
                 zoom: 7.21,
@@ -339,7 +357,7 @@ var config = {
             rotateAnimation: false,
             callback: '',
             onChapterEnter: [{
-                layer: 'yellowstonefire',
+                layer: 'mega200',
                 opacity: 1,
             }],
             onChapterExit: []
