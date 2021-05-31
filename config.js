@@ -357,7 +357,241 @@ var config = {
             //    image: './images/yellowstoneFire.jpeg',
             description: 'Only one megafire was recorded in the 1920\’s. Though no name was provided, the fire engulfed 140,382 acres of Los Padres National Forest, north of Santa Barbara, California.',
             location: {
-                center: [-118.13329, 34.78303],
+                center: [-119.15911, 34.79356],
+                zoom: 8.08,
+                pitch: 0.00,
+                bearing: 0.00
+            },
+            mapAnimation: 'flyTo',
+            rotateAnimation: false,
+            callback: '',
+            onChapterEnter: [{
+                layer: 'mega20',
+                opacity: 1,
+            }, {
+                layer: 'megafires',
+                opacity: 0,
+                duration: 2000
+            }],
+            onChapterExit: []
+        },
+        {
+            id: 'eleven',
+            alignment: 'right',
+            hidden: false,
+            title: 'The 1930\'s',
+            //    image: './images/yellowstoneFire.jpeg',
+            description: '',
+            location: {
+                center: [-109.18490, 40.90556],
+                zoom: 5.20,
+                pitch: 0.00,
+                bearing: 0.00
+            },
+            mapAnimation: 'flyTo',
+            rotateAnimation: false,
+            callback: '',
+            onChapterEnter: [{
+                layer: 'mega20',
+                opacity: 1,
+            }, {
+                layer: 'megafires',
+                opacity: 0,
+                duration: 2000
+            }],
+            onChapterExit: []
+        },
+        {
+            id: 'twelve',
+            alignment: 'left',
+            hidden: false,
+            title: 'The 1940\'s',
+            //    image: './images/yellowstoneFire.jpeg',
+            description: 'In 1941, 174,730 acres of land burned northeast of Twin Falls, Idaho. This was the largest wildfire recorded in the 1940\’s.',
+            location: {
+                center: [-114.52819, 43.23276],
+                zoom: 7.41,
+                pitch: 0.00,
+                bearing: 0.00
+            },
+            mapAnimation: 'flyTo',
+            rotateAnimation: false,
+            callback: '',
+            onChapterEnter: [{
+                layer: 'mega20',
+                opacity: 1,
+            }, {
+                layer: 'megafires',
+                opacity: 0,
+                duration: 2000
+            }],
+            onChapterExit: []
+        },
+        {
+            id: 'thirteen',
+            alignment: 'right',
+            hidden: false,
+            title: 'The 1950\'s and 1960\'s',
+            //    image: './images/yellowstoneFire.jpeg',
+            description: 'Only one megafire was recorded in the 1920\’s. Though no name was provided, the fire engulfed 140,382 acres of Los Padres National Forest, north of Santa Barbara, California.',
+            location: {
+                center: [-119.15911, 34.79356],
+                zoom: 8.08,
+                pitch: 0.00,
+                bearing: 0.00
+            },
+            mapAnimation: 'flyTo',
+            rotateAnimation: false,
+            callback: '',
+            onChapterEnter: [{
+                layer: 'mega20',
+                opacity: 1,
+            }, {
+                layer: 'megafires',
+                opacity: 0,
+                duration: 2000
+            }],
+            onChapterExit: []
+        },
+        {
+            id: 'fourteen',
+            alignment: 'right',
+            hidden: false,
+            title: 'The 1970\'s',
+            //    image: './images/yellowstoneFire.jpeg',
+            description: 'Only one megafire was recorded in the 1920\’s. Though no name was provided, the fire engulfed 140,382 acres of Los Padres National Forest, north of Santa Barbara, California.',
+            location: {
+                center: [-119.15911, 34.79356],
+                zoom: 8.08,
+                pitch: 0.00,
+                bearing: 0.00
+            },
+            mapAnimation: 'flyTo',
+            rotateAnimation: false,
+            callback: '',
+            onChapterEnter: [{
+                layer: 'mega20',
+                opacity: 1,
+            }, {
+                layer: 'megafires',
+                opacity: 0,
+                duration: 2000
+            }],
+            onChapterExit: []
+        },
+        {
+            id: 'fifteen',
+            alignment: 'right',
+            hidden: false,
+            title: 'The 1980\'s',
+            //    image: './images/yellowstoneFire.jpeg',
+            description: 'Only one megafire was recorded in the 1920\’s. Though no name was provided, the fire engulfed 140,382 acres of Los Padres National Forest, north of Santa Barbara, California.',
+            location: {
+                center: [-119.15911, 34.79356],
+                zoom: 8.08,
+                pitch: 0.00,
+                bearing: 0.00
+            },
+            mapAnimation: 'flyTo',
+            rotateAnimation: false,
+            callback: '',
+            onChapterEnter: [{
+                layer: 'mega20',
+                opacity: 1,
+            }, {
+                layer: 'megafires',
+                opacity: 0,
+                duration: 2000
+            }],
+            onChapterExit: []
+        },
+        {
+            id: 'sixteen',
+            alignment: 'right',
+            hidden: false,
+            title: 'The 1990\'s',
+            //    image: './images/yellowstoneFire.jpeg',
+            description: 'Only one megafire was recorded in the 1920\’s. Though no name was provided, the fire engulfed 140,382 acres of Los Padres National Forest, north of Santa Barbara, California.',
+            location: {
+                center: [-119.15911, 34.79356],
+                zoom: 8.08,
+                pitch: 0.00,
+                bearing: 0.00
+            },
+            mapAnimation: 'flyTo',
+            rotateAnimation: false,
+            callback: '',
+            onChapterEnter: [{
+                layer: 'mega20',
+                opacity: 1,
+            }, {
+                layer: 'megafires',
+                opacity: 0,
+                duration: 2000
+            }],
+            onChapterExit: []
+        },
+        {
+            id: 'seventeen',
+            alignment: 'right',
+            hidden: false,
+            title: 'The 2000\'s',
+            //    image: './images/yellowstoneFire.jpeg',
+            description: 'Only one megafire was recorded in the 1920\’s. Though no name was provided, the fire engulfed 140,382 acres of Los Padres National Forest, north of Santa Barbara, California.',
+            location: {
+                center: [-119.15911, 34.79356],
+                zoom: 8.08,
+                pitch: 0.00,
+                bearing: 0.00
+            },
+            mapAnimation: 'flyTo',
+            rotateAnimation: false,
+            callback: '',
+            onChapterEnter: [{
+                layer: 'mega20',
+                opacity: 1,
+            }, {
+                layer: 'megafires',
+                opacity: 0,
+                duration: 2000
+            }],
+            onChapterExit: []
+        },
+        {
+            id: 'eighteen',
+            alignment: 'right',
+            hidden: false,
+            title: 'The 2010\'s',
+            //    image: './images/yellowstoneFire.jpeg',
+            description: 'Only one megafire was recorded in the 1920\’s. Though no name was provided, the fire engulfed 140,382 acres of Los Padres National Forest, north of Santa Barbara, California.',
+            location: {
+                center: [-119.15911, 34.79356],
+                zoom: 8.08,
+                pitch: 0.00,
+                bearing: 0.00
+            },
+            mapAnimation: 'flyTo',
+            rotateAnimation: false,
+            callback: '',
+            onChapterEnter: [{
+                layer: 'mega20',
+                opacity: 1,
+            }, {
+                layer: 'megafires',
+                opacity: 0,
+                duration: 2000
+            }],
+            onChapterExit: []
+        },
+        {
+            id: 'nineteen',
+            alignment: 'right',
+            hidden: false,
+            title: 'The 1930\'s',
+            //    image: './images/yellowstoneFire.jpeg',
+            description: 'I have outlined how not only are wildfires increasing in frequency, but also in size. Accompanying larger and more frequent fires are megafires, which are also increasing in size and frequency. While the trends are alarming, not all hope is lost. The first step to reversing any negative trend is identifying it. The biggest hurdle we face in reversing these trends is raising awareness. While the data show wildfire trends from a size and frequency standpoint, they also show their stark regional influence. The majority of the U.S. population does not reside in areas prone to wildfires. This project seeks to raise awareness in hopes of reversing these startling trends. When we unite for the accomplishment of a common goal, anything is possible. ',
+            location: {
+                center: [-119.15911, 34.79356],
                 zoom: 8.08,
                 pitch: 0.00,
                 bearing: 0.00
