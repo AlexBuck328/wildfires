@@ -252,12 +252,12 @@ var config = {
             rotateAnimation: false,
             callback: '',
             onChapterEnter: [{
-                layer: 'maxfires',
+                layer: 'megafires',
                 opacity: 1,
                 duration: 2000
             }],
             onChapterExit: [{
-                layer: 'maxfires',
+                layer: 'megafires',
                 opacity: 0
             }, {
                 layer: 'yellowstonefire',
