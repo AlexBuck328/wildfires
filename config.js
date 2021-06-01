@@ -59,6 +59,49 @@ var config = {
                 layer: 'mega80',
                 opacity: 0
             }, {
+                layer: 'meganine',
+                opacity: 0
+            }, {
+                layer: 'megatwo',
+                opacity: 0
+            }, {
+                layer: 'megatwoten',
+                opacity: 0
+            }],
+            onChapterExit: [{
+                layer: 'firecentsimp',
+                opacity: 0
+            }, {
+                layer: 'heat',
+                opacity: 0
+            }, {
+                layer: 'drought',
+                opacity: 0
+            }, {
+                layer: 'maxfires',
+                opacity: 0
+            }, {
+                layer: 'yellowstonefire',
+                opacity: 0
+            }, {
+                layer: 'megafires',
+                opacity: 0
+            }, {
+                layer: 'mega20',
+                opacity: 0
+            }, {
+                layer: 'mega30',
+                opacity: 0
+            }, {
+                layer: 'mega40',
+                opacity: 0
+            }, {
+                layer: 'mega70',
+                opacity: 0
+            }, {
+                layer: 'mega80',
+                opacity: 0
+            }, {
                 layer: 'mega90',
                 opacity: 0
             }, {
@@ -68,7 +111,6 @@ var config = {
                 layer: 'mega2k10',
                 opacity: 0
             }],
-            onChapterExit: [],
         },
         {
             id: 'UNSEEN',
@@ -287,16 +329,20 @@ var config = {
         },
         {
             id: 'eight',
-            alignment: 'left',
+            alignment: 'right',
             hidden: false,
             title: 'Statistics And Wildfires',
             image: './images/medianFire.png',
             description: 'Let’s take a moment for some statistics. As shown earlier, the average acreage burned per year has increased substantially over the past century. Statistics aficionados may be thinking to themselves that these megafires are skewing the average. Which is correct. High end outliers skew the mean higher. For that very reason, the median is a better metric to gauge trends. As seen in the graph above, the median fire size over the past century has also increased. Think back to the first graphs, remember that the number of wildfires has grown nearly exponentially in the last half century alone. Coupling an increase in wildfires, with an increase in both median and outlier wildfire size, and you can see just how frightening these trends are. Let’s return to these megafires.',
             location: {
-                center: [-143.80962, 52.87401],
-                zoom: 3.01,
+                center: [-82.87227, 48.12205],
+                zoom: 2.77,
                 pitch: 0.00,
                 bearing: 0.00
+                //    center: [-143.80962, 52.87401],
+                //    zoom: 3.01,
+                //    pitch: 0.00,
+                //    bearing: 0.00
             },
             mapAnimation: 'flyTo',
             rotateAnimation: false,
