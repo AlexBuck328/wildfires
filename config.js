@@ -41,76 +41,34 @@ var config = {
                 layer: 'yellowstonefire',
                 opacity: 0
             }, {
-                layer: 'megafires',
-                opacity: 0
-            }, {
-                layer: 'mega20',
-                opacity: 0
-            }, {
-                layer: 'mega30',
-                opacity: 0
-            }, {
-                layer: 'mega40',
-                opacity: 0
-            }, {
-                layer: 'mega70',
-                opacity: 0
-            }, {
-                layer: 'mega80',
-                opacity: 0
-            }, {
-                layer: 'meganine',
-                opacity: 0
-            }, {
-                layer: 'megatwo',
-                opacity: 0
-            }, {
-                layer: 'megatwoten',
-                opacity: 0
-            }],
-            onChapterExit: [{
-                layer: 'firecentsimp',
-                opacity: 0
-            }, {
-                layer: 'heat',
-                opacity: 0
-            }, {
-                layer: 'drought',
-                opacity: 0
-            }, {
-                layer: 'maxfires',
-                opacity: 0
-            }, {
-                layer: 'yellowstonefire',
-                opacity: 0
-            }, {
-                layer: 'megafires',
-                opacity: 0
-            }, {
-                layer: 'mega20',
-                opacity: 0
-            }, {
-                layer: 'mega30',
-                opacity: 0
-            }, {
-                layer: 'mega40',
-                opacity: 0
-            }, {
-                layer: 'mega70',
-                opacity: 0
-            }, {
-                layer: 'mega80',
-                opacity: 0
-            }, {
-                layer: 'mega90',
+                layer: 'mega2k10',
                 opacity: 0
             }, {
                 layer: 'mega2k',
                 opacity: 0
             }, {
-                layer: 'mega2k10',
+                layer: 'mega90',
+                opacity: 0
+            }, {
+                layer: 'mega80',
+                opacity: 0
+            }, {
+                layer: 'mega70',
+                opacity: 0
+            }, {
+                layer: 'mega40',
+                opacity: 0
+            }, {
+                layer: 'mega30',
+                opacity: 0
+            }, {
+                layer: 'mega20',
+                opacity: 0
+            }, {
+                layer: 'megafires',
                 opacity: 0
             }],
+            onChapterExit: [],
         },
         {
             id: 'UNSEEN',
@@ -633,7 +591,7 @@ var config = {
             id: 'nineteen',
             alignment: 'right',
             hidden: false,
-            title: 'The 1930\'s',
+            title: 'Conclusion',
             //    image: './images/yellowstoneFire.jpeg',
             description: 'I have outlined how not only are wildfires increasing in frequency, but also in size. Accompanying larger and more frequent fires are megafires, which are also increasing in size and frequency. While the trends are alarming, not all hope is lost. The first step to reversing any negative trend is identifying it. The biggest hurdle we face in reversing these trends is raising awareness. While the data show wildfire trends from a size and frequency standpoint, they also show their stark regional influence. The majority of the U.S. population does not reside in areas prone to wildfires. This project seeks to raise awareness in hopes of reversing these startling trends. When we unite for the accomplishment of a common goal, anything is possible. ',
             location: {
