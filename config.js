@@ -368,7 +368,31 @@ var config = {
                 duration: 2000
             }],
             onChapterExit: [{
-                layer: 'megafires',
+                layer: 'mega2k10',
+                opacity: 0,
+                duration: 2500
+            }, {
+                layer: 'mega2k',
+                opacity: 0,
+                duration: 2500
+            }, {
+                layer: 'mega90',
+                opacity: 0,
+                duration: 2500
+            }, {
+                layer: 'mega80',
+                opacity: 0,
+                duration: 2500
+            }, {
+                layer: 'mega70',
+                opacity: 0,
+                duration: 2500
+            }, {
+                layer: 'mega40',
+                opacity: 0,
+                duration: 2500
+            }, {
+                layer: 'mega30',
                 opacity: 0,
                 duration: 2500
             }, {
@@ -395,12 +419,12 @@ var config = {
             onChapterEnter: [{
                 layer: 'mega20',
                 opacity: 1,
-            }, {
-                layer: 'megafires',
+            }],
+            onChapterExit: [{
+                layer: 'mega20',
                 opacity: 0,
                 duration: 2000
-            }],
-            onChapterExit: []
+            }]
         },
         {
             id: 'eleven',
@@ -419,14 +443,18 @@ var config = {
             rotateAnimation: false,
             callback: '',
             onChapterEnter: [{
-                layer: 'mega20',
+                layer: 'mega30',
                 opacity: 1,
-            }, {
-                layer: 'megafires',
+            }],
+            onChapterExit: [{
+                layer: 'mega30',
                 opacity: 0,
                 duration: 2000
-            }],
-            onChapterExit: []
+            }, {
+                layer: 'mega20',
+                opacity: 0,
+                duration: 2000
+            }]
         },
         {
             id: 'twelve',
@@ -445,14 +473,14 @@ var config = {
             rotateAnimation: false,
             callback: '',
             onChapterEnter: [{
-                layer: 'mega20',
+                layer: 'mega40',
                 opacity: 1,
-            }, {
-                layer: 'megafires',
+            }],
+            onChapterExit: [{
+                layer: 'mega40',
                 opacity: 0,
                 duration: 2000
-            }],
-            onChapterExit: []
+            }]
         },
         {
             id: 'thirteen',
