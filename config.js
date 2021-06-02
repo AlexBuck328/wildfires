@@ -46,27 +46,6 @@ var config = {
             }, {
                 layer: 'mega2k',
                 opacity: 0
-            }, {
-                layer: 'mega90',
-                opacity: 0
-            }, {
-                layer: 'mega80',
-                opacity: 0
-            }, {
-                layer: 'mega70',
-                opacity: 0
-            }, {
-                layer: 'mega40',
-                opacity: 0
-            }, {
-                layer: 'mega30',
-                opacity: 0
-            }, {
-                layer: 'mega20',
-                opacity: 0
-            }, {
-                layer: 'megafires',
-                opacity: 0
             }],
             onChapterExit: [],
         },
@@ -86,7 +65,31 @@ var config = {
             mapAnimation: 'flyTo',
             rotateAnimation: false,
             callback: '',
-            onChapterEnter: [],
+            onChapterEnter: [{
+                layer: 'mega2k10',
+                opacity: 0
+            }, {
+                layer: 'mega2k',
+                opacity: 0
+            }, {
+                layer: 'mega90',
+                opacity: 0
+            }, {
+                layer: 'mega80',
+                opacity: 0
+            }, {
+                layer: 'mega70',
+                opacity: 0
+            }, {
+                layer: 'mega40',
+                opacity: 0
+            }, {
+                layer: 'mega30',
+                opacity: 0
+            }, {
+                layer: 'mega20',
+                opacity: 0
+            }],
             onChapterExit: [],
         },
         {
@@ -336,9 +339,29 @@ var config = {
             rotateAnimation: false,
             callback: '',
             onChapterEnter: [{
-                layer: 'megafires',
-                opacity: 1,
-                duration: 2500
+                layer: 'mega2k10',
+                opacity: 1
+            }, {
+                layer: 'mega2k',
+                opacity: 1
+            }, {
+                layer: 'mega90',
+                opacity: 1
+            }, {
+                layer: 'mega80',
+                opacity: 1
+            }, {
+                layer: 'mega70',
+                opacity: 1
+            }, {
+                layer: 'mega40',
+                opacity: 1
+            }, {
+                layer: 'mega30',
+                opacity: 1
+            }, {
+                layer: 'mega20',
+                opacity: 1
             }, {
                 layer: 'firecentsimp',
                 opacity: 0,
