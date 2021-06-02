@@ -363,7 +363,7 @@ var config = {
                 layer: 'mega20',
                 opacity: 1
             }, {
-                layer: 'firecentsimp',
+                layer: 'maxfires',
                 opacity: 0,
                 duration: 2000
             }],
@@ -501,23 +501,23 @@ var config = {
             onChapterEnter: [{
                 layer: 'mega20',
                 opacity: 1,
-            }, {
-                layer: 'megafires',
+            }],
+            onChapterExit: [{
+                layer: 'mega20',
                 opacity: 0,
                 duration: 2000
-            }],
-            onChapterExit: []
+            }]
         },
         {
             id: 'fourteen',
-            alignment: 'right',
+            alignment: 'left',
             hidden: false,
             title: 'The 1970\'s',
             //    image: './images/yellowstoneFire.jpeg',
             description: 'Only one megafire was recorded in the 1920\’s. Though no name was provided, the fire engulfed 140,382 acres of Los Padres National Forest, north of Santa Barbara, California.',
             location: {
-                center: [-119.15911, 34.79356],
-                zoom: 8.08,
+                center: [-122.22472, 38.19896],
+                zoom: 5.54,
                 pitch: 0.00,
                 bearing: 0.00
             },
@@ -525,25 +525,25 @@ var config = {
             rotateAnimation: false,
             callback: '',
             onChapterEnter: [{
-                layer: 'mega20',
+                layer: 'mega70',
                 opacity: 1,
-            }, {
-                layer: 'megafires',
+            }],
+            onChapterExit: [{
+                layer: 'mega70',
                 opacity: 0,
                 duration: 2000
-            }],
-            onChapterExit: []
+            }]
         },
         {
             id: 'fifteen',
-            alignment: 'right',
+            alignment: 'left',
             hidden: false,
             title: 'The 1980\'s',
             //    image: './images/yellowstoneFire.jpeg',
             description: 'Only one megafire was recorded in the 1920\’s. Though no name was provided, the fire engulfed 140,382 acres of Los Padres National Forest, north of Santa Barbara, California.',
             location: {
-                center: [-119.15911, 34.79356],
-                zoom: 8.08,
+                center: [-129.45335, 50.97672],
+                zoom: 3.23,
                 pitch: 0.00,
                 bearing: 0.00
             },
@@ -551,25 +551,25 @@ var config = {
             rotateAnimation: false,
             callback: '',
             onChapterEnter: [{
-                layer: 'mega20',
+                layer: 'mega80',
                 opacity: 1,
-            }, {
-                layer: 'megafires',
+            }],
+            onChapterExit: [{
+                layer: 'mega80',
                 opacity: 0,
                 duration: 2000
-            }],
-            onChapterExit: []
+            }]
         },
         {
             id: 'sixteen',
-            alignment: 'right',
+            alignment: 'left',
             hidden: false,
             title: 'The 1990\'s',
             //    image: './images/yellowstoneFire.jpeg',
             description: 'Only one megafire was recorded in the 1920\’s. Though no name was provided, the fire engulfed 140,382 acres of Los Padres National Forest, north of Santa Barbara, California.',
             location: {
-                center: [-119.15911, 34.79356],
-                zoom: 8.08,
+                center: [-129.45335, 50.97672],
+                zoom: 3.23,
                 pitch: 0.00,
                 bearing: 0.00
             },
@@ -577,14 +577,14 @@ var config = {
             rotateAnimation: false,
             callback: '',
             onChapterEnter: [{
-                layer: 'mega20',
+                layer: 'mega90',
                 opacity: 1,
-            }, {
-                layer: 'megafires',
+            }],
+            onChapterExit: [{
+                layer: 'mega90',
                 opacity: 0,
                 duration: 2000
-            }],
-            onChapterExit: []
+            }]
         },
         {
             id: 'seventeen',
@@ -594,8 +594,8 @@ var config = {
             //    image: './images/yellowstoneFire.jpeg',
             description: 'Only one megafire was recorded in the 1920\’s. Though no name was provided, the fire engulfed 140,382 acres of Los Padres National Forest, north of Santa Barbara, California.',
             location: {
-                center: [-119.15911, 34.79356],
-                zoom: 8.08,
+                center: [-102.19758, 55.36633],
+                zoom: 3.13,
                 pitch: 0.00,
                 bearing: 0.00
             },
@@ -603,14 +603,14 @@ var config = {
             rotateAnimation: false,
             callback: '',
             onChapterEnter: [{
-                layer: 'mega20',
+                layer: 'mega2k',
                 opacity: 1,
-            }, {
-                layer: 'megafires',
+            }],
+            onChapterExit: [{
+                layer: 'mega2k',
                 opacity: 0,
                 duration: 2000
-            }],
-            onChapterExit: []
+            }]
         },
         {
             id: 'eighteen',
@@ -620,8 +620,8 @@ var config = {
             //    image: './images/yellowstoneFire.jpeg',
             description: 'Only one megafire was recorded in the 1920\’s. Though no name was provided, the fire engulfed 140,382 acres of Los Padres National Forest, north of Santa Barbara, California.',
             location: {
-                center: [-119.15911, 34.79356],
-                zoom: 8.08,
+                center: [-102.19758, 55.36633],
+                zoom: 3.13,
                 pitch: 0.00,
                 bearing: 0.00
             },
@@ -629,14 +629,14 @@ var config = {
             rotateAnimation: false,
             callback: '',
             onChapterEnter: [{
-                layer: 'mega20',
+                layer: 'mega2k10',
                 opacity: 1,
-            }, {
-                layer: 'megafires',
+            }],
+            onChapterExit: [{
+                layer: 'mega2k10',
                 opacity: 0,
                 duration: 2000
-            }],
-            onChapterExit: []
+            }]
         },
         {
             id: 'nineteen',
