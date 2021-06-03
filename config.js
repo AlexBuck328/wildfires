@@ -46,6 +46,9 @@ var config = {
             }, {
                 layer: 'mega2k',
                 opacity: 0
+            }, {
+                layer: 'max50and60',
+                opacity: 0
             }],
             onChapterExit: [],
         },
@@ -88,6 +91,9 @@ var config = {
                 opacity: 0
             }, {
                 layer: 'mega20',
+                opacity: 0
+            }, {
+                layer: 'max50and60',
                 opacity: 0
             }],
             onChapterExit: [],
@@ -432,7 +438,7 @@ var config = {
             hidden: false,
             title: 'The 1930\'s',
             //    image: './images/yellowstoneFire.jpeg',
-            description: '',
+            description: 'The Matilija fire consumed an area of 219,999 acres, in 1932. Two years later the \'30s second megafire (which does not have a recorded name) devastated 235,467 acres of the Nez Perce - Clearwater National Forest north of Elk City, Idaho.',
             location: {
                 center: [-109.18490, 40.90556],
                 zoom: 5.20,
@@ -462,7 +468,7 @@ var config = {
             hidden: false,
             title: 'The 1940\'s',
             //    image: './images/yellowstoneFire.jpeg',
-            description: 'In 1941, 174,730 acres of land burned northeast of Twin Falls, Idaho. This was the largest wildfire recorded in the 1940\’s.',
+            description: 'In 1941, 174,730 acres of land burned northwest of Pocatello, Idaho. This was the only megafire recorded in the 1940\’s.',
             location: {
                 center: [-114.52819, 43.23276],
                 zoom: 7.41,
@@ -488,7 +494,7 @@ var config = {
             hidden: false,
             title: 'The 1950\'s and 1960\'s',
             //    image: './images/yellowstoneFire.jpeg',
-            description: 'Only one megafire was recorded in the 1920\’s. Though no name was provided, the fire engulfed 140,382 acres of Los Padres National Forest, north of Santa Barbara, California.',
+            description: 'The 1950\’s and 1960\’s were quiet decades from a megafire perspective, with neither recording a megafire. The largest fire of the 1950\’s (Refugio fire) was 79,428 acres, while the largest fire of the 1960\’s (Wellman fire) totaled 99,958 acres.  The Wellman fire of 1966 fell a mere 42 acres shy of being classified a megafire.',
             location: {
                 center: [-119.15911, 34.79356],
                 zoom: 8.08,
@@ -499,11 +505,11 @@ var config = {
             rotateAnimation: false,
             callback: '',
             onChapterEnter: [{
-                layer: 'mega20',
+                layer: 'max50and60',
                 opacity: 1,
             }],
             onChapterExit: [{
-                layer: 'mega20',
+                layer: 'max50and60',
                 opacity: 0,
                 duration: 2000
             }]
