@@ -306,10 +306,6 @@ var config = {
                 zoom: 2.77,
                 pitch: 0.00,
                 bearing: 0.00
-                //    center: [-143.80962, 52.87401],
-                //    zoom: 3.01,
-                //    pitch: 0.00,
-                //    bearing: 0.00
             },
             mapAnimation: 'flyTo',
             rotateAnimation: false,
@@ -718,7 +714,33 @@ var config = {
                 duration: 2500
             }, {
                 layer: 'mega20',
-                opacity: 1
+                opacity: 0
+            }]
+        }, {
+            id: 'twenty',
+            alignment: 'right',
+            hidden: false,
+            title: 'Conclusion',
+           // image: './images/medianFire.png',
+            description: '',
+            location: {
+                center: [-82.87227, 48.12205],
+                zoom: 2.77,
+                pitch: 0.00,
+                bearing: 0.00
+            },
+            mapAnimation: 'flyTo',
+            rotateAnimation: false,
+            callback: '',
+            onChapterEnter: [{
+                layer: 'firecentsimp',
+                opacity: 1,
+                duration: 2500
+            }],
+            onChapterExit: [{
+                layer: 'firecentsimp',
+                opacity: 0,
+                duration: 2500
             }]
         }
     ]
