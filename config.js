@@ -334,9 +334,9 @@ var config = {
             hidden: false,
             title: 'Enter The Megafire',
             image: './images/megafires.png',
-            description: 'Not only are wildfires becoming more frequent and larger in size, but megafires are increasing more frequently as well. What is a megafire? A megafire is defined by the U.S. Interagency Fire Center as a wildfire that burns more than 100,000 acres of land. Megafires have occurred at least once in each decade over the past century with only two exceptions, neither the 1950\’s and 1960\’s experienced a megafire',
+            description: 'Not only are wildfires becoming more frequent and larger in size, but megafires are more frequent as well. What is a megafire? A megafire is defined by the U.S. Interagency Fire Center as a wildfire that burns more than 100,000 acres of land. Megafires have occurred at least once in each decade over the past century with only two exceptions, neither the 1950\’s and 1960\’s experienced a megafire',
             location: {
-                center: [-143.80962, 52.87401],
+                center: [-148.66371, 52.95530],
                 zoom: 3.01,
                 pitch: 0.00,
                 bearing: 0.00
@@ -546,7 +546,7 @@ var config = {
             hidden: false,
             title: 'Megafires Of The 1980\'s (4,075,088 acres burned)',
             image: '',
-            description: 'The 1980\’s mark a grim milestone. It is the first decade where megafires consume over 1 million acres of land. Megafires between 1920 and 1979 engulfed a total of 1,521,828 acres. The 1980\’s more than doubled that total. Eight of the \’80s nineteen megafires occurred in 1988. Of those, four were the largest fires of the decade. Those four fires combined consumed 1,783,437 acres. To put that area into perspective, that is more than 2.5 times the size of Rhode Island.',
+            description: 'The 1980\’s mark another grim milestone. While the number of megafires recorded in the 1970\’s doubled the total from the previous 50 years. The 1980\’s is the first decade where megafires consume over 1 million acres of land. Megafires between 1920 and 1979 engulfed a total of 1,521,828 acres. The 1980\’s more than doubled that total. Eight of the \’80s nineteen megafires occurred in 1988. Of those, four were the largest fires of the decade. Those four fires combined consumed 1,783,437 acres. To put that area into perspective, that is more than 2.5 times the size of Rhode Island.',
             location: {
                 center: [-129.45335, 50.97672],
                 zoom: 3.23,
@@ -571,8 +571,8 @@ var config = {
             alignment: 'left',
             hidden: false,
             title: 'Megafires Of The 1990\'s (4,867,664 acres burned)',
-            //    image: './images/yellowstoneFire.jpeg',
-            description: 'Only one megafire was recorded in the 1920\’s. Though no name was provided, the fire engulfed 140,382 acres of Los Padres National Forest, north of Santa Barbara, California.',
+            image: '',
+            description: 'The 1990\’s continue the trend set in the previous decade, where megafires ravage more than a million acres. This decade recorded 29 megafires, destroying nearly 5 million acres. It also became the second decade in a row to lose more than 4 million acres to megafires. While the dramatic increase of megafires of the 1980\’s and 1990\’s is startling, they merely set the stage for the new millennium.',
             location: {
                 center: [-129.45335, 50.97672],
                 zoom: 3.23,
@@ -597,8 +597,8 @@ var config = {
             alignment: 'right',
             hidden: false,
             title: 'Megafires Of The 2000\'s (26,524,183 acres burned)',
-            //    image: './images/yellowstoneFire.jpeg',
-            description: 'Only one megafire was recorded in the 1920\’s. Though no name was provided, the fire engulfed 140,382 acres of Los Padres National Forest, north of Santa Barbara, California.',
+            image: '',
+            description: 'The new millennium brought a lot of excitement. While fears of Y2K disaster controlled the media, a more destructive force was gaining momentum. One hundred and nine megafires were recorded for he first decade of the 2000\’s, the most megafires in a single decade of 1920-2020 time period. The total area consumed by megafires alone, is enough to burn the entire commonwealth of Kentucky, and then some.',
             location: {
                 center: [-102.19758, 55.36633],
                 zoom: 3.13,
@@ -623,8 +623,8 @@ var config = {
             alignment: 'right',
             hidden: false,
             title: 'Megafires Of The 2010\'s (21,812,170 acres burned)',
-            //    image: './images/yellowstoneFire.jpeg',
-            description: 'Only one megafire was recorded in the 1920\’s. Though no name was provided, the fire engulfed 140,382 acres of Los Padres National Forest, north of Santa Barbara, California.',
+            image: '',
+            description: 'While the first decade of the new millennium was the most destructive, the second decade was nearly as devastating. The 2010\’s recorded 106, three short of the record set in the previous decade. The average megafire size for this decade is 205,775 acres. While that number is alarming, it is a slight improvement over the previous decade’s megafire average of 243,341 acres. Despite these seemingly improved numbers, the area consumed by megafires in this decade is nearly enough to burn the state of Maine. While any reprieve is welcome, this slight downturn is still destroyed an astonishing amount of land.',
             location: {
                 center: [-102.19758, 55.36633],
                 zoom: 3.13,
@@ -643,17 +643,16 @@ var config = {
                 opacity: 0,
                 duration: 2000
             }]
-        },
-        {
+        }, {
             id: 'nineteen',
-            alignment: 'right',
+            alignment: 'left',
             hidden: false,
-            title: 'Conclusion',
-            //    image: './images/yellowstoneFire.jpeg',
-            description: 'I have outlined how not only are wildfires increasing in frequency, but also in size. Accompanying larger and more frequent fires are megafires, which are also increasing in size and frequency. While the trends are alarming, not all hope is lost. The first step to reversing any negative trend is identifying it. The biggest hurdle we face in reversing these trends is raising awareness. While the data show wildfire trends from a size and frequency standpoint, they also show their stark regional influence. The majority of the U.S. population does not reside in areas prone to wildfires. This project seeks to raise awareness in hopes of reversing these startling trends. When we unite for the accomplishment of a common goal, anything is possible. ',
+            title: 'Megafires Are Not All Fires',
+            image: './images/megafires.png',
+            description: 'Keep in mind that these explorations of the decades of the past century have only showcased megafires (those fires burning more than 100,000 acres). The total acreage burned is only the total for megafires. As frightening as these megafire totals are, the total of all wildfires would be much more horrific.',
             location: {
-                center: [-119.15911, 34.79356],
-                zoom: 8.08,
+                center: [-148.66371, 52.95530],
+                zoom: 3.01,
                 pitch: 0.00,
                 bearing: 0.00
             },
@@ -661,14 +660,66 @@ var config = {
             rotateAnimation: false,
             callback: '',
             onChapterEnter: [{
-                layer: 'mega20',
-                opacity: 1,
+                layer: 'mega2k10',
+                opacity: 1
             }, {
-                layer: 'megafires',
+                layer: 'mega2k',
+                opacity: 1
+            }, {
+                layer: 'mega90',
+                opacity: 1
+            }, {
+                layer: 'mega80',
+                opacity: 1
+            }, {
+                layer: 'mega70',
+                opacity: 1
+            }, {
+                layer: 'mega40',
+                opacity: 1
+            }, {
+                layer: 'mega30',
+                opacity: 1
+            }, {
+                layer: 'mega20',
+                opacity: 1
+            }, {
+                layer: 'maxfires',
                 opacity: 0,
                 duration: 2000
             }],
-            onChapterExit: []
-        },
+            onChapterExit: [{
+                layer: 'mega2k10',
+                opacity: 0,
+                duration: 2500
+            }, {
+                layer: 'mega2k',
+                opacity: 0,
+                duration: 2500
+            }, {
+                layer: 'mega90',
+                opacity: 0,
+                duration: 2500
+            }, {
+                layer: 'mega80',
+                opacity: 0,
+                duration: 2500
+            }, {
+                layer: 'mega70',
+                opacity: 0,
+                duration: 2500
+            }, {
+                layer: 'mega40',
+                opacity: 0,
+                duration: 2500
+            }, {
+                layer: 'mega30',
+                opacity: 0,
+                duration: 2500
+            }, {
+                layer: 'mega20',
+                opacity: 1
+            }]
+        }
     ]
 };
