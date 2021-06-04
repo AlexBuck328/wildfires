@@ -545,8 +545,8 @@ var config = {
             alignment: 'left',
             hidden: false,
             title: 'The 1980\'s',
-            //    image: './images/yellowstoneFire.jpeg',
-            description: 'Only one megafire was recorded in the 1920\’s. Though no name was provided, the fire engulfed 140,382 acres of Los Padres National Forest, north of Santa Barbara, California.',
+            image: '',
+            description: 'The eighties mark a turning point, for the previous 60 years, all megafires had occurred in either Idaho or California. Eight of the \’80s nineteen fires occurred in 1988. Of those, four were the largest fires of the decade. Those four fires combined consumed 1,783,437 acres. To put that area into perspective, that is more than 2.5 times the size of Rhode Island.',
             location: {
                 center: [-129.45335, 50.97672],
                 zoom: 3.23,
