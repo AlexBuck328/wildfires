@@ -410,7 +410,7 @@ var config = {
             id: 'ten',
             alignment: 'right',
             hidden: false,
-            title: 'The Roaring 20\'s',
+            title: 'Megafires Of The 1920\'s (140,382 acres burned)',
             image: '',
             description: 'Only one megafire was recorded in the 1920\’s. Though no name was provided, the fire engulfed 140,382 acres of Los Padres National Forest, north of Santa Barbara, California.',
             location: {
@@ -436,7 +436,7 @@ var config = {
             id: 'eleven',
             alignment: 'right',
             hidden: false,
-            title: 'The 1930\'s',
+            title: 'Megafires Of The 1930\'s (455,466 Acres burned)',
             image: '',
             description: 'The Matilija fire consumed an area of 219,999 acres, in 1932. Two years later the \'30s second megafire (which does not have a recorded name) devastated 235,467 acres of the Nez Perce - Clearwater National Forest north of Elk City, Idaho.',
             location: {
@@ -466,7 +466,7 @@ var config = {
             id: 'twelve',
             alignment: 'left',
             hidden: false,
-            title: 'The 1940\'s',
+            title: 'Megafires Of The 1940\'s (174,730 acres burned)',
             image: '',
             description: 'In 1941, 174,730 acres of land burned northwest of Pocatello, Idaho. This was the only megafire recorded in the 1940\’s.',
             location: {
@@ -518,7 +518,7 @@ var config = {
             id: 'fourteen',
             alignment: 'left',
             hidden: false,
-            title: 'The 1970\'s',
+            title: 'Megafires Of The 1970\'s (751,250 acres burned)',
             image: '',
             description: 'From 1920 to 1970, only 4 megafires were recorded. In the 1970\’s alone, the number of megafires exceeded that of the previous 50 years. Of the five megafires, the Laguna fire was the largest, measuring 174,201 acres. The In Between fire, northeast of Twin Falls, Idaho, was the smallest, engulfing 102,403 acres.',
             location: {
@@ -544,9 +544,9 @@ var config = {
             id: 'fifteen',
             alignment: 'left',
             hidden: false,
-            title: 'The 1980\'s',
+            title: 'Megafires Of The 1980\'s (4,075,088 acres burned)',
             image: '',
-            description: 'The eighties mark a turning point, for the previous 60 years, all megafires had occurred in either Idaho or California. Eight of the \’80s nineteen fires occurred in 1988. Of those, four were the largest fires of the decade. Those four fires combined consumed 1,783,437 acres. To put that area into perspective, that is more than 2.5 times the size of Rhode Island.',
+            description: 'The 1980\’s mark a grim milestone. It is the first decade where megafires consume over 1 million acres of land. Megafires between 1920 and 1979 engulfed a total of 1,521,828 acres. The 1980\’s more than doubled that total. Eight of the \’80s nineteen megafires occurred in 1988. Of those, four were the largest fires of the decade. Those four fires combined consumed 1,783,437 acres. To put that area into perspective, that is more than 2.5 times the size of Rhode Island.',
             location: {
                 center: [-129.45335, 50.97672],
                 zoom: 3.23,
@@ -570,7 +570,7 @@ var config = {
             id: 'sixteen',
             alignment: 'left',
             hidden: false,
-            title: 'The 1990\'s',
+            title: 'Megafires Of The 1990\'s (4,867,664 acres burned)',
             //    image: './images/yellowstoneFire.jpeg',
             description: 'Only one megafire was recorded in the 1920\’s. Though no name was provided, the fire engulfed 140,382 acres of Los Padres National Forest, north of Santa Barbara, California.',
             location: {
@@ -596,7 +596,7 @@ var config = {
             id: 'seventeen',
             alignment: 'right',
             hidden: false,
-            title: 'The 2000\'s',
+            title: 'Megafires Of The 2000\'s (26,524,183 acres burned)',
             //    image: './images/yellowstoneFire.jpeg',
             description: 'Only one megafire was recorded in the 1920\’s. Though no name was provided, the fire engulfed 140,382 acres of Los Padres National Forest, north of Santa Barbara, California.',
             location: {
@@ -622,7 +622,7 @@ var config = {
             id: 'eighteen',
             alignment: 'right',
             hidden: false,
-            title: 'The 2010\'s',
+            title: 'Megafires Of The 2010\'s (21,812,170 acres burned)',
             //    image: './images/yellowstoneFire.jpeg',
             description: 'Only one megafire was recorded in the 1920\’s. Though no name was provided, the fire engulfed 140,382 acres of Los Padres National Forest, north of Santa Barbara, California.',
             location: {
