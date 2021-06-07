@@ -8,7 +8,7 @@ var config = {
     title: 'Patterns of Destruction',
     subtitle: 'A Century of Wildfires in the United States',
     byline: 'Alexander Buck',
-    footer: '<a href=https://www.sciencebase.gov/catalog/item/5ee13de982ce3bd58d7be7e7 target=blank>Wildfire Data</a>',
+    footer: '<a href=https://github.com/AlexBuck328/wildfires#readme target=blank>About Patterns of Destruction</a><br><a href=https://www.sciencebase.gov/catalog/item/5ee13de982ce3bd58d7be7e7 target=blank>Wildfire Data</a>',
     chapters: [{
             id: 'welcome-screen',
             alignment: 'left',
@@ -746,9 +746,9 @@ var config = {
             id: 'twentyOne',
             alignment: 'right',
             hidden: false,
-            title: 'Conclusion',
+            title: 'Hope Springs Eternal',
             // image: './images/medianFire.png',
-            description: '',
+            description: 'While the trends outlined in the data are alarming, not all hope is lost. The first step to reversing any negative trend is identifying it. The beauty of humanity is self-reflection, and the ability to alter our behavior. Although the trends of the past century are horrifying, our future does not need to be as devastating. We have the ability to change the course of wildfire trends. Together we can form a cohesive front to address, mitigate, and reverse these patterns of destruction.',
             location: {
                 center: [-82.87227, 48.12205],
                 zoom: 2.77,
