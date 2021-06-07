@@ -104,7 +104,7 @@ var config = {
             hidden: false,
             title: 'Playing With Fire',
             // image: './images/wildfireTrees.jpeg',
-            description: 'Wildfires are not a new phenomenon. Evidence of wildfires dating back 420 million years ago has been found in the Welsh Marches along the border of England and Wales. Wildfires are becoming more frequent and more severe. However, much like other issues we face here in the United States, not everyone is impacted equally. Patterns of Destruction explores the trends of wildfires in the U.S. over the past century.',
+            description: 'Patterns of Destruction is an exploration into wildfire trends in the United States over the past century (1920-2020). What you see rendered in orange on the map to the right are all wildfires in their recorded shape and size. Throughout this story, fire polygons will be rendered and hidden to tell the story of the data set. This is not my personal narrative; this is what the data shows. These trends while startling, do not necessarily predict our future. In articulating the story, the data tells, I hope to raise awareness with those sections of the country that are not as impacted by wildfires as those who live with the ever-present danger. Often times, it is easy to get lost in the magnitude of our landscape. These fires may seem like a drop in the bucket when viewed in isolation, but when combined, they paint a destructive picture. Please remember that while they may be in a distant part of the country, these fires impact our friends and neighbors, as well as our public lands. These public lands are set aside for enjoyment and recreation opportunities for citizens. So, while your personal back yard may not be ravaged, the public lands that we collectively call our backyard is. I invite you to explore these Patterns of Destruction with these things in mind.',
             location: {
                 center: [-139.80962, 52.87401],
                 zoom: 3.01,
@@ -152,6 +152,32 @@ var config = {
         },
         {
             id: 'three',
+            alignment: 'left',
+            hidden: false,
+            title: 'Wildfires Are Seasonal',
+            image: './images/fireSeason.png',
+            description: 'Although wildfires can take place anytime, the data shows a clear seasonality. The majority of wildfires occur between May and September. While this may be the case with this data set, climate change is not only impacting fire size and frequency (as we will see shortly), but it will also impact fire season. As winters become warmer with less snowfall, spring becomes shorter, and summer becomes longer. Warmer temperatures and drought create set a disastrous stage.',
+            // image2: './images/avgAcres.png',
+            location: {
+                center: [-151.98499, 47.44124],
+                zoom: 2.72,
+                pitch: 0.00,
+                bearing: 0.00
+            },
+            mapAnimation: 'easeTo',
+            rotateAnimation: false,
+            callback: '',
+            onChapterEnter: [{
+                layer: 'firecentsimp',
+                opacity: 1,
+            }],
+            onChapterExit: [{
+                layer: 'firecentsimp',
+                opacity: 1
+            }],
+        },
+        {
+            id: 'four',
             alignment: 'right',
             hidden: false,
             title: 'Temperatures Are Rising',
@@ -176,7 +202,7 @@ var config = {
             }],
         },
         {
-            id: 'four',
+            id: 'five',
             alignment: 'right',
             hidden: false,
             title: 'The Water Starved West',
@@ -208,7 +234,7 @@ var config = {
             }]
         },
         {
-            id: 'five',
+            id: 'six',
             alignment: 'right',
             hidden: false,
             title: 'A Devastating Trend',
@@ -234,7 +260,7 @@ var config = {
             onChapterExit: [],
         },
         {
-            id: 'six',
+            id: 'seven',
             alignment: 'right',
             hidden: false,
             title: 'Wild West of Wildfire',
@@ -272,7 +298,7 @@ var config = {
             }]
         },
         {
-            id: 'seven',
+            id: 'eight',
             alignment: 'left',
             hidden: false,
             title: 'The Geography Of Large Fires',
@@ -295,7 +321,7 @@ var config = {
             onChapterExit: []
         },
         {
-            id: 'eight',
+            id: 'nine',
             alignment: 'right',
             hidden: false,
             title: 'Statistics And Wildfires',
@@ -325,7 +351,7 @@ var config = {
             }]
         },
         {
-            id: 'nine',
+            id: 'ten',
             alignment: 'left',
             hidden: false,
             title: 'Enter The Megafire',
@@ -403,7 +429,7 @@ var config = {
             }]
         },
         {
-            id: 'ten',
+            id: 'eleven',
             alignment: 'right',
             hidden: false,
             title: 'Megafires Of The 1920\'s (140,382 acres burned)',
@@ -429,7 +455,7 @@ var config = {
             }]
         },
         {
-            id: 'eleven',
+            id: 'twelve',
             alignment: 'right',
             hidden: false,
             title: 'Megafires Of The 1930\'s (455,466 Acres burned)',
@@ -459,7 +485,7 @@ var config = {
             }]
         },
         {
-            id: 'twelve',
+            id: 'thirteen',
             alignment: 'left',
             hidden: false,
             title: 'Megafires Of The 1940\'s (174,730 acres burned)',
@@ -485,7 +511,7 @@ var config = {
             }]
         },
         {
-            id: 'thirteen',
+            id: 'fourteen',
             alignment: 'right',
             hidden: false,
             title: 'The 1950\'s and 1960\'s',
@@ -511,7 +537,7 @@ var config = {
             }]
         },
         {
-            id: 'fourteen',
+            id: 'fifteen',
             alignment: 'left',
             hidden: false,
             title: 'Megafires Of The 1970\'s (751,250 acres burned)',
@@ -537,7 +563,7 @@ var config = {
             }]
         },
         {
-            id: 'fifteen',
+            id: 'sixteen',
             alignment: 'left',
             hidden: false,
             title: 'Megafires Of The 1980\'s (4,075,088 acres burned)',
@@ -563,7 +589,7 @@ var config = {
             }]
         },
         {
-            id: 'sixteen',
+            id: 'seventeen',
             alignment: 'left',
             hidden: false,
             title: 'Megafires Of The 1990\'s (4,867,664 acres burned)',
@@ -589,7 +615,7 @@ var config = {
             }]
         },
         {
-            id: 'seventeen',
+            id: 'eighteen',
             alignment: 'right',
             hidden: false,
             title: 'Megafires Of The 2000\'s (26,524,183 acres burned)',
@@ -615,7 +641,7 @@ var config = {
             }]
         },
         {
-            id: 'eighteen',
+            id: 'nineteen',
             alignment: 'right',
             hidden: false,
             title: 'Megafires Of The 2010\'s (21,812,170 acres burned)',
@@ -640,7 +666,7 @@ var config = {
                 duration: 2000
             }]
         }, {
-            id: 'nineteen',
+            id: 'twenty',
             alignment: 'left',
             hidden: false,
             title: 'Megafires Are Not All Fires',
@@ -717,11 +743,11 @@ var config = {
                 opacity: 0
             }]
         }, {
-            id: 'twenty',
+            id: 'twentyOne',
             alignment: 'right',
             hidden: false,
             title: 'Conclusion',
-           // image: './images/medianFire.png',
+            // image: './images/medianFire.png',
             description: '',
             location: {
                 center: [-82.87227, 48.12205],
