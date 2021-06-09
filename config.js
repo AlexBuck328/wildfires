@@ -104,7 +104,7 @@ var config = {
             hidden: false,
             title: 'Playing With Fire',
             // image: './images/wildfireTrees.jpeg',
-            description: 'Patterns of Destruction is an exploration into wildfire trends in the United States over the past century (1920-2020). What you see rendered in orange on the map to the right are all wildfires of the past century in their recorded shape and size. Throughout this exploration, fire polygons will be rendered and hidden to tell the story of the data set. This is not my personal narrative; this is what the data show. These trends while startling, do not necessarily predict our future. In articulating the story the data tell, I hope to raise awareness with those sections of the country that are not as impacted by wildfires as those who live with the ever-present danger. It is often easy to get lost in the magnitude of our landscape. These fires may seem like a drop in the bucket when viewed in isolation, but when combined, they paint a destructive picture. Please remember that while they may be in a distant part of the country, these fires impact our friends and neighbors, as well as our public lands. These public lands are set aside for the enjoyment and recreation of all citizens. So, while your personal backyard may not be ablaze, the public lands that we collectively call our backyard are. I invite you to explore these Patterns of Destruction with those things in mind.',
+            description: 'Patterns of Destruction is an exploration into wildfire trends in the United States over the past century (1920-2020). What you see rendered in orange on the map to the right are all wildfires of the past century in their recorded shape and size. Throughout this exploration, fire polygons will be rendered and hidden to tell the story of the data set. This is not my personal narrative; this is what the data show. These trends while startling, do not necessarily predict our future. In articulating the story the data tell, I hope to raise awareness with those sections of the country that are not as impacted by wildfires as those who live with the ever-present danger. It is often easy to get lost in the magnitude of our landscape. These fires may seem like a drop in the bucket when viewed in isolation, but when combined, they paint a destructive picture. Please remember that while they may be in a distant part of the country to you, these fires impact our friends and neighbors, as well as our public lands. These public lands are set aside for the enjoyment and recreation of all citizens. So, while your personal backyard may not be ablaze, the public lands that we collectively call our backyard are. I invite you to explore these Patterns of Destruction with those things in mind.',
             location: {
                 center: [-151.98499, 47.44124],
                 zoom: 2.72,
@@ -130,7 +130,7 @@ var config = {
             hidden: false,
             title: 'Wildfires Are Destructive... And Becoming More So',
             image: './images/fireCount.png',
-            description: 'Since 1920, wildfires have become more frequent. As shown in the graph above, the yearly count of wildfires has increased over time, and almost exponentially over the past 50 years. Not only are wildfires increasing in count, but they are also increasing in size as well. The graph below shows the trend line for average acreage burned per year over the past century. As you would expect, with more fires, comes more destruction, and the trend line for average acreage burned is increasing year over year.',
+            description: 'Since 1920, wildfires have become more frequent. As shown in the graph above, the yearly count of wildfires has increased over time, and almost exponentially over the past 50 years. Not only are wildfires increasing in count, but they are increasing in size as well. The graph below shows the trend line for average acreage burned per year over the past century. As you would expect, with more fires, comes more destruction, and the trend line for average acreage burned is increasing year over year.',
             image2: './images/avgAcres.png',
             location: {
                 center: [-76.81398, 39.12020],
@@ -182,7 +182,7 @@ var config = {
             hidden: false,
             title: 'Temperatures Are Rising',
             image: './images/heat-waves.png',
-            description: 'Climate change has helped drive the increase in wildfire size and frequency. Rising temperatures bring heat waves. The graphs above show how heat waves are becoming more frequent, last longer and are more intense. As if more frequent, longer and hotter heat waves aren’t enough, heat wave season is becoming longer as well. These warmer temperatures provide an environment rife for wildfires. Yet, warm temperatures alone are not the only factor.',
+            description: 'Climate change has helped drive the increase in wildfire size and frequency. Rising temperatures bring heat waves. The graphs above show how heat waves are becoming more frequent, last longer and are more intense than they used to be. As if more frequent, longer and hotter heat waves aren’t enough, heat wave season is becoming longer as well. These warmer temperatures provide an environment rife for wildfires. Yet, warm temperatures alone are not the only factor.',
             location: {
                 center: [-76.81398, 39.12020],
                 zoom: 3.46,
@@ -207,7 +207,7 @@ var config = {
             hidden: false,
             title: 'The Water Starved West',
             image: './images/SPEI.png',
-            description: 'Wildfires are able to run rampant in the absence of moisture. This map shows changes in drought across the contiguous United States from 1900 to 2020.  The brown area indicates worsening drought conditions, while the blue area indicates regions receiving more moisture. Interestingly, the areas on this graph that show worsening drought, also happen to be the regions that experience the worst wildfires.',
+            description: 'Wildfires are able to run rampant in the absence of moisture. This map shows changes in drought across the contiguous United States from 1900 to 2020.  The brown area indicates worsening drought conditions, while the blue area indicates regions receiving more precipitation. Interestingly, the areas on this graph that show worsening drought also happen to be the regions that experience the worst wildfires.',
             location: {
                 center: [-76.81398, 39.12020],
                 zoom: 3.46,
@@ -239,7 +239,7 @@ var config = {
             hidden: false,
             title: 'A Devastating Trend',
             image: './images/change-avg-ac-burned.png',
-            description: 'As a whole, wildfires are becoming more severe and more frequent. This graphic shows the increase in acreage burned by wildfires at the state level from 1984 to 2018. It shows how wildfires are consuming more and more land in 16 states. Now that might not sound like much, it’s only about one third of states. However, they account for 60% of United States land area.',
+            description: 'As a whole, wildfires are becoming more severe and more frequent. This map shows the increase in acreage burned by wildfires at the state level from 1984 to 2018. It shows how wildfires are consuming more and more land in 16 states. Those 16 states account for 60% of United States land area.',
             location: {
                 center: [-76.81398, 39.12020],
                 zoom: 3.46,
@@ -303,7 +303,7 @@ var config = {
             hidden: false,
             title: 'The Geography Of Large Fires',
             image: './images/maxFireGraph.png',
-            description: 'When broken down into decades, with the largest fire of each decade selected, those fires all occurred in states with worsening drought, and increasing acreage burned by wildfire. As previous graphs have shown, in the graph above, you can see how wildfire trends are moving towards “megafires”.',
+            description: 'When broken down into decades, with the largest fire of each decade selected, those fires all occurred in states with worsening drought, and increasing acreage burned by wildfire. In the graph above, you can see how wildfire trends are moving towards “megafires”.',
             location: {
                 center: [-138.21944, 53.84099],
                 zoom: 3.38,
@@ -326,7 +326,7 @@ var config = {
             hidden: false,
             title: 'Statistics And Wildfires',
             image: './images/medianFire.png',
-            description: 'Let’s take a moment for some statistics. As shown earlier, the average acreage burned per year has increased substantially over the past century. Statistics aficionados may be thinking to themselves that these megafires are skewing the average. Which is correct. High end outliers skew the mean higher. For that very reason, the median is a better metric to gauge trends. As seen in the graph above, the median fire size over the past century has also increased. Think back to the first graphs, remember that the number of wildfires has grown nearly exponentially in the last half century alone. Coupling an increase in wildfires, with an increase in both median and outlier wildfire size, and you can see just how frightening these trends are. Let’s return to these megafires.',
+            description: 'Let’s take a moment for some statistics. As shown earlier, the average acreage burned per year has increased substantially over the past century. Statistics aficionados may be thinking to themselves that these megafires are skewing the average, which is correct. High end outliers skew the mean higher. For that very reason, the median is a better metric to gauge trends. As seen in the graph above, the median fire size over the past century has also increased. Think back to the first graphs and remember that the number of wildfires has grown nearly exponentially in the last half century alone. Coupling an increase in wildfires with an increase in both median and outlier wildfire size, you can see just how frightening these trends are. Let’s return to these megafires.',
             location: {
                 center: [-82.87227, 48.12205],
                 zoom: 2.77,
@@ -356,7 +356,7 @@ var config = {
             hidden: false,
             title: 'Enter The Megafire',
             image: './images/megafires.png',
-            description: 'Not only are wildfires becoming more frequent and larger in size, but megafires are more frequent as well. What is a megafire? A megafire is defined by the U.S. Interagency Fire Center as a wildfire that burns more than 100,000 acres of land. Megafires have occurred at least once in each decade over the past century with only two exceptions, neither the 1950\’s and 1960\’s experienced a megafire',
+            description: 'Not only are wildfires becoming more frequent and larger in size, but megafires are more frequent as well. What is a megafire? A megafire is defined by the U.S. Interagency Fire Center as a wildfire that burns more than 100,000 acres of land. Megafires have occurred at least once in each decade over the past century with only two exceptions, neither the 1950\’s and 1960\’s experienced a megafire.',
             location: {
                 center: [-148.66371, 52.95530],
                 zoom: 3.01,
@@ -542,7 +542,7 @@ var config = {
             hidden: false,
             title: 'Megafires Of The 1970\'s (751,250 acres burned)',
             image: '',
-            description: 'From 1920 to 1970, only 4 megafires were recorded. In the 1970\’s alone, the number of megafires exceeded that of the previous 50 years. Of the five megafires, the Laguna fire was the largest, measuring 174,201 acres. The In Between fire, northeast of Twin Falls, Idaho, was the smallest, engulfing 102,403 acres.',
+            description: 'From 1920 to 1970, only 4 megafires were recorded. In the 1970\’s alone, the number of megafires exceeded that of the previous 50 years. Of the five megafires in the 1970\'s, the Laguna fire was the largest, measuring 174,201 acres. The In Between fire, northeast of Twin Falls, Idaho, was the smallest, engulfing 102,403 acres.',
             location: {
                 center: [-122.22472, 38.19896],
                 zoom: 5.54,
@@ -646,7 +646,7 @@ var config = {
             hidden: false,
             title: 'Megafires Of The 2010\'s (21,812,170 acres burned)',
             image: '',
-            description: 'While the first decade of the new millennium was the most destructive, the second decade was nearly as devastating. The 2010\’s recorded 106, three short of the record set in the previous decade. The average megafire size for this decade is 205,775 acres. While that number is alarming, it is a slight improvement over the previous decade’s megafire average of 243,341 acres. Despite these seemingly improved numbers, the area consumed by megafires in this decade is nearly enough to burn the state of Maine. While any reprieve is welcome, this slight downturn is still destroyed an astonishing amount of land.',
+            description: 'While the first decade of the new millennium was the most destructive, the second decade was nearly as devastating. The 2010\’s recorded 106, three short of the record set in the previous decade. The average megafire size for this decade is 205,775 acres. While that number is alarming, it is a slight improvement over the previous decade’s megafire average of 243,341 acres. Despite these seemingly improved numbers, the area consumed by megafires in this decade is nearly enough to burn the state of Maine. While any reprieve is welcome, this slight downturn still destroyed an astonishing amount of land.',
             location: {
                 center: [-102.19758, 55.36633],
                 zoom: 3.13,
