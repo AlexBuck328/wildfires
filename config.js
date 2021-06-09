@@ -60,8 +60,8 @@ var config = {
             image: '',
             description: 'Wildfires are not a new phenomenon. Evidence of wildfires dating back 420 million years ago has been found in the Welsh Marches along the border of England and Wales. Wildfires are becoming more frequent and more severe. However, much like other issues we face here in the United States, not everyone is impacted equally. Patterns of Destruction explores the trends of wildfires in the U.S. over the past century.',
             location: {
-                center: [-139.80962, 52.87401],
-                zoom: 3.01,
+                center: [-151.98499, 47.44124],
+                zoom: 2.72,
                 pitch: 0.00,
                 bearing: 0.00
             },
@@ -106,8 +106,8 @@ var config = {
             // image: './images/wildfireTrees.jpeg',
             description: 'Patterns of Destruction is an exploration into wildfire trends in the United States over the past century (1920-2020). What you see rendered in orange on the map to the right are all wildfires in their recorded shape and size. Throughout this exploration, fire polygons will be rendered and hidden to tell the story of the data set. This is not my personal narrative; this is what the data shows. These trends while startling, do not necessarily predict our future. In articulating the story the data tells, I hope to raise awareness with those sections of the country that are not as impacted by wildfires as those who live with the ever-present danger. It is often easy to get lost in the magnitude of our landscape. These fires may seem like a drop in the bucket when viewed in isolation, but when combined, they paint a destructive picture. Please remember that while they may be in a distant part of the country, these fires impact our friends and neighbors, as well as our public lands. These public lands are set aside for the enjoyment and recreation of all citizens. So, while your personal backyard may not be ravaged, the public lands that we collectively call our backyard are. I invite you to explore these Patterns of Destruction with those things in mind.',
             location: {
-                center: [-139.80962, 52.87401],
-                zoom: 3.01,
+                center: [-151.98499, 47.44124],
+                zoom: 2.72,
                 pitch: 0.00,
                 bearing: 0.00
             },
@@ -156,7 +156,7 @@ var config = {
             hidden: false,
             title: 'Wildfires Are Seasonal',
             image: './images/fireSeason.png',
-            description: 'Although wildfires can take place anytime, the data shows a clear seasonality. The majority of wildfires occur between May and September. While this may be the case with this data set, climate change is not only impacting fire size and frequency (as we will see shortly), but it will also impact fire season. As winters become warmer with less snowfall, spring becomes shorter, and summer becomes longer. Warmer temperatures and drought create set a disastrous stage.',
+            description: 'Although wildfires can take place anytime, the data shows a clear seasonality. The majority of wildfires occur between May and September. While this may be the case with this data set, climate change is not only impacting fire size and frequency (as we will see shortly), but it will also impact fire season. As winters become warmer with less snowfall, spring becomes shorter, and summer becomes longer. Warmer temperatures and drought set a disastrous stage.',
             // image2: './images/avgAcres.png',
             location: {
                 center: [-151.98499, 47.44124],
@@ -182,7 +182,7 @@ var config = {
             hidden: false,
             title: 'Temperatures Are Rising',
             image: './images/heat-waves.png',
-            description: 'The increase in wildfire size and frequency has been driven by climate change. Temperatures are rising, and with them come heat waves. The graphs above show how heat waves are becoming more frequent, lasting longer and are more intense. As if more frequent, longer and hotter heat waves isn’t enough, heat wave season is becoming longer as well. These warmer temperatures provide an environment rife for wildfires. Yet, warm temperatures alone are not the only factor.',
+            description: 'Climate change has helped drive the increase in wildfire size and frequency. Temperatures are rising, and with them come heat waves. The graphs above show how heat waves are becoming more frequent, lasting longer and are more intense. As if more frequent, longer and hotter heat waves isn’t enough, heat wave season is becoming longer as well. These warmer temperatures provide an environment rife for wildfires. Yet, warm temperatures alone are not the only factor.',
             location: {
                 center: [-76.81398, 39.12020],
                 zoom: 3.46,
