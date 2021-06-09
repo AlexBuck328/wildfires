@@ -104,7 +104,7 @@ var config = {
             hidden: false,
             title: 'Playing With Fire',
             // image: './images/wildfireTrees.jpeg',
-            description: 'Patterns of Destruction is an exploration into wildfire trends in the United States over the past century (1920-2020). What you see rendered in orange on the map to the right are all wildfires in their recorded shape and size. Throughout this exploration, fire polygons will be rendered and hidden to tell the story of the data set. This is not my personal narrative; this is what the data shows. These trends while startling, do not necessarily predict our future. In articulating the story the data tells, I hope to raise awareness with those sections of the country that are not as impacted by wildfires as those who live with the ever-present danger. It is often easy to get lost in the magnitude of our landscape. These fires may seem like a drop in the bucket when viewed in isolation, but when combined, they paint a destructive picture. Please remember that while they may be in a distant part of the country, these fires impact our friends and neighbors, as well as our public lands. These public lands are set aside for the enjoyment and recreation of all citizens. So, while your personal backyard may not be ravaged, the public lands that we collectively call our backyard are. I invite you to explore these Patterns of Destruction with those things in mind.',
+            description: 'Patterns of Destruction is an exploration into wildfire trends in the United States over the past century (1920-2020). What you see rendered in orange on the map to the right are all wildfires of the past century in their recorded shape and size. Throughout this exploration, fire polygons will be rendered and hidden to tell the story of the data set. This is not my personal narrative; this is what the data show. These trends while startling, do not necessarily predict our future. In articulating the story the data tell, I hope to raise awareness with those sections of the country that are not as impacted by wildfires as those who live with the ever-present danger. It is often easy to get lost in the magnitude of our landscape. These fires may seem like a drop in the bucket when viewed in isolation, but when combined, they paint a destructive picture. Please remember that while they may be in a distant part of the country, these fires impact our friends and neighbors, as well as our public lands. These public lands are set aside for the enjoyment and recreation of all citizens. So, while your personal backyard may not be ablaze, the public lands that we collectively call our backyard are. I invite you to explore these Patterns of Destruction with those things in mind.',
             location: {
                 center: [-151.98499, 47.44124],
                 zoom: 2.72,
@@ -156,7 +156,7 @@ var config = {
             hidden: false,
             title: 'Wildfires Are Seasonal',
             image: './images/fireSeason.png',
-            description: 'Although wildfires can take place anytime, the data shows a clear seasonality. The majority of wildfires occur between May and September. While this may be the case with this data set, climate change is not only impacting fire size and frequency (as we will see shortly), but it will also impact fire season. As winters become warmer with less snowfall, spring becomes shorter, and summer becomes longer. Warmer temperatures and drought set a disastrous stage.',
+            description: 'Although wildfires can take place anytime, the data show a clear seasonality. The majority of wildfires occur between May and September. While this may be the case with this data set, climate change is not only impacting fire size and frequency (as we will see shortly), but it will also impact fire season. As winters become warmer with less snowfall, spring becomes shorter, and summer becomes longer. Warmer temperatures and drought set a disastrous stage.',
             // image2: './images/avgAcres.png',
             location: {
                 center: [-151.98499, 47.44124],
@@ -182,7 +182,7 @@ var config = {
             hidden: false,
             title: 'Temperatures Are Rising',
             image: './images/heat-waves.png',
-            description: 'Climate change has helped drive the increase in wildfire size and frequency. Temperatures are rising, and with them come heat waves. The graphs above show how heat waves are becoming more frequent, lasting longer and are more intense. As if more frequent, longer and hotter heat waves isn’t enough, heat wave season is becoming longer as well. These warmer temperatures provide an environment rife for wildfires. Yet, warm temperatures alone are not the only factor.',
+            description: 'Climate change has helped drive the increase in wildfire size and frequency. Rising temperatures bring heat waves. The graphs above show how heat waves are becoming more frequent, last longer and are more intense. As if more frequent, longer and hotter heat waves aren’t enough, heat wave season is becoming longer as well. These warmer temperatures provide an environment rife for wildfires. Yet, warm temperatures alone are not the only factor.',
             location: {
                 center: [-76.81398, 39.12020],
                 zoom: 3.46,
@@ -207,7 +207,7 @@ var config = {
             hidden: false,
             title: 'The Water Starved West',
             image: './images/SPEI.png',
-            description: 'Wildfires are able to run rampant in the absence of moisture. This map shows changes in drought across the contiguous United States from 1900 to 2020.  The brown areas indicate worsening drought conditions, while the blue area indicates regions receiving more moisture. Interestingly, the areas on this graph that show worsening drought, also happen to be the regions that experience the worst wildfires.',
+            description: 'Wildfires are able to run rampant in the absence of moisture. This map shows changes in drought across the contiguous United States from 1900 to 2020.  The brown area indicates worsening drought conditions, while the blue area indicates regions receiving more moisture. Interestingly, the areas on this graph that show worsening drought, also happen to be the regions that experience the worst wildfires.',
             location: {
                 center: [-76.81398, 39.12020],
                 zoom: 3.46,
@@ -303,7 +303,7 @@ var config = {
             hidden: false,
             title: 'The Geography Of Large Fires',
             image: './images/maxFireGraph.png',
-            description: 'Considering these two climate factors, it’s no wonder the largest wildfires of the past century have occurred in the west. When broken down into decades, with the largest fire of each decade selected, those fires all occurred in states with worsening drought, and increasing acreage burned by wildfire. As previous graphs have shown, in the graph above, you can see how wildfire trends are moving towards “megafires”.',
+            description: 'When broken down into decades, with the largest fire of each decade selected, those fires all occurred in states with worsening drought, and increasing acreage burned by wildfire. As previous graphs have shown, in the graph above, you can see how wildfire trends are moving towards “megafires”.',
             location: {
                 center: [-138.21944, 53.84099],
                 zoom: 3.38,
