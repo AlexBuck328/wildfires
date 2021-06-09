@@ -2,7 +2,7 @@
 
 ## I. Introduction
 
-Wildfires are becoming more destructive. Data shows an increasing trend in acreage burned per year. This increase also drives up the annual cost to control these destructive forces. The [Congressional Research Service](https://fas.org/sgp/crs/misc/IF10244.pdf) calculated the impact of wildland fires over the past decade (2011-2020). An average of 62,693 wildland fires occur annually, roughly 7.5 million acres annually are impacted by these fires. Although the majority of wildland fires occur in undeveloped areas which have little impact on communities or human development, they impact all of us. These fires occur mostly on federal lands (roughly 65%). Federal lands are land that is held in trust by the federal government, which is for the enjoyment of all Americans. Federal lands account for roughly 28% of land in the United States, approximately 640 million acres. 
+Wildfires are becoming more destructive. Data show an increasing trend in acreage burned per year. This increase also drives up the annual cost to control these destructive forces. The [Congressional Research Service](https://fas.org/sgp/crs/misc/IF10244.pdf) calculated the impact of wildland fires over the past decade (2011-2020). An average of 62,693 wildland fires occur annually, roughly 7.5 million acres annually are impacted by these fires. Although the majority of wildland fires occur in undeveloped areas which have little impact on communities or human development, they impact all of us. These fires occur mostly on federal lands (roughly 65%). Federal lands are land that is held in trust by the federal government, which is for the enjoyment of all Americans. Federal lands account for roughly 28% of land in the United States, approximately 640 million acres. 
 
 <img align="right" src="images/popDensity.png" height="400">
 
@@ -10,9 +10,9 @@ Wildfires are becoming more destructive. Data shows an increasing trend in acrea
 
 <img align="right" src="images/drought.png" height="400"> 
 
-Data show that wildfires are mostly occur during the warmer, drier summer months. Specifically, May through September. Climate change data indicates those months are also becoming warmer and more arid. The combination of these climatic changes have directly affected the frequency and severity of wildfires. 
+Data show that wildfires are mostly occur during the warmer, drier summer months. Specifically, May through September. Climate change data indicate those months are also becoming warmer and more arid. The combination of these climatic changes have directly affected the frequency and severity of wildfires. 
 
-This project serves as an educational tool to the large section of our population that is not affected first-hand by these destructive forces. For those who live without the threat of their homes being engulfed by wildfire, it is easy to forget the immense impact they have on such a massive part of the country. For those who do live with the cyclical threat of wildfires, this project will tell their story, the growing concern of how to manage wildfires as a naturally occurring process, as well as protecting property from their destructive path. 
+This project serves as an educational tool to the large section of our population that is not affected first-hand by these destructive forces. For those who live without the threat of their homes being engulfed by wildfire, it is easy to forget the immense impact they have on such a massive part of the country. For those who do live with the cyclical threat of wildfires, this project will tell their story: the growing concern of how to manage wildfires as a naturally occurring process, as well as protecting property from their destructive path. 
 
 Displaying wildfire data in a visual format allows the user to see patterns that would otherwise go unnoticed in a tabular form. The sheer size and quantity of this phenomena lends itself to visual representation. My hope is that through the exploration of this project, the user will become more aware of the trend of larger, and more frequent wildfires, and the impact climate change has had (and will continue to have). Bringing awareness to the issue is the first step towards developing solutions to the problem of living symbiotically with such a powerful, yet destructive natural force. 
 
@@ -22,7 +22,7 @@ Data for this project was acquired through a variety of sources listed below, th
 
 ### A. Data
 
-[Wildfire data](https://www.sciencebase.gov/catalog/item/5ee13de982ce3bd58d7be7e7) was downloaded and the shapefile was loaded in a Jupyter Notebook (`notebooks/wildfire-polygon-data.ipynb`) using the [GeoPandas](https://geopandas.org/) library. Analysis was performed using [pandas](https://pandas.pydata.org/) and [matplotlib](https://matplotlib.org/3.3.2/index.html) for visualizations. The dataset contains 65,845 records spanning 128 years. The dataset was reprojected from NAD83 to WGS84 for web mapping. It was then narrowed to the past century, and only records from 1920 to present were kept, narrowing the data to 62,744 records. That dataset was then filtered out records with null values in the ignition date and controlled date columns. The remaining dataset contains 10,948 records.
+[Wildfire data](https://www.sciencebase.gov/catalog/item/5ee13de982ce3bd58d7be7e7) was downloaded and the shapefile was loaded in a Jupyter Notebook (`notebooks/wildfire-polygon-data.ipynb`) using the [GeoPandas](https://geopandas.org/) library. Analysis was performed using [pandas](https://pandas.pydata.org/) and [matplotlib](https://matplotlib.org/3.3.2/index.html) for visualizations. The dataset contains 65,845 records spanning 128 years. The dataset was reprojected from NAD83 to WGS84 for web mapping. It was then narrowed to the past century, and only records from 1920 to present were kept, narrowing the data to 62,744 records.
 
 **Sample Wildfire Data:**
 
